@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#e9f7ea" />
+
+  <title>Privacy Policy — Grami Dost</title>
+  <meta name="description" content="Privacy Policy for Grami Dost — educational resources, mandi rates, weather updates and student utilities. Learn what data we collect, why, and how you can manage it." />
+  <meta name="keywords" content="Grami Dost, Privacy Policy, mandi rates, weather API, educational content, student utilities" />
+  <meta name="author" content="Grami Dost" />
+
+  <style>
+    :root{
+      --bg: #ffffff;
+      --accent: #2f8f3a;       /* deeper green */
+      --accent-2: #9edc6a;     /* light green */
+      --muted: #6b6b6b;
+      --highlight: #fff8d6;    /* light yellow */
+      --container-max: 980px;
+      --radius: 12px;
+      --glass: rgba(255,255,255,0.85);
+      --shadow: 0 8px 28px rgba(33, 36, 41, 0.08);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* Page-wide reset & layout */
+    *{box-sizing: border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, var(--highlight) 0%, #fbfde8 30%, var(--bg) 100%);
+      color:#1b1b1b;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+      padding:32px 20px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      animation:fadeInUp 700ms ease both;
+    }
+
+    @keyframes fadeInUp{
+      from{opacity:0; transform:translateY(12px)}
+      to{opacity:1; transform:none}
+    }
+
+    .skip-link{
+      position:absolute;
+      left:-999px;
+      top:auto;
+      width:1px;height:1px;
+      overflow:hidden;
+    }
+    .skip-link:focus{
+      left:16px; top:16px; width:auto; height:auto; padding:8px 12px; background:#000; color:#fff; z-index:1000; border-radius:6px;
+    }
+
+    /* Container */
+    .wrap{
+      width:100%;
+      max-width:var(--container-max);
+      background: var(--glass);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:28px;
+      backdrop-filter: blur(6px);
+      border:1px solid rgba(47,143,58,0.06);
+    }
+
+    header{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      margin-bottom:18px;
+    }
+
+    .logo{
+      width:64px; height:64px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex; align-items:center; justify-content:center;
+      color:#fff; font-weight:700; font-size:20px; box-shadow:0 6px 18px rgba(47,143,58,0.18);
+    }
+
+    h1{
+      margin:0;
+      font-size:1.35rem;
+      color:var(--accent);
+      letter-spacing:0.2px;
+    }
+    p.lead{
+      margin:8px 0 18px 0;
+      color:var(--muted);
+      font-size:0.97rem;
+    }
+
+    main{display:block}
+
+    /* Sections */
+    section{
+      background:transparent;
+      padding:18px;
+      border-radius:10px;
+      margin-bottom:14px;
+    }
+
+    section h2{
+      margin:0 0 10px 0;
+      color:#124816;
+      font-size:1.05rem;
+    }
+
+    section p, section ul, section ol{
+      margin:0 0 10px 0;
+      color:#222;
+      font-size:0.95rem;
+    }
+
+    ul{padding-left:20px}
+    li{margin:8px 0}
+
+    .muted{
+      color:var(--muted);
+      font-size:0.92rem;
+    }
+
+    .note{
+      display:inline-block;
+      background:rgba(158,220,106,0.12);
+      color:#2a6626;
+      padding:6px 10px;
+      border-radius:8px;
+      font-size:0.9rem;
+      border:1px solid rgba(47,143,58,0.08);
+    }
+
+    /* Rights block styling */
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+    }
+
+    @media(min-width:760px){
+      .grid{grid-template-columns: 1fr 1fr}
+      header{align-items:flex-end}
+    }
+
+    /* Footer */
+    footer{
+      margin-top:18px;
+      padding-top:12px;
+      border-top:1px dashed rgba(47,143,58,0.08);
+      display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    }
+
+    .contact{
+      color:var(--muted);
+      font-size:0.92rem;
+    }
+
+    .copyright{
+      font-size:0.9rem;
+      color:#2a2a2a;
+      font-weight:600;
+    }
+
+    /* Small helper */
+    .small{font-size:0.88rem; color:var(--muted)}
+    .em{color:var(--accent)}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Accessibility improvements */
+    h2 + p{margin-top:6px}
+    pre{white-space:pre-wrap; word-break:break-word}
+
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <div class="wrap" role="main" id="main-content" aria-labelledby="pageTitle">
+    <header>
+      <div class="logo" aria-hidden="true">GD</div>
+      <div>
+        <h1 id="pageTitle">Privacy Policy</h1>
+        <p class="lead">Effective date: <strong>November 30, 2025</strong><br />
+        This Privacy Policy explains how <span class="em">Grami Dost</span> ("we", "our", "us") collects, uses, and protects information when you use our website and services.</p>
+      </div>
+    </header>
+
+    <main>
+      <!-- Introduction -->
+      <section aria-labelledby="intro-heading">
+        <h2 id="intro-heading">Introduction</h2>
+        <p>Welcome to <strong>Grami Dost</strong> — a platform offering educational content, mandi (market) rates, weather updates, AI tools, PDF notes, and student utilities (collectively, the "Services"). We respect your privacy and are committed to protecting your personal data. This Policy describes the types of information we collect, why we collect it, and your rights regarding that information. It applies globally; where local laws (e.g., GDPR, CCPA) provide additional rights, we follow those requirements as applicable.</p>
+      </section>
+
+      <!-- Information We Collect -->
+      <section aria-labelledby="collect-heading">
+        <h2 id="collect-heading">Information We Collect</h2>
+        <p>We collect information to provide, secure, and improve the Services. The types of data we collect include:</p>
+        <ul>
+          <li><strong>Information you provide directly:</strong> account information, email address, feedback, contact form messages, or any content you upload (e.g., notes).</li>
+          <li><strong>Usage data:</strong> pages visited, features used, search queries, timestamps, device and browser characteristics, and performance data.</li>
+          <li><strong>Location & weather query data:</strong> approximate location (city/region) if you request localized weather or mandi rates. We only use coarse location unless you expressly provide more precise location data.</li>
+          <li><strong>Cookies & tracking data:</strong> identifiers stored in cookies or local storage used for site functionality, analytics, and preferences.</li>
+          <li><strong>Third-party data:</strong> information we receive from third-party services when you interact with external integrations (e.g., weather APIs, analytics providers).</li>
+        </ul>
+      </section>
+
+      <!-- How We Use Your Information -->
+      <section aria-labelledby="use-heading">
+        <h2 id="use-heading">How We Use Your Information</h2>
+        <p>We use collected data for the following purposes:</p>
+        <ul>
+          <li>To provide, operate, and maintain the Services (content delivery, weather and mandi updates, AI tools and PDF access).</li>
+          <li>To personalize and improve our Services, content, and user experience.</li>
+          <li>To communicate with you about updates, security notices, and support requests.</li>
+          <li>To monitor and analyze usage patterns and trends (analytics).</li>
+          <li>To detect, prevent, and address technical issues and abuse.</li>
+          <li>To comply with legal obligations and protect our rights.</li>
+        </ul>
+        <p class="small">We rely on lawful bases such as consent, contract performance, and legitimate interests depending on your jurisdiction and the nature of the processing.</p>
+      </section>
+
+      <!-- Cookies & Tracking -->
+      <section aria-labelledby="cookies-heading">
+        <h2 id="cookies-heading">Cookies & Tracking</h2>
+        <p>We use cookies, web beacons, and similar technologies to provide essential site functionality and to gather usage analytics. Types include:</p>
+        <ul>
+          <li><strong>Strictly necessary cookies:</strong> required for site operation (session management, security).</li>
+          <li><strong>Preference cookies:</strong> remember language, display preferences, or form entries.</li>
+          <li><strong>Performance & analytics cookies:</strong> to measure and improve site performance (e.g., visit counts, popular pages).</li>
+        </ul>
+        <p>You can manage or disable most cookies through your browser settings. Disabling cookies may reduce site functionality. For analytics opt-out, we provide non-identifying methods where available (for example, global analytics providers offer opt-out tools).</p>
+      </section>
+
+      <!-- Third-Party Service Usage -->
+      <section aria-labelledby="thirdparty-heading">
+        <h2 id="thirdparty-heading">Third-Party Service Usage</h2>
+        <p>To deliver features, we may use trusted third-party services. These providers may process data on our behalf and have their own privacy practices. Typical third-parties include:</p>
+        <ul>
+          <li><strong>Weather APIs:</strong> For weather and forecast data we may use public weather APIs to fetch conditions and forecasts. These services may log API requests and minimal request metadata.</li>
+          <li><strong>Analytics & performance:</strong> We may use analytics platforms to measure site usage and performance. These services aggregate and anonymize data for reporting.</li>
+          <li><strong>Fonts & UI resources:</strong> We typically use system fonts for privacy. If we use web fonts (e.g., Google Fonts) we will note the usage and minimize requests to such providers.</li>
+          <li><strong>Ads & monetization:</strong> If advertisements are displayed (e.g., Google AdSense), ad networks set cookies and collect anonymous identifiers to serve relevant ads. We do not share personally-identifying data with advertisers unless you explicitly provide it.</li>
+          <li><strong>Payment & form services:</strong> If third-party payment or form processors are used, they handle payment/card data directly under their policies; Grami Dost does not store raw payment card information.</li>
+        </ul>
+        <p class="small">Before using or linking a third-party service, we evaluate their privacy and security standards. We encourage you to review the privacy policies of third-party providers used in the Services.</p>
+      </section>
+
+      <!-- Data Protection & Security -->
+      <section aria-labelledby="security-heading">
+        <h2 id="security-heading">Data Protection & Security</h2>
+        <p>We implement reasonable technical and organizational measures to protect your personal data against unauthorized access, disclosure, alteration, or destruction. Examples include:</p>
+        <ul>
+          <li>Secure network infrastructure and HTTPS for data in transit.</li>
+          <li>Access controls and role-based data access within our team.</li>
+          <li>Regular security reviews and updates.</li>
+        </ul>
+        <p class="small">No method of transmission or electronic storage is 100% secure. While we strive to protect your data, we cannot guarantee absolute security. In the unlikely event of a data breach, we will follow applicable notification laws.</p>
+      </section>
+
+      <!-- Children's Privacy -->
+      <section aria-labelledby="children-heading">
+        <h2 id="children-heading">Children’s Privacy</h2>
+        <p>Our Services are not directed to children under the age of 13 (or the minimum age required by local law). We do not knowingly collect or maintain personal information from children without parental consent. If you believe we have collected personal data from a child, please contact us immediately so we can take appropriate steps to remove the information.</p>
+      </section>
+
+      <!-- User Rights -->
+      <section aria-labelledby="rights-heading">
+        <h2 id="rights-heading">Your Rights</h2>
+        <p>Depending on your jurisdiction, you may have rights regarding your personal data. These commonly include:</p>
+        <ul>
+          <li><strong>Access:</strong> Request a copy of the personal data we hold about you.</li>
+          <li><strong>Correction:</strong> Ask us to correct inaccurate or incomplete information.</li>
+          <li><strong>Deletion:</strong> Request deletion of your personal data, subject to legal and contractual exceptions.</li>
+          <li><strong>Restriction & Objection:</strong> Request restriction of processing or object to certain processing activities (e.g., direct marketing).</li>
+          <li><strong>Portability:</strong> Request a machine-readable copy of certain personal data you provided.</li>
+        </ul>
+        <p class="small">To exercise these rights, contact us using the information below. We may ask for proof of identity before fulfilling certain requests and may limit requests that are manifestly unfounded or excessive under local law.</p>
+      </section>
+
+      <!-- Consent -->
+      <section aria-labelledby="consent-heading">
+        <h2 id="consent-heading">Consent</h2>
+        <p>By using our Services, you consent to this Privacy Policy and to our collection, use, and disclosure of your information as described. Where required by law, we will obtain your consent for specific processing activities (for example, cookies used for non-essential purposes or personalized advertising).</p>
+      </section>
+
+      <!-- Changes to This Privacy Policy -->
+      <section aria-labelledby="changes-heading">
+        <h2 id="changes-heading">Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy to reflect changes to our practices or legal requirements. When we make material changes, we will update the "Effective date" at the top and, when appropriate, notify users (for example, via email or a notice on the site). We recommend reviewing this policy periodically.</p>
+      </section>
+
+      <!-- Contact Information -->
+      <section aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact Information</h2>
+        <p>If you have questions about this Privacy Policy, want to exercise your rights, or create a data subject request, contact us:</p>
+
+        <div class="grid">
+          <div>
+            <p class="muted"><strong>Data Controller:</strong><br />
+              Grami Dost</p>
+            <p class="muted"><strong>Email:</strong> <a href="mailto:privacy@gramidost.in">privacy@gramidost.in</a></p>
+          </div>
+          <div>
+            <p class="muted"><strong>Postal address:</strong><br />
+              (If you would like a postal address listed, add it here.)</p>
+            <p class="muted"><strong>Response time:</strong><br />
+              We aim to respond to verifiable requests within 30 days where legally required; more complex requests may take longer.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Closing note -->
+      <section aria-labelledby="closing-heading">
+        <h2 id="closing-heading">Additional Information</h2>
+        <p class="small">This Privacy Policy is intended to provide clear, practical information about our privacy practices. It does not create any contractual or legal rights for any person. For legal advice tailored to your jurisdiction or in complex regulatory matters, consult a qualified attorney.</p>
+      </section>
+
+      <footer>
+        <div class="contact">
+          <span class="note">Grami Dost</span>
+          <div class="small" style="margin-top:8px">Providing educational resources, mandi rates, weather updates & student utilities.</div>
+        </div>
+
+        <div class="copyright">
+          © 2025 Grami Dost – All Rights Reserved
+        </div>
+      </footer>
+    </main>
+  </div>
+
+</body>
+</html>

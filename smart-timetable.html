@@ -1,0 +1,1123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Grami Dost · AI Smart Timetable Maker</title>
+
+  <!-- Grami Dost Green Theme + modern UI -->
+  <style>
+    /* ---------------------------
+       THEME COLORS (MANDATORY)
+       --------------------------- */
+    :root{
+      --primary-green: #1b8a2f;
+      --light-green: #e9ffe9;
+      --dark-green: #0d4f1b;
+      --white: #ffffff;
+      --glass: rgba(255,255,255,0.06);
+      --card-shadow: 0 8px 20px rgba(13,79,27,0.12), 0 2px 6px rgba(0,0,0,0.06);
+      --glass-border: rgba(255,255,255,0.06);
+      --accent: #58b85a;
+      --muted: #6b6b6b;
+      --success: #29a329;
+      --danger: #e74c3c;
+      --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    /* ---------------------------
+       GLOBAL RESET + LAYOUT
+       --------------------------- */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font-sans);
+      background: linear-gradient(180deg, #f6fff7 0%, #e9ffe9 100%);
+      color: #072a12;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:24px;
+    }
+
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+      display:grid;
+      gap:20px;
+      grid-template-columns: 380px 1fr;
+    }
+
+    /* Responsive for mobile */
+    @media (max-width: 920px){
+      .container{grid-template-columns: 1fr; padding-bottom: 80px;}
+      header .actions{display:flex;gap:10px}
+    }
+
+    /* ---------------------------
+       HEADER
+       --------------------------- */
+    header{
+      grid-column:1/-1;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-bottom:6px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .logo{
+      width:56px;height:56px;border-radius:12px;
+      background: linear-gradient(135deg,var(--primary-green),var(--dark-green));
+      box-shadow: 0 6px 18px rgba(27,138,47,0.28);
+      display:flex;align-items:center;justify-content:center;color:var(--white);
+      font-weight:700;font-size:20px;
+    }
+    h1{margin:0;font-size:20px}
+    p.lead{margin:0;color:var(--muted);font-size:13px}
+
+    /* ---------------------------
+       LEFT PANEL - Controls / Inputs
+       --------------------------- */
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.9));
+      border-radius:14px;
+      padding:18px;
+      box-shadow: var(--card-shadow);
+      border:1px solid rgba(27,138,47,0.06);
+      backdrop-filter: blur(6px);
+      transition:transform .35s ease, box-shadow .35s ease;
+    }
+    .card:hover{transform:translateY(-6px);box-shadow: 0 18px 40px rgba(13,79,27,0.12);}
+
+    .controls {display:flex;flex-direction:column;gap:12px}
+    label{font-weight:600;color:var(--dark-green);font-size:13px}
+    select,input[type="number"],.select-like{
+      width:100%;
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid rgba(13,79,27,0.08);
+      outline:none;
+      font-size:14px;
+      background:transparent;
+    }
+
+    /* Modes (cards as buttons) */
+    .modes{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    .mode{
+      border-radius:10px;padding:10px;
+      cursor:pointer;
+      display:flex;flex-direction:column;gap:6px;
+      align-items:flex-start;background:linear-gradient(180deg,var(--light-green),#f3fff3);
+      border:1px solid rgba(27,138,47,0.06);
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s;
+    }
+    .mode:hover{transform:translateY(-6px);box-shadow:0 10px 24px rgba(13,79,27,0.06)}
+    .mode.active{
+      border-color: var(--primary-green);
+      box-shadow: 0 10px 30px rgba(27,138,47,0.12);
+      transform:translateY(-6px);
+    }
+    .mode .title{font-weight:700;color:var(--dark-green);font-size:13px}
+    .mode .sub{font-size:12px;color:var(--muted)}
+
+    /* Subjects chips */
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .chip{
+      padding:8px 10px;border-radius:999px;border:1px solid rgba(13,79,27,0.06);
+      background:linear-gradient(180deg,#fff,#fbfffb);
+      cursor:pointer;font-size:13px;color:var(--dark-green);
+      display:flex;gap:8px;align-items:center;
+      transition:transform .18s ease,box-shadow .18s;
+    }
+    .chip.selected{
+      background: linear-gradient(90deg,var(--primary-green),var(--accent));
+      color: #fff; box-shadow: 0 8px 20px rgba(27,138,47,0.14);
+      transform:translateY(-6px);
+    }
+    .chip .badge{font-size:12px;padding:2px 6px;border-radius:6px;background:rgba(255,255,255,0.18)}
+    .chip .icon{font-size:15px}
+
+    /* Add subject input row */
+    .add-sub{display:flex;gap:8px}
+    .add-sub input{flex:1}
+    .btn{
+      display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:10px;border:none;
+      cursor:pointer;font-weight:700;color:var(--white);background:var(--primary-green);box-shadow:0 8px 18px rgba(27,138,47,0.12);
+      transition:transform .18s;
+    }
+    .btn.ghost{background:transparent;color:var(--primary-green);border:1px solid rgba(27,138,47,0.08);font-weight:700}
+    .btn:active{transform:translateY(2px)}
+
+    /* Multi-row small inputs */
+    .row{display:flex;gap:8px;align-items:center}
+    .small{flex:1;padding:8px 10px;border-radius:8px;border:1px solid rgba(13,79,27,0.06);}
+
+    /* Weak subject mark */
+    .weak-tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(231,76,60,0.08);color:var(--danger)}
+
+    /* ---------------------------
+       RIGHT PANEL - Output / Results
+       --------------------------- */
+    .output{
+      display:flex;flex-direction:column;gap:14px;
+      min-height:400px;
+    }
+
+    /* Smart analysis card */
+    .analysis{
+      display:flex;gap:14px;align-items:center;justify-content:space-between;
+      padding:14px;border-radius:12px;background:linear-gradient(90deg,#fff,#fbfff7);
+      border:1px solid rgba(27,138,47,0.04);
+      box-shadow:var(--card-shadow);
+      animation:fadeIn .5s ease both;
+    }
+    .analysis .left{display:flex;gap:12px;align-items:center}
+    .analysis .emoji{font-size:30px}
+    .analysis .msg{font-weight:700;color:var(--dark-green)}
+    .analysis .sub{font-size:13px;color:var(--muted)}
+    .analysis .right{min-width:220px}
+
+    /* Study cards */
+    .study-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    @media (max-width:920px){ .study-grid{grid-template-columns:1fr} }
+    .study-card{
+      padding:12px;border-radius:12px;background:linear-gradient(180deg,#fff,#f8fff8);
+      box-shadow:var(--card-shadow);border:1px solid rgba(13,79,27,0.04);
+      transition:transform .4s cubic-bezier(.2,.9,.2,1),opacity .5s;
+      opacity:0;transform:translateY(12px); /* animate in via JS */
+    }
+    .study-card.in{opacity:1;transform:none}
+
+    .study-card h3{margin:0;font-size:15px;color:var(--dark-green)}
+    .study-card p{margin:8px 0 0 0;color:var(--muted);font-size:13px}
+
+    /* progress bar */
+    .progress{height:10px;border-radius:999px;background:rgba(13,79,27,0.06);overflow:hidden;margin-top:10px}
+    .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--primary-green),#60c06a);width:0%;transition:width 1s ease}
+
+    /* Weekly table */
+    table.weekly{width:100%;border-collapse:collapse;margin-top:8px}
+    table.weekly th, table.weekly td{padding:8px;border:1px solid rgba(13,79,27,0.06);text-align:left;font-size:13px}
+    table.weekly th{background:linear-gradient(90deg,var(--light-green),#f0fff0);color:var(--dark-green)}
+
+    /* Booster / Exam plan lists */
+    .list{display:flex;flex-direction:column;gap:8px}
+    .list .item{display:flex;justify-content:space-between;gap:8px;padding:10px;border-radius:10px;background:#fff;border:1px solid rgba(13,79,27,0.04)}
+    .muted{color:var(--muted);font-size:13px}
+
+    /* Motivational tip */
+    .tip{padding:12px;border-radius:10px;background:linear-gradient(90deg,#fff,#f6fff6);border:1px dashed rgba(27,138,47,0.06);color:var(--dark-green)}
+    .tip strong{color:var(--primary-green)}
+
+    /* Footer controls */
+    .actions{display:flex;gap:10px;align-items:center}
+    .download{background:linear-gradient(90deg,var(--primary-green),var(--accent));padding:10px 14px;border-radius:12px;color:#fff;border:none;cursor:pointer;font-weight:700;box-shadow:0 8px 26px rgba(27,138,47,0.14)}
+    .save{background:transparent;border:1px solid rgba(27,138,47,0.08);padding:10px 14px;border-radius:12px;color:var(--primary-green);cursor:pointer}
+
+    /* Animations */
+    @keyframes fadeIn { from {opacity:0; transform: translateY(8px)} to {opacity:1; transform:none} }
+    @keyframes slideUp { from {opacity:0; transform:translateY(20px)} to {opacity:1; transform:none} }
+
+    /* micro helpers */
+    .small-muted{font-size:12px;color:var(--muted)}
+    .flex{display:flex;gap:8px;align-items:center}
+    .center{display:flex;align-items:center;justify-content:center}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <div class="brand">
+        <div class="logo">GD</div>
+        <div>
+          <h1>Grami Dost — AI Smart Timetable Maker</h1>
+          <p class="lead">Home-study focused • Rural-friendly • Green-themed</p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn ghost" id="load-sample">🔁 Load Sample</button>
+        <button class="btn" id="generate">🧠 Generate Timetable</button>
+      </div>
+    </header>
+
+    <!-- LEFT: Controls -->
+    <aside class="card">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <div>
+          <label>Timetable Mode</label>
+          <div class="small-muted">Choose the timetable template</div>
+        </div>
+        <div class="small-muted">Home study only</div>
+      </div>
+
+      <!-- Modes -->
+      <div class="modes" id="modes">
+        <div class="mode active" data-mode="daily">
+          <div class="title">Daily Timetable</div>
+          <div class="sub">Single day, balanced</div>
+        </div>
+        <div class="mode" data-mode="weekly">
+          <div class="title">Weekly Timetable</div>
+          <div class="sub">Plan across 7 days</div>
+        </div>
+        <div class="mode" data-mode="exam">
+          <div class="title">Exam Preparation</div>
+          <div class="sub">Chapter-focused plan</div>
+        </div>
+        <div class="mode" data-mode="booster">
+          <div class="title">7 Days Booster</div>
+          <div class="sub">Intensive weak-topic boost</div>
+        </div>
+        <div class="mode" data-mode="chapter">
+          <div class="title">CBSE + RBSE Chapter Plan</div>
+          <div class="sub">Board-wise chapter schedule</div>
+        </div>
+      </div>
+
+      <hr style="border:none;border-top:1px solid rgba(13,79,27,0.04);margin:12px 0">
+
+      <div class="controls">
+
+        <!-- Class -->
+        <div>
+          <label for="class">Class</label>
+          <select id="class">
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+        </div>
+
+        <!-- Board -->
+        <div>
+          <label for="board">Board</label>
+          <select id="board">
+            <option value="CBSE">CBSE</option>
+            <option value="RBSE">RBSE</option>
+          </select>
+        </div>
+
+        <!-- Subjects multi-select chips -->
+        <div>
+          <label>Subjects (Add via input)</label>
+          <div class="chips" id="subjects-chips" aria-live="polite"></div>
+
+          <div style="display:flex;gap:8px;margin-top:8px" class="add-sub">
+            <input id="new-sub" placeholder="Subject name (e.g., Maths)" />
+            <button class="btn ghost" id="add-sub-btn">➕ Add</button>
+          </div>
+
+          <div style="margin-top:8px" class="small-muted">Click a subject chip to select/unselect. Click again to mark as <strong>weak</strong>.</div>
+        </div>
+
+        <!-- Chapters per subject (optional) -->
+        <div>
+          <label>Chapters per Subject (optional)</label>
+          <div id="chapters-area" class="small-muted">Add subjects then set chapters in each chip (edit icon).</div>
+        </div>
+
+        <!-- Available hours -->
+        <div>
+          <label>Available Study Hours Per Day</label>
+          <input type="number" id="hours-per-day" min="1" max="16" value="4" />
+          <div class="small-muted">Used to calculate 40min study + 10min break cycles.</div>
+        </div>
+
+        <!-- Preferred productivity time -->
+        <div>
+          <label>Preferred Productivity Time</label>
+          <div class="row">
+            <select id="prod-time" class="small">
+              <option value="balanced">Balanced</option>
+              <option value="morning">Morning</option>
+              <option value="evening">Evening</option>
+            </select>
+            <select id="study-goal" class="small">
+              <option value="passing">Passing</option>
+              <option value="topper">Topper</option>
+              <option value="revision">Revision</option>
+              <option value="board">Board Special</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Weak Subjects selector note -->
+        <div>
+          <label>Weak Subjects</label>
+          <div class="small-muted">Click subject chip to toggle 'selected' -> then click again to toggle 'weak'. Weak subjects get priority allocation.</div>
+        </div>
+
+        <!-- Buttons -->
+        <div style="display:flex;gap:8px;margin-top:6px">
+          <button class="btn" id="save-btn">💾 Save</button>
+          <button class="btn ghost" id="clear-btn">🧹 Reset</button>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- RIGHT: Output -->
+    <main class="output">
+
+      <!-- Smart UI Analysis Card -->
+      <section id="analysis-card" class="analysis card">
+        <div class="left">
+          <div class="emoji">🧠</div>
+          <div>
+            <div class="msg" id="analysis-msg">Your study pattern is balanced</div>
+            <div class="sub" id="analysis-sub">Fill inputs and press Generate to get a smart timetable analysis.</div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="small-muted">Summary</div>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <div style="flex:1">
+              <div class="small-muted">Daily Hours</div>
+              <div id="summary-hours" style="font-weight:800;color:var(--primary-green)">0 hrs</div>
+            </div>
+            <div style="flex:1">
+              <div class="small-muted">Weak Subjects</div>
+              <div id="summary-weak" style="font-weight:800;color:#e67e22">0</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Study Cards -->
+      <section>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h2 style="margin:0">Study Blocks</h2>
+          <div class="small-muted">40min study + 10min break cycles • Difficult first • Revision included</div>
+        </div>
+
+        <div class="study-grid" id="study-grid">
+          <!-- Generated study cards appear here -->
+        </div>
+      </section>
+
+      <!-- Weekly Plan Table -->
+      <section class="card" id="weekly-card" style="animation:slideUp .5s ease both">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h3 style="margin:0">Weekly Plan</h3>
+          <div class="small-muted">Daily routine & subject-wise time distribution</div>
+        </div>
+
+        <div style="overflow:auto;margin-top:10px">
+          <table class="weekly" id="weekly-table">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Morning</th>
+                <th>Afternoon</th>
+                <th>Evening</th>
+                <th>Revision</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- rows inserted here -->
+            </tbody>
+          </table>
+        </div>
+
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap" id="subject-distribution">
+          <!-- Distribution bars per subject -->
+        </div>
+      </section>
+
+      <!-- Booster & Exam Plan -->
+      <section style="display:grid;grid-template-columns:1fr 360px;gap:12px">
+        <div class="card" id="booster-card">
+          <h3 style="margin-top:0">7-Day Booster Plan</h3>
+          <div class="list" id="booster-list"></div>
+        </div>
+
+        <div class="card" id="exam-card">
+          <h3 style="margin-top:0">Exam Preparation (Chapter-based)</h3>
+          <div id="exam-list" class="list"></div>
+        </div>
+      </section>
+
+      <!-- Motivational Tips + Revision Reminders -->
+      <section class="card">
+        <h3 style="margin-top:0">Revision Reminders & Motivational Tips</h3>
+        <div style="display:flex;gap:12px;flex-direction:column">
+          <div class="tip" id="revision-tip">• Revision reminders will appear here after generation.</div>
+          <div class="tip" id="motivational-tip">🌟 Keep going — short steady sessions beat irregular marathons. Take 10-minute breaks every 40 minutes.</div>
+        </div>
+      </section>
+
+      <!-- Footer actions: PDF download -->
+      <section style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+        <div class="small-muted">Timetable generated can be printed as a clean, green-themed PDF.</div>
+        <div style="display:flex;gap:8px">
+          <button class="save" id="export-html">📄 Export HTML</button>
+          <button class="download" id="download-pdf">⬇️ Download Timetable as PDF</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Include html2pdf (CDN) for PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <script>
+    /***********************************************************************
+     * Grami Dost · AI Smart Timetable Maker (single-file)
+     * All-in-one HTML + CSS + JS. Built to be responsive, animated,
+     * and rural-friendly. Uses localStorage, generates timetable, and
+     * exports a PDF. Comments explain each block.
+     ***********************************************************************/
+
+    // ---------------------------
+    // Utility helpers
+    // ---------------------------
+    const $ = (sel, root=document) => root.querySelector(sel);
+    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+    const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+
+    // ---------------------------
+    // State
+    // ---------------------------
+    let state = {
+      mode: 'daily',
+      class: '10',
+      board: 'CBSE',
+      subjects: [], // {name, selected:boolean, weak:boolean, chapters: Number}
+      hoursPerDay: 4,
+      prodTime: 'balanced',
+      studyGoal: 'passing'
+    };
+
+    // Load any saved state from localStorage
+    function loadState(){
+      const raw = localStorage.getItem('grami_timetable_v1');
+      if(raw){
+        try{
+          const parsed = JSON.parse(raw);
+          Object.assign(state, parsed);
+        }catch(e){ console.warn('Could not parse saved state', e) }
+      }
+    }
+
+    // Save state to localStorage
+    function saveState(){
+      localStorage.setItem('grami_timetable_v1', JSON.stringify(state));
+    }
+
+    // ---------------------------
+    // UI references
+    // ---------------------------
+    const modesEl = $('#modes');
+    const subjectsChipsEl = $('#subjects-chips');
+    const addSubBtn = $('#add-sub-btn');
+    const newSubInput = $('#new-sub');
+    const hoursInput = $('#hours-per-day');
+    const prodTimeSelect = $('#prod-time');
+    const classSelect = $('#class');
+    const boardSelect = $('#board');
+    const studyGoalSelect = $('#study-goal');
+    const generateBtn = $('#generate');
+    const saveBtn = $('#save-btn');
+    const clearBtn = $('#clear-btn');
+    const loadSampleBtn = $('#load-sample');
+    const studyGrid = $('#study-grid');
+    const weeklyTableBody = $('#weekly-table tbody');
+    const subjectDistribution = $('#subject-distribution');
+    const analysisMsg = $('#analysis-msg');
+    const analysisSub = $('#analysis-sub');
+    const summaryHours = $('#summary-hours');
+    const summaryWeak = $('#summary-weak');
+    const boosterList = $('#booster-list');
+    const examList = $('#exam-list');
+    const revisionTip = $('#revision-tip');
+    const motivationalTip = $('#motivational-tip');
+    const downloadPdfBtn = $('#download-pdf');
+    const exportHtmlBtn = $('#export-html');
+
+    // ---------------------------
+    // Mode button handling
+    // ---------------------------
+    modesEl.addEventListener('click', (e) => {
+      const modeCard = e.target.closest('.mode');
+      if(!modeCard) return;
+      const mode = modeCard.dataset.mode;
+      state.mode = mode;
+      // update UI
+      $$('.mode').forEach(m => m.classList.toggle('active', m.dataset.mode === mode));
+      // small animation
+      modeCard.animate([{transform:'scale(1)'},{transform:'scale(1.03)'}],{duration:200,fill:'forwards'}).onfinish = () => {};
+    });
+
+    // ---------------------------
+    // Manage subjects (chips)
+    // - Click once: selects subject (include in schedule)
+    // - Click again: toggles weak flag
+    // - Edit chapters via prompt (simple for rural-friendly)
+    // ---------------------------
+    function renderSubjects(){
+      subjectsChipsEl.innerHTML = '';
+      state.subjects.forEach((s, idx) => {
+        const chip = document.createElement('div');
+        chip.className = 'chip' + (s.selected ? ' selected' : '');
+        chip.dataset.index = idx;
+        chip.title = s.name + (s.weak ? ' (weak)' : '');
+        chip.innerHTML = `
+          <span class="icon">📘</span>
+          <span>${escapeHtml(s.name)}</span>
+          <span style="flex:1"></span>
+          <span class="badge">${s.chapters ?? '–'} ch</span>
+        `;
+        chip.addEventListener('click', (ev) => {
+          const i = Number(chip.dataset.index);
+          // if not selected -> select
+          if(!state.subjects[i].selected){
+            state.subjects[i].selected = true;
+            state.subjects[i].weak = false;
+          } else {
+            // already selected -> toggle weak
+            state.subjects[i].weak = !state.subjects[i].weak;
+            // quick pulse for weak
+            if(state.subjects[i].weak){
+              chip.style.boxShadow = '0 10px 24px rgba(231,76,60,0.08)';
+              setTimeout(()=>chip.style.boxShadow='none',500);
+            }
+          }
+          // Prompt to edit chapters on long-press / double-click
+        });
+
+        // double click to edit chapters (rural-friendly)
+        chip.addEventListener('dblclick', () => {
+          const i = Number(chip.dataset.index);
+          const current = state.subjects[i].chapters ?? 8;
+          let val = prompt('Enter number of chapters for ' + state.subjects[i].name + ' (use a number)', current);
+          if(val === null) return;
+          val = parseInt(val) || current;
+          state.subjects[i].chapters = clamp(val, 1, 200);
+          renderSubjects();
+        });
+
+        subjectsChipsEl.appendChild(chip);
+      });
+    }
+
+    // Escape HTML for safety
+    function escapeHtml(s){ return (''+s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]); }
+
+    // Add subject button
+    addSubBtn.addEventListener('click', () => {
+      const name = (newSubInput.value || '').trim();
+      if(!name) return alert('Please enter a subject name');
+      state.subjects.push({name, selected:true, weak:false, chapters:8});
+      newSubInput.value = '';
+      renderSubjects();
+    });
+
+    // Allow pressing Enter to add
+    newSubInput.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') addSubBtn.click(); });
+
+    // ---------------------------
+    // Load, save, clear handlers
+    // ---------------------------
+    loadSampleBtn.addEventListener('click', ()=>{
+      // Sample subjects for quick demo
+      state.class = '10';
+      state.board = 'CBSE';
+      state.hoursPerDay = 5;
+      state.prodTime = 'morning';
+      state.studyGoal = 'topper';
+      state.mode = 'weekly';
+      state.subjects = [
+        {name:'Mathematics', selected:true, weak:true, chapters:12},
+        {name:'Science', selected:true, weak:false, chapters:10},
+        {name:'English', selected:true, weak:false, chapters:8},
+        {name:'Social Studies', selected:true, weak:false, chapters:9}
+      ];
+      // push UI updates
+      classSelect.value = state.class;
+      boardSelect.value = state.board;
+      hoursInput.value = state.hoursPerDay;
+      prodTimeSelect.value = state.prodTime;
+      studyGoalSelect.value = state.studyGoal;
+      $$('.mode').forEach(m => m.classList.toggle('active', m.dataset.mode === state.mode));
+      renderSubjects();
+    });
+
+    saveBtn.addEventListener('click', ()=>{
+      // update state from UI controls first
+      pullInputsToState();
+      saveState();
+      alert('Saved locally ✅');
+    });
+
+    clearBtn.addEventListener('click', ()=>{
+      if(!confirm('Reset all inputs and generated timetable?')) return;
+      localStorage.removeItem('grami_timetable_v1');
+      state = {mode:'daily', class:'10', board:'CBSE', subjects:[], hoursPerDay:4, prodTime:'balanced', studyGoal:'passing'};
+      // reset UI
+      classSelect.value = state.class;
+      boardSelect.value = state.board;
+      hoursInput.value = state.hoursPerDay;
+      prodTimeSelect.value = state.prodTime;
+      studyGoalSelect.value = state.studyGoal;
+      $$('.mode').forEach(m => m.classList.toggle('active', m.dataset.mode === state.mode));
+      renderSubjects();
+      renderEmptyOutputs();
+    });
+
+    // Pull values from input controls to state
+    function pullInputsToState(){
+      state.class = classSelect.value;
+      state.board = boardSelect.value;
+      state.hoursPerDay = Math.max(1, Math.min(16, Number(hoursInput.value) || 1));
+      state.prodTime = prodTimeSelect.value;
+      state.studyGoal = studyGoalSelect.value;
+    }
+
+    // ---------------------------
+    // Timetable Generation Logic (Smart Analysis Engine)
+    // - Determines weight per subject based on weak/goal
+    // - Uses 40min study + 10min break cycles to allocate 'cycles' per day
+    // - Splits into Morning/Afternoon/Evening/Revision blocks
+    // - Produces weekly plan, 7-day booster, exam chapter distribution
+    // ---------------------------
+    generateBtn.addEventListener('click', ()=> {
+      pullInputsToState();
+      // require at least one selected subject
+      const selectedSubjects = state.subjects.filter(s=>s.selected);
+      if(selectedSubjects.length === 0){
+        alert('Please add and select at least one subject.');
+        return;
+      }
+      saveState();
+      // run generation
+      const plan = generateTimetable(state);
+      // render UI
+      renderAnalysis(plan);
+      renderStudyCards(plan);
+      renderWeeklyTable(plan);
+      renderDistribution(plan);
+      renderBooster(plan);
+      renderExamPlan(plan);
+      renderRevisionAndTips(plan);
+      // animate study cards
+      animateStudyCards();
+    });
+
+    // Generate timetable plan object
+    function generateTimetable(s){
+      // 1) Compute cycles: each cycle = 40min study + 10min break = 50 minutes
+      const minutesPerDay = s.hoursPerDay * 60;
+      const cycleMinutes = 50;
+      const cyclesPerDay = Math.floor(minutesPerDay / cycleMinutes);
+      const leftoverMinutes = minutesPerDay - cyclesPerDay * cycleMinutes;
+
+      // 2) Subject weights
+      const subs = s.subjects.filter(x=>x.selected).map(x=>({
+        name: x.name,
+        weak: !!x.weak,
+        chapters: x.chapters || 8
+      }));
+
+      // Base weight
+      subs.forEach(sb => sb.weight = sb.weak ? 1.6 : 1.0);
+
+      // Study goal adjustments
+      if(s.studyGoal === 'topper'){
+        subs.forEach(sb => sb.weight *= 1.15);
+      } else if(s.studyGoal === 'revision'){
+        subs.forEach(sb => sb.weight *= 0.95);
+      } else if(s.studyGoal === 'board'){
+        // give slight boost to all, but increase chapters-heavy subjects
+        subs.forEach(sb => sb.weight *= 1.05 + (sb.chapters/50));
+      }
+
+      // Normalize weights
+      const totalWeight = subs.reduce((a,b)=>a + b.weight, 0);
+      subs.forEach(sb => sb.share = sb.weight / totalWeight);
+
+      // 3) Determine morning/afternoon/evening split based on prodTime
+      let split = {morning:0.35, afternoon:0.25, evening:0.25, revision:0.15};
+      if(s.prodTime === 'morning') split = {morning:0.45, afternoon:0.2, evening:0.2, revision:0.15};
+      if(s.prodTime === 'evening') split = {morning:0.25, afternoon:0.2, evening:0.4, revision:0.15};
+
+      // Ensure revision is at least one cycle if cycles exist
+      const cycles = Math.max(1, cyclesPerDay);
+      const revisionCycles = Math.max(1, Math.round(cycles * split.revision));
+      const morningCycles = Math.max(0, Math.round(cycles * split.morning));
+      const afternoonCycles = Math.max(0, Math.round(cycles * split.afternoon));
+      const eveningCycles = Math.max(0, cycles - (morningCycles + afternoonCycles + revisionCycles));
+
+      // 4) Allocate cycles to subjects proportional to share, but give weak subjects priority (min 1 cycle)
+      const subjectAlloc = subs.map(sb => {
+        const base = Math.max(1, Math.round(cycles * sb.share));
+        return {...sb, cycles: base};
+      });
+
+      // Adjust total cycles to match cycles (greedy adjust)
+      let allocated = subjectAlloc.reduce((a,b)=>a+b.cycles,0);
+      while(allocated > cycles){
+        // reduce from strongest subject (lowest weak weight)
+        const i = subjectAlloc.reduce((acc,cur,idx)=> cur.weak ? acc : idx, 0);
+        // find a subject with cycles>1 to reduce
+        let idxToReduce = subjectAlloc.findIndex(s=>s.cycles>1 && !s.weak);
+        if(idxToReduce === -1) idxToReduce = subjectAlloc.findIndex(s=>s.cycles>1);
+        if(idxToReduce === -1) break;
+        subjectAlloc[idxToReduce].cycles -= 1;
+        allocated--;
+      }
+      while(allocated < cycles){
+        // add to weakest subject first
+        const idxAdd = subjectAlloc.reduce((bestIdx,cur,idx)=>{
+          if(bestIdx === -1) return idx;
+          return cur.weak ? idx : bestIdx;
+        }, -1);
+        subjectAlloc[idxAdd].cycles += 1;
+        allocated++;
+      }
+
+      // 5) Break down cycles into time blocks per day (morning/afternoon/evening/revision)
+      // We'll create ordered blocks per day, trying to schedule difficult (weak) subjects earlier.
+      const blocks = {
+        morning: [],
+        afternoon: [],
+        evening: [],
+        revision: []
+      };
+
+      function pushToBlocks(order){
+        // order: array of subject allocations sorted by priority
+        let remaining = subjectAlloc.map(s=>({name:s.name, cycles:s.cycles, weak:s.weak}));
+        // helper to allocate N cycles across subjects by priority (weak first)
+        function allocToBlock(count){
+          let allocated = [];
+          for(let i=0;i<count;i++){
+            // choose subject with remaining cycles and either weak-first then highest remaining
+            remaining.sort((a,b)=>{
+              if(a.weak !== b.weak) return (b.weak?1:0) - (a.weak?1:0);
+              return b.cycles - a.cycles;
+            });
+            const idx = remaining.findIndex(r=>r.cycles>0);
+            if(idx===-1) break;
+            remaining[idx].cycles--;
+            allocated.push(remaining[idx].name);
+          }
+          return allocated;
+        }
+        return allocToBlock;
+      }
+
+      const allocFn = pushToBlocks();
+      blocks.morning = allocFn(morningCycles);
+      blocks.afternoon = allocFn(afternoonCycles);
+      blocks.evening = allocFn(eveningCycles);
+      // For revision, schedule short sessions across subjects (one per weak subject then rest)
+      let revisionList = [];
+      const weakSubs = subjectAlloc.filter(s=>s.weak).map(s=>s.name);
+      const otherSubs = subjectAlloc.filter(s=>!s.weak).map(s=>s.name);
+      // Put weak subjects first, then others until revisionCycles consumed
+      let revRemaining = revisionCycles;
+      let i = 0;
+      while(revRemaining > 0){
+        if(i < weakSubs.length){ revisionList.push(weakSubs[i]); revRemaining--; }
+        else if(otherSubs.length>0){ revisionList.push(otherSubs[(i - weakSubs.length) % otherSubs.length]); revRemaining--; }
+        else break;
+        i++;
+      }
+      blocks.revision = revisionList;
+
+      // 6) Weekly plan: rotate subject priority across 7 days for coverage
+      const days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+      const weekly = days.map((d, dayIdx) => {
+        // For variety, rotate subjectAlloc order by dayIdx
+        const rotated = subjectAlloc.slice().map((s,i)=>({name:s.name, cycles:s.cycles}));
+        // create per-day blocks by taking first few cycles proportional to cycles
+        const daily = {day:d, morning:[], afternoon:[], evening:[], revision:[]};
+        // simple rotation: pick from subjectAlloc with offset
+        const offset = dayIdx % subjectAlloc.length;
+        const order = subjectAlloc.slice(offset).concat(subjectAlloc.slice(0,offset));
+        // allocate some number of cycles (distribute day's cycles across blocks)
+        // We'll reuse morningCycles/afternoon/evening/revision but scaled for weekly by slightly varying them
+        const m = Math.max(0, Math.round(morningCycles * (0.9 + 0.2*Math.random())));
+        const a = Math.max(0, Math.round(afternoonCycles * (0.9 + 0.2*Math.random())));
+        const e = Math.max(0, Math.round(eveningCycles * (0.9 + 0.2*Math.random())));
+        const r = Math.max(0, Math.round(revisionCycles * (0.9 + 0.2*Math.random())));
+        // allocate using a simple round-robin from 'order'
+        function fill(count, targetArr){
+          let idx=0;
+          for(let i=0;i<count;i++){
+            targetArr.push(order[idx % order.length].name);
+            idx++;
+          }
+        }
+        fill(m, daily.morning);
+        fill(a, daily.afternoon);
+        fill(e, daily.evening);
+        fill(r, daily.revision);
+        return daily;
+      });
+
+      // 7) Subject time distribution in minutes per day (approx)
+      const subjectMinutes = {};
+      subjectAlloc.forEach(s=>{
+        const minutes = Math.round(s.cycles * 40); // 40 minutes per cycle study time
+        subjectMinutes[s.name] = minutes;
+      });
+
+      // 8) 7-day booster: create a 7-day list focusing on weak subjects
+      let booster = [];
+      // Sort subjects by weakness + chapters (weak first)
+      const sortedByNeed = subjectAlloc.slice().sort((a,b)=> (b.weak - a.weak) || (b.cycles - a.cycles));
+      // Fill 7 days with focused subject sessions (morning heavy)
+      for(let i=0;i<7;i++){
+        const focus = sortedByNeed[i % sortedByNeed.length].name;
+        booster.push({day: i+1, focus, time: Math.round(Math.max(1, s.hoursPerDay * 0.6)) + ' hrs', note: (sortedByNeed[i % sortedByNeed.length].weak ? 'Weak focus' : 'Boost')});
+      }
+
+      // 9) Exam plan (chapter-based) — distribute chapters across days: assume exam horizon 14 days
+      const examHorizonDays = 14;
+      const examPlan = [];
+      subjectAlloc.forEach(s => {
+        const chap = s.chapters || 8;
+        const perDay = Math.max(1, Math.ceil(chap / examHorizonDays));
+        let assigned = 0;
+        for(let d = 0; d < examHorizonDays && assigned < chap; d++){
+          const take = Math.min(perDay, chap - assigned);
+          examPlan.push({day: d+1, subject: s.name, chapters: take});
+          assigned += take;
+        }
+      });
+
+      // 10) Weekly analysis summary text
+      const weakCount = subs.filter(x=>x.weak).length;
+      let patternMsg = 'Your study pattern is balanced';
+      if(weakCount >= Math.max(1, Math.floor(subs.length/2))) patternMsg = 'Focus needed — many weak subjects';
+      if(state.prodTime === 'morning' && morningCycles > eveningCycles) patternMsg = 'You are a morning person — schedule tough topics early';
+
+      return {
+        cyclesPerDay,
+        leftoverMinutes,
+        subjectAlloc,
+        subjectMinutes,
+        blocks,
+        weekly,
+        booster,
+        examPlan,
+        patternMsg,
+        totalSubjects: subs.length,
+        weakCount,
+        minutesPerDay,
+        revisionCycles
+      };
+    }
+
+    // ---------------------------
+    // Rendering functions
+    // ---------------------------
+    function renderAnalysis(plan){
+      analysisMsg.textContent = plan.patternMsg;
+      analysisSub.textContent = `${plan.totalSubjects} subjects • ${plan.weakCount} weak subject(s) • ${Math.round(plan.minutesPerDay/60)} hours/day`;
+      summaryHours.textContent = Math.round(plan.minutesPerDay/60) + ' hrs';
+      summaryWeak.textContent = plan.weakCount;
+    }
+
+    function renderStudyCards(plan){
+      studyGrid.innerHTML = '';
+      const icons = {morning:'🌅', afternoon:'☀️', evening:'🌙', revision:'🔁'};
+      // Create 4 study cards (morning/afternoon/evening/revision)
+      for(const key of ['morning','afternoon','evening','revision']){
+        const card = document.createElement('div');
+        card.className = 'study-card';
+        const items = plan.blocks[key];
+        const unique = Array.from(new Set(items));
+        const totalCycles = items.length;
+        const minutes = totalCycles * 40;
+        card.innerHTML = `
+          <h3>${icons[key] || '📚'} ${capitalize(key)} Block</h3>
+          <p class="muted">${unique.length} subject(s) • ${totalCycles} session(s) • ${minutes} minutes study</p>
+          <div style="margin-top:8px">${unique.map(u=>`<span style="display:inline-block;margin-right:6px;padding:6px 8px;border-radius:8px;background:linear-gradient(90deg,#fff,#f3fff3);border:1px solid rgba(13,79,27,0.04)">${escapeHtml(u)}</span>`).join('')}</div>
+          <div class="progress"><i style="width:${clamp((minutes / (state.hoursPerDay*60))*100, 5, 100)}%"></i></div>
+        `;
+        studyGrid.appendChild(card);
+        // delay class add for fade-in
+        setTimeout(()=>card.classList.add('in'), 60);
+      }
+    }
+
+    function renderWeeklyTable(plan){
+      weeklyTableBody.innerHTML = '';
+      plan.weekly.forEach(row=>{
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${row.day}</strong></td>
+          <td>${row.morning.map(s=>escapeHtml(s)).join(' • ') || '—'}</td>
+          <td>${row.afternoon.map(s=>escapeHtml(s)).join(' • ') || '—'}</td>
+          <td>${row.evening.map(s=>escapeHtml(s)).join(' • ') || '—'}</td>
+          <td>${row.revision.map(s=>escapeHtml(s)).join(', ') || '—'}</td>
+        `;
+        weeklyTableBody.appendChild(tr);
+      });
+    }
+
+    function renderDistribution(plan){
+      subjectDistribution.innerHTML = '';
+      plan.subjectAlloc.forEach(s=>{
+        const totalMinutes = plan.subjectMinutes[s.name] || Math.round(s.cycles * 40);
+        const percent = Math.round((totalMinutes / (plan.minutesPerDay || 1)) * 100);
+        const div = document.createElement('div');
+        div.style.flex = '1';
+        div.innerHTML = `
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div style="font-weight:700;color:var(--dark-green)">${escapeHtml(s.name)}</div>
+            <div class="small-muted">${totalMinutes} min • ${percent}%</div>
+          </div>
+          <div class="progress" style="margin-top:6px"><i style="width:${clamp(percent,3,100)}%"></i></div>
+        `;
+        subjectDistribution.appendChild(div);
+      });
+    }
+
+    function renderBooster(plan){
+      boosterList.innerHTML = '';
+      plan.booster.forEach(it=>{
+        const div = document.createElement('div');
+        div.className = 'item';
+        div.innerHTML = `<div><strong>Day ${it.day}</strong> - ${escapeHtml(it.focus)}</div><div class="small-muted">${it.time}</div>`;
+        boosterList.appendChild(div);
+      });
+    }
+
+    function renderExamPlan(plan){
+      examList.innerHTML = '';
+      // group by day
+      const grouped = {};
+      plan.examPlan.forEach(e => {
+        grouped[e.day] = grouped[e.day] || [];
+        grouped[e.day].push(e);
+      });
+      Object.keys(grouped).slice(0,14).forEach(dayStr=>{
+        const day = Number(dayStr);
+        const items = grouped[day];
+        const div = document.createElement('div');
+        div.className = 'item';
+        div.innerHTML = `<div><strong>Day ${day}</strong> <div class="small-muted" style="font-size:13px">${items.map(x=>x.subject + ' ('+x.chapters+' ch)').join(' • ')}</div></div>`;
+        examList.appendChild(div);
+      });
+    }
+
+    function renderRevisionAndTips(plan){
+      const rev = plan.revisionCycles;
+      revisionTip.innerHTML = `• Revision sessions planned: <strong>${rev}</strong> per day. Schedule short active recall: 10 minutes quick test per revision block.`;
+      motivationalTip.innerHTML = `🌟 Tip: Study difficult topics in the first 1–2 cycles of the day. Keep a quick 3-point summary after every 2 cycles. Small wins add up!`;
+    }
+
+    // Animate study cards (fade-in & stagger)
+    function animateStudyCards(){
+      const cards = $$('.study-card');
+      cards.forEach((c,idx) => {
+        c.style.opacity = 0;
+        c.style.transform = 'translateY(12px)';
+        setTimeout(()=>{ c.style.transition = 'all .45s cubic-bezier(.2,.9,.2,1)'; c.style.opacity=1; c.style.transform='none'; }, 120 * idx);
+      });
+    }
+
+    // ---------------------------
+    // Helpers + UI initial state
+    // ---------------------------
+    function capitalize(s){ return s[0].toUpperCase() + s.slice(1) }
+
+    function renderEmptyOutputs(){
+      studyGrid.innerHTML = `<div class="small-muted">No timetable generated yet. Fill inputs and press Generate.</div>`;
+      weeklyTableBody.innerHTML = '';
+      subjectDistribution.innerHTML = '';
+      boosterList.innerHTML = '';
+      examList.innerHTML = '';
+      analysisMsg.textContent = 'Your study pattern is balanced';
+      analysisSub.textContent = 'Fill inputs and press Generate to get a smart timetable analysis.';
+      summaryHours.textContent = '0 hrs';
+      summaryWeak.textContent = '0';
+      revisionTip.textContent = 'Revision reminders will appear here after generation.';
+    }
+
+    // Initialize UI from saved state
+    function init(){
+      loadState();
+      // map state to UI
+      classSelect.value = state.class;
+      boardSelect.value = state.board;
+      hoursInput.value = state.hoursPerDay;
+      prodTimeSelect.value = state.prodTime;
+      studyGoalSelect.value = state.studyGoal;
+      $$('.mode').forEach(m => m.classList.toggle('active', m.dataset.mode === state.mode));
+      if(!state.subjects || state.subjects.length === 0) {
+        // prefill some basic subjects for convenience
+        state.subjects = [
+          {name:'Mathematics', selected:false, weak:false, chapters:10},
+          {name:'Science', selected:false, weak:false, chapters:8},
+          {name:'English', selected:false, weak:false, chapters:6}
+        ];
+      }
+      renderSubjects();
+      renderEmptyOutputs();
+    }
+    init();
+
+    // ---------------------------
+    // Export / PDF generation
+    // - Uses html2pdf to convert the right panel (main output) to a printable PDF
+    // - Apply a small style override to ensure green theme in PDF
+    // ---------------------------
+    downloadPdfBtn.addEventListener('click', async () => {
+      // Ensure there's generated content
+      const anyGenerated = studyGrid.children.length > 0 && weeklyTableBody.children.length > 0;
+      if(!anyGenerated && !confirm('It looks like you haven\'t generated a timetable yet. Export current layout anyway?')) return;
+
+      // Choose the output element: the <main>. We will create a clone and style for PDF.
+      const main = document.querySelector('main.output');
+      const opt = {
+        margin: [10, 10, 10, 10],
+        filename: `GramiDost_Timetable_${new Date().toISOString().slice(0,10)}.pdf`,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+      // Use html2pdf to save
+      html2pdf().set(opt).from(main).save();
+    });
+
+    // Export HTML (copy formatted HTML of the output)
+    exportHtmlBtn.addEventListener('click', ()=>{
+      const main = document.querySelector('main.output');
+      const text = '<!-- Grami Dost Timetable Export -->\n' + main.innerHTML;
+      navigator.clipboard?.writeText(text).then(()=> alert('Output HTML copied to clipboard ✅'), ()=> alert('Could not copy to clipboard, please try manually.'));
+    });
+
+    // Save input changes to state live (so localStorage works)
+    [classSelect, boardSelect, hoursInput, prodTimeSelect, studyGoalSelect].forEach(el=>{
+      el.addEventListener('change', ()=>{ pullInputsToState(); saveState(); });
+    });
+
+    // Initial sample load on first run
+    if(!localStorage.getItem('grami_timetable_v1')) {
+      // show lightweight hint 
+      setTimeout(()=>{ if(confirm('Load a quick sample timetable to see features?')) loadSampleBtn.click(); }, 600);
+    }
+  </script>
+</body>
+</html>

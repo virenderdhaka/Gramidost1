@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Grami Dost – Ganganagar Mandi Prices</title>
+  <meta name="description" content="Grami Dost — Sriganganagar मंडी भाव (धान, गेहूं, कपास, गवार, चना, तुअर, मटर, सरसों, सब्जियाँ व दालों के ताज़ा दर).">
+  <style>
+    :root{
+      --primary:#4CAF50; --accent:#A5D6A7; --bg:#f6fff7; --card:#fff;
+      --muted:#596c54; --text:#0b2a0b; --radius:14px;
+    }
+    html,body{margin:0;height:100%;font-family:"Noto Sans","Segoe UI",Roboto,Arial,sans-serif;background:linear-gradient(180deg,#f0fff2 0,#f6fff7 100%);color:var(--text);}
+    .wrap{max-width:1100px;margin:30px auto;padding:18px;}
+    .hero{ text-align:center; padding:18px; border-radius:16px; box-shadow:0 12px 30px rgba(40,120,60,0.06); background:linear-gradient(180deg, rgba(74,174,86,0.03), rgba(165,214,167,0.02)); }
+    h1{font-size:clamp(28px,5vw,44px); margin:10px 0; font-weight:800; background:linear-gradient(90deg,var(--primary),#388E3C); -webkit-background-clip:text; color:transparent;}
+    .intro{color:var(--muted); max-width:900px; margin:0 auto 16px; font-size:16px;}
+    .hero-img{width:100%; border-radius:12px; overflow:hidden; margin-top:14px; aspect-ratio:1600/700; box-shadow:0 12px 30px rgba(76,175,80,0.12); position:relative;}
+    .hero-img img{width:100%; height:100%; object-fit:cover; display:block; filter:contrast(1.03); }
+    .sections{margin-top:22px; display:grid; gap:16px;}
+    @media(min-width:900px){ .sections{grid-template-columns:1fr 1fr;} }
+    .card{background:var(--card); padding:12px; border-radius:12px; box-shadow:0 8px 24px rgba(8,40,12,0.04); border:1px solid rgba(76,175,80,0.06); transition:transform .24s; }
+    .card:hover{transform:translateY(-6px);}
+    .section-title{display:flex; align-items:center; gap:10px; margin-bottom:8px;}
+    .icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,var(--accent),#E8F5E9);font-size:18px}
+    .table-wrap{overflow:auto;}
+    table{width:100%; border-collapse:collapse; min-width:560px;}
+    thead th{padding:10px 12px; text-align:left; background:linear-gradient(180deg, rgba(230,248,235,0.9), rgba(240,252,240,0.9)); font-weight:700; position:sticky; top:0; z-index:2;}
+    tbody td{padding:10px 12px; border-bottom:1px solid rgba(0,0,0,0.04); font-size:14px;}
+    tbody tr:nth-child(odd){background:linear-gradient(90deg, rgba(245,255,245,0.6), rgba(255,255,255,0));}
+    tbody tr:hover{background:linear-gradient(90deg, rgba(230,255,235,0.95), rgba(255,255,255,0.85));}
+    .price{font-weight:700;color:var(--primary); cursor:default;}
+    .advice{background:linear-gradient(180deg, rgba(165,214,167,0.12), rgba(165,214,167,0.06)); padding:14px; border-radius:10px; border:1px solid rgba(74,174,86,0.08);}
+    .small{color:var(--muted); font-size:13px;}
+    footer.note{margin-top:14px;text-align:center;color:var(--muted);font-size:13px;}
+    @media(max-width:420px){ thead th, tbody td{font-size:13px;padding:8px} }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero" role="banner">
+      <h1>गंगानगर के बेहतरीन मंडी भाव</h1>
+      <p class="intro">Grami Dost — Sriganganagar मंडी के प्रमुख फसलों और सब्जियों के ताज़ा (placeholder) भाव नीचे दिए गए हैं। उत्पादन में सटीकता के लिए Agmarknet / Nafed लाइव-फीड जोड़ें।</p>
+
+      <!-- single image -->
+      <div class="hero-img" aria-hidden="false">
+        <img src="ganganagar.jpg" alt="Ganganagar Mandi" width="1600" height="700">
+        <div style="position:absolute;left:12px;bottom:12px;background:rgba(255,255,255,0.6);padding:6px 8px;border-radius:8px;font-size:13px;color:#2d5b2d">Sriganganagar · उदाहरण छवि</div>
+      </div>
+    </section>
+
+    <section class="sections" aria-label="Mandi Prices">
+      <!-- PADDY (धान) -->
+      <article class="card" aria-labelledby="paddy">
+        <div class="section-title"><span class="icon">🌾</span><h2 id="paddy">धान (Paddy)</h2></div>
+        <div class="table-wrap">
+          <table aria-describedby="paddy-desc">
+            <thead><tr><th>मंडी / जिला</th><th>वैरायटी</th><th>प्रति क्विंटल</th><th>तिथि</th></tr></thead>
+            <tbody>
+              <tr data-commodity="paddy" data-mandi="Sriganganagar" data-variety="Basmati">
+                <td>Sriganganagar</td><td>Basmati</td><td class="price" title="Last updated: 29-Nov-2025">₹2,800 / qtl</td><td>29-Nov-2025</td>
+              </tr>
+              <tr data-commodity="paddy" data-mandi="Sriganganagar" data-variety="Non-Basmati">
+                <td>Sriganganagar</td><td>Non-Basmati</td><td class="price" title="Last updated: 29-Nov-2025">₹2,650 / qtl</td><td>29-Nov-2025</td>
+              </tr>
+              <tr data-commodity="paddy" data-mandi="Ganganagar Town" data-variety="Sela">
+                <td>Ganganagar Town</td><td>Sela</td><td class="price" title="Last updated: 29-Nov-2025">₹2,720 / qtl</td><td>29-Nov-2025</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="small" id="paddy-desc">Placeholder values — confirm with Agmarknet/Nafed for live data. Sources checked: commodity aggregators. :contentReference[oaicite:1]{index=1}</div>
+      </article>
+
+      <!-- WHEAT -->
+      <article class="card" aria-labelledby="wheat">
+        <div class="section-title"><span class="icon">🌾</span><h2 id="wheat">गेहूं (Wheat)</h2></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>मंडी / जिला</th><th>वैरायटी</th><th>प्रति क्विंटल</th><th>तिथि</th></tr></thead>
+            <tbody>
+              <tr data-commodity="wheat" data-mandi="Ganganagar" data-variety="Sharbati">
+                <td>Ganganagar</td><td>Sharbati</td><td class="price" title="Last updated: 29-Nov-2025">₹2,700 / qtl</td><td>29-Nov-2025</td>
+              </tr>
+              <tr data-commodity="wheat" data-mandi="Ganganagar" data-variety="Non-Sharbati">
+                <td>Ganganagar</td><td>Non-Sharbati</td><td class="price" title="Last updated: 29-Nov-2025">₹2,650 / qtl</td><td>29-Nov-2025</td>
+              </tr>
+              <tr data-commodity="wheat" data-mandi="Ganganagar" data-variety="Lokwan">
+                <td>Ganganagar</td><td>Lokwan</td><td class="price" title="Last updated: 29-Nov-2025">₹2,680 / qtl</td><td>29-Nov-2025</td>
+              </tr>
+              <tr data-commodity="wheat" data-mandi="Suratgarh" data-variety="Other">
+                <td>Suratgarh</td><td>Other</td><td class="price" title="Sample aggregator value">₹2,695 / qtl</td><td>29-Nov-2025</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="small">Aggregator snapshots used for placeholders. :contentReference[oaicite:2]{index=2}</div>
+      </article>
+
+      <!-- COTTON -->
+      <article class="card" aria-labelledby="cotton">
+        <div class="section-title"><span class="icon">🧵</span><h2 id="cotton">कपास (Cotton)</h2></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>मंडी / जिला</th><th>वैरायटी</th><th>प्रति क्विंटल</th><th>तिथि</th></tr></thead>
+            <tbody>
+              <tr data-commodity="cotton" data-mandi="Sriganganagar" data-variety="American">
+                <td>Sriganganagar</td><td>American</td><td class="price" title="Last updated (aggregator): 22-Mar-2024">₹6,670 / qtl</td><td>22-Mar-2024</td>
+              </tr>
+              <tr data-commodity="cotton" data-mandi="Ganganagar" data-variety="Local">
+                <td>Ganganagar</td><td>Local</td><td class="price" title="Placeholder">₹6,200 / qtl</td><td>29-Nov-2025</td>
+              </tr>
+              <tr data-commodity="cotton" data-mandi="Nearby" data-variety="Average">
+                <td>District Avg</td><td>Average</td><td class="price" title="Sample">₹6,400 / qtl</td><td>29-Nov-2025</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="small">Cotton sample values: survey of aggregator listings. For exact MSP/lot values use ginning-shed receipts / Agmarknet. :contentReference[oaicite:3]{index=3}</div>
+      </article>
+
+      <!-- GUAR (Gawar) -->
+      <article class="card" aria-labelledby="guar">
+        <div class="section-title"><span class="icon">🌿</span><h2 id="guar">गवार (Guar / Gawar)</h2></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>मंडी / जिला</th><th>वैरायटी</th><th>प्रति क्विंटल</th><th>तिथि</th></tr></thead>
+            <tbody>
+              <tr data-commodity="guar" data-mandi="Sriganganagar" data-variety="Other">
+                <td>Sriganganagar</td><td>Other</td><td class="price" title="Last updated: 29-Nov-2025">₹4,920 / qtl</td><td>29-Nov-2025</td>
+              </tr>
+              <tr data-commodity="guar" data-mandi="Suratgarh" data-variety="Other">
+                <td>Suratgarh</td><td>Other</td><td class="price">₹4,720 / qtl</td><td>29-Nov-2025</td>
+              </tr>
+              <tr data-commodity="guar" data-mandi="District Avg" data-variety="Average">
+                <td>District Avg</td><td>Average</td><td class="price">₹4,600 / qtl</td><td>29-Nov-2025</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="small">Guar figures from district listings. :contentReference[oaicite:4]{index=4}</div>
+      </article>
+
+      <!-- CHANA / TUAR / MATAR / SARSON (Pulses & Mustard) -->
+      <article class="card" aria-labelledby="pulses">
+        <div class="section-title"><span class="icon">🌱</span><h2 id="pulses">चना, तुअर, मटर, सरसों (Pulses & Mustard)</h2></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>मंडी / जिला</th><th>फसल</th><th>प्रति क्विंटल</th><th>तिथि</th></tr></thead>
+            <tbody>
+              <tr data-commodity="chana" data-mandi="Sriganganagar">
+                <td>Sriganganagar</td><td>Chana (Gram)</td><td class="price" title="Last updated: 29-Nov-2025">₹4,800 / qtl</td><td>29-Nov-2025</td>
+              </tr>
+              <tr data-commodity="tuar" data-mandi="Sriganganagar">
+                <td>Sriganganagar</td><td>Tuar (Pigeon Pea)</td><td class="price">₹6,000 / qtl</td><td>29-Nov-2025</td>
+              </tr>
+              <tr data-commodity="matar" data-mandi="Sriganganagar">
+                <td>Sriganganagar</td><td>Matar (Pea)</td><td class="price">₹4,200 / qtl</td><td>29-Nov-2025</td>
+              </tr>
+              <tr data-commodity="mustard" data-mandi="Sriganganagar">
+                <td>Sriganganagar</td><td>Mustard</td><td class="price" title="Aggregator sample">₹5,170 / qtl</td><td>29-Nov-2025</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="small">Sample pulses & mustard placeholders — confirm via Agmarknet/Nafed for procurement decisions. :contentReference[oaicite:5]{index=5}</div>
+      </article>
+
+      <!-- VEGETABLES (Brinjal, Tomato, Carrot, Potato) -->
+      <article class="card" aria-labelledby="veggies">
+        <div class="section-title"><span class="icon">🥕</span><h2 id="veggies">सब्जियाँ (Brinjal, टमाटर, गाजर, आलू)</h2></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>सब्जी</th><th>प्रति किलो</th><th>तिथि</th></tr></thead>
+            <tbody>
+              <tr data-commodity="tomato"><td>टमाटर</td><td class="price" title="CMP from aggregator">₹26 / kg</td><td>29-Nov-2025</td></tr>
+              <tr data-commodity="potato"><td>आलू</td><td class="price">₹20 / kg</td><td>29-Nov-2025</td></tr>
+              <tr data-commodity="carrot"><td>गाजर</td><td class="price" title="See BhavToday snapshot">₹23 / kg</td><td>29-Nov-2025</td></tr>
+              <tr data-commodity="brinjal"><td>बैगन (Brinjal)</td><td class="price">₹32 / kg</td><td>29-Nov-2025</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="small">Vegetable rates sampled from mandi snapshots (wholesale). Vegetable prices change daily—use local mandi bulletin for real-time. :contentReference[oaicite:6]{index=6}</div>
+      </article>
+
+      <!-- DAL (मूंग, चना दाल etc) -->
+      <article class="card" aria-labelledby="dals">
+        <div class="section-title"><span class="icon">🍲</span><h2 id="dals">दालें (Moong, Chana Dal आदि)</h2></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>कमोडिटी</th><th>प्रति किलो</th><th>तिथि</th></tr></thead>
+            <tbody>
+              <tr data-commodity="moong"><td>मूंग दाल (Moong Dal)</td><td class="price">₹120 / kg</td><td>29-Nov-2025</td></tr>
+              <tr data-commodity="chana-dal"><td>चना दाल</td><td class="price">₹110 / kg</td><td>29-Nov-2025</td></tr>
+              <tr data-commodity="moong-whole"><td>मूंग (Whole)</td><td class="price">₹750 / qtl</td><td>29-Nov-2025</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="small">Pulse placeholders from district pulse listings. For trade, validate weights & moisture before sale. :contentReference[oaicite:7]{index=7}</div>
+      </article>
+
+      <!-- Advice / Suggestions -->
+      <article class="card advice" aria-labelledby="advice">
+        <div class="section-title"><span class="icon">💡</span><h2 id="advice">सलाह / सुझाव (Farmers' Advice)</h2></div>
+        <p style="margin:0 0 8px 0;line-height:1.6;color:var(--text);">
+          गेहूं और धान की बिक्री मंडी में सुबह जल्दी करें — सुबह बेहतर भीड़ और ताज़ा खरीददारी रहती है। कपास और गवार के लिए स्थानीय मंडियों में प्रतिस्पर्धात्मक रेट देखें और बोर/गुणवत्ता का प्रमाण रखें। सब्जियों के लिए ताज़ा और मोटी किस्म बेचें — अच्छे पैकिंग व छंटाई से भाव सुधरते हैं। दालों की बिक्री से पहले क्वालिटी, सफाई और नमी चेक करें। भविष्य में Agmarknet / Nafed API जोड़े तो तालिकाएँ ऑटो-अपडेट हो सकती हैं।
+        </p>
+      </article>
+
+      <!-- Integration notes -->
+      <article class="card" aria-labelledby="notes">
+        <div class="section-title"><span class="icon">🔗</span><h2 id="notes">इंटीग्रेशन नोट</h2></div>
+        <ul style="margin:6px 0 0 18px;color:var(--muted)">
+          <li>हर <code>&lt;tr&gt;</code> में <code>data-commodity</code>, <code>data-mandi</code>, <code>data-variety</code>, <code>data-price</code>, <code>data-date</code> का प्रयोग करें — JS से इनको अपडेट करना आसान रहेगा.</li>
+          <li>Agmarknet/Nafed के REST endpoints से सर्वर-साइड proxy बनाकर CORS समस्याएँ न आएँ।</li>
+          <li>टूलटिप्स के लिए <code>title</code> ऐट्रिब्यूट जोड़ा गया (last-updated)।</li>
+        </ul>
+      </article>
+
+    </section>
+
+    <div class="note footer note">© Grami Dost — Sriganganagar · Example/placeholder prices (checked via commodity aggregators). For production integrate Agmarknet / Nafed live feed. :contentReference[oaicite:8]{index=8}</div>
+  </main>
+
+  <script>
+    // Small helper for future JS integration
+    function updateRowData(tr, price, dateStr){
+      if(!tr) return;
+      const p = tr.querySelector('.price');
+      if(p){ p.textContent = price; p.setAttribute('title','Last updated: '+dateStr); }
+      const dateCell = tr.querySelector('td:last-child');
+      if(dateCell) dateCell.textContent = dateStr;
+      tr.setAttribute('data-price',price);
+      tr.setAttribute('data-date',dateStr);
+    }
+
+    // Example: progressive reveal
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.card').forEach((c,i)=> {
+        c.style.opacity = 0;
+        setTimeout(()=>{ c.style.transition='opacity .45s ease, transform .45s ease'; c.style.opacity=1; c.style.transform='translateY(0)'; }, i*80);
+      });
+    });
+
+    // TODO: Implement fetchToAgmarknet() with server-side proxy to avoid CORS.
+  </script>
+</body>
+</html>

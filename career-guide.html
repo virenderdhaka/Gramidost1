@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Grami Dost — AI Career Guidance Tool</title>
+  <style>
+    :root{
+      --bg:#f7fafc;
+      --card:#ffffff;
+      --accent:#36b02b;
+      --muted:#6b7280;
+      --success:#16a34a;
+      --danger:#ef4444;
+      --glass: rgba(233, 246, 233, 0.7);
+      --shadow: 0 6px 18px rgba(11,22,39,0.06);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#015d11 0%, #3f5906 100%);
+      color:#0f172a;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:28px;
+    }
+
+    .app {
+      max-width:980px;
+      margin:0 auto;
+      background:var(--bg);
+      border-radius:12px;
+      padding:22px;
+      box-shadow: var(--shadow);
+      min-height:80vh;
+      display:flex;
+      gap:20px;
+      align-items:flex-start;
+    }
+
+    /* Left column: flow / panels */
+    .pane {
+      flex:1.35;
+      background:linear-gradient(180deg, rgb(229, 254, 228), rgba(255,255,255,0.88));
+      border-radius:10px;
+      padding:18px;
+      box-shadow:0 4px 12px rgba(13, 26, 46, 0.04);
+      border:1px solid rgba(15,23,42,0.03);
+    }
+
+    /* Right column: summary card */
+    .sidebar {
+      width:320px;
+      min-width:260px;
+      background:var(--card);
+      border-radius:10px;
+      padding:16px;
+      box-shadow:var(--shadow);
+      height:fit-content;
+      position:sticky;
+      top:28px;
+      align-self:flex-start;
+    }
+
+    h1{font-size:20px;margin:0 0 8px 0;display:flex;gap:8px;align-items:center}
+    p.lead{margin:0 0 12px 0;color:var(--muted);font-size:13px}
+    .step-title{font-weight:700;margin:12px 0 10px 0;color:var(--accent)}
+
+    .card-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
+      gap:10px;
+      margin-top:8px;
+    }
+
+    .btn-card{
+      background:var(--card);
+      border-radius:10px;
+      padding:12px 10px;
+      border:1px solid rgba(15,23,42,0.06);
+      cursor:pointer;
+      transition:transform .12s ease, box-shadow .12s ease;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      align-items:flex-start;
+      box-shadow: 0 2px 6px rgba(11,22,39,0.03);
+      font-weight:600;
+      color:#0f172a;
+      font-size:14px;
+    }
+    .btn-card:hover{transform:translateY(-4px); box-shadow: 0 10px 22px rgba(11,22,39,0.07);}
+    .btn-card.small{font-weight:600;padding:8px 10px;border-radius:8px;font-size:13px}
+    .btn-card.ghost{background:transparent;border:1px dashed rgba(11,22,39,0.05);}
+
+    .controls{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+    .btn{
+      background:var(--accent);
+      color:white;
+      padding:8px 12px;
+      border-radius:8px;
+      border:0;
+      cursor:pointer;
+      font-weight:700;
+      box-shadow: 0 6px 14px rgba(43,108,176,0.12);
+    }
+    .btn.muted{background:transparent;color:var(--muted);border:1px solid rgba(11,22,39,0.05);box-shadow:none}
+    .btn.small{padding:6px 8px;font-size:13px;border-radius:7px}
+    .note{font-size:13px;color:var(--muted);margin-top:10px}
+
+    /* content sections */
+    .panel{display:none}
+    .panel.active{display:block}
+    .back{color:var(--muted);cursor:pointer;font-size:13px;margin-bottom:8px;display:inline-block}
+
+    /* detail lists */
+    ul.clean{padding-left:18px;margin:8px 0;color:#0f172a}
+    li{margin:6px 0}
+
+    .badge{display:inline-block;background:#eef2ff;color:var(--accent);padding:4px 8px;border-radius:999px;font-size:12px;font-weight:700}
+
+    .summary-row{display:flex;justify-content:space-between;gap:12px;margin:8px 0;padding:8px;border-radius:8px;background:linear-gradient(90deg, rgba(11,22,39,0.02), rgba(11,22,39,0.01));font-size:14px}
+    .muted{color:var(--muted);font-size:13px}
+    footer.small{font-size:12px;color:var(--muted);margin-top:12px}
+
+    /* responsive */
+    @media (max-width:900px){
+      .app{flex-direction:column;padding:14px}
+      .sidebar{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <div class="app" role="application" aria-label="Grami Dost AI Career Guidance Tool">
+    <div class="pane" id="mainPane">
+
+      <h1>🎓 <span style="color:var(--accent)">AI Career Guidance Tool — Grami Dost</span></h1>
+      <p class="lead">Step-by-step interactive career path. Pick one option per screen to move forward. Simple language — student friendly. 🔨🤖🔧</p>
+
+      <!-- STEP 1 -->
+      <div class="panel active" id="step1">
+        <div class="step-title">Step 1 — Choose your current status</div>
+
+        <!-- EXACT required screen text shown exactly like the user asked -->
+        <div style="background:#fff;border-radius:8px;padding:12px;border:1px dashed rgba(15,23,42,0.03);">
+          <pre style="margin:0;font-family:inherit;font-size:14px;background:transparent;border:0;padding:0;white-space:pre-wrap;">
+<h2>🎓 AI Career Guidance Tool — Grami Dost.</h2>
+
+<b>Select your current status:</b>
+[ 12th Pass-Out ]
+[ College Pass-Out ]
+[ Class 10th Student ]
+[ Searching For Short-Term Courses ]
+------------------------------------
+          </pre>
+        </div>
+
+        <div class="card-grid" style="margin-top:12px;">
+          <button class="btn-card" data-next="step2" data-choice="12th Pass-Out">12th Pass-Out</button>
+          <button class="btn-card" data-next="step2" data-choice="College Pass-Out">College Pass-Out</button>
+          <button class="btn-card" data-next="step2" data-choice="Class 10th Student">Class 10th Student</button>
+          <button class="btn-card" data-next="step2" data-choice="Searching For Short-Term Courses">Searching For Short-Term Courses</button>
+        </div>
+
+        <div class="note">Tip:किसी भी विकल्प पर क्लिक करें — ऐप आपके लिए अगले चरण को खोलेगा। आप कभी भी वापस जा सकते हैं।</div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="panel" id="step2">
+        <span class="back" id="back1">← Back</span>
+        <div class="step-title">Step 2 — Choose Stream / Direction</div>
+        <div id="streamIntro" class="muted" style="margin-bottom:10px;"></div>
+
+        <div class="card-grid" id="streamOptions"></div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="panel" id="step3">
+        <span class="back" id="back2">← Back</span>
+        <div class="step-title">Step 3 — Career Paths (Choose Major Category)</div>
+        <div id="streamSelected" class="muted" style="margin-bottom:10px;"></div>
+
+        <div class="card-grid" id="careerCategories"></div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="panel" id="step4">
+        <span class="back" id="back3">← Back</span>
+        <div class="step-title">Step 4 — Career Path Details</div>
+        <div id="careerSelectedIntro" class="muted" style="margin-bottom:10px;"></div>
+
+        <div id="careerDetails"></div>
+        <div class="controls" style="margin-top:14px;">
+          <button class="btn small" id="toCourses">See Courses Required</button>
+          <button class="btn muted small" id="toColleges">See Colleges & Exams</button>
+        </div>
+      </div>
+
+      <!-- STEP 5: Courses -->
+      <div class="panel" id="step5">
+        <span class="back" id="back4">← Back</span>
+        <div class="step-title">Step 5 — Courses Required</div>
+        <div id="coursesForCareer" class="muted" style="margin-bottom:10px;"></div>
+
+        <div id="coursesDetails"></div>
+
+        <div class="controls">
+          <button class="btn" id="toColleges2">Next: Best Colleges + Exams</button>
+        </div>
+      </div>
+
+      <!-- STEP 6: Colleges + Exams -->
+      <div class="panel" id="step6">
+        <span class="back" id="back5">← Back</span>
+        <div class="step-title">Step 6 — Best Colleges + Exams</div>
+        <div id="collegesIntro" class="muted" style="margin-bottom:10px;"></div>
+
+        <div id="collegesDetails"></div>
+
+        <div class="controls">
+          <button class="btn" id="toFuture">Next: Future Scope + Salary Range</button>
+        </div>
+      </div>
+
+      <!-- STEP 7: Future Scope -->
+      <div class="panel" id="step7">
+        <span class="back" id="back6">← Back</span>
+        <div class="step-title">Step 7 — Future Scope & Salary Range</div>
+        <div id="futureIntro" class="muted" style="margin-bottom:10px;"></div>
+
+        <div id="futureDetails"></div>
+
+        <div class="controls">
+          <button class="btn muted" id="startOver">Start Over</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sidebar: summary of selections -->
+    <aside class="sidebar" id="summaryCard" aria-live="polite">
+      <div style="display:flex;gap:10px;align-items:center;justify-content:space-between">
+        <div>
+          <div style="font-weight:800">Your current choices</div>
+          <div class="muted" style="font-size:13px">Quick overview — tap to change steps</div>
+        </div>
+        <div class="badge">Grami Dost</div>
+      </div>
+
+      <div class="summary-row" style="margin-top:12px">
+        <div class="muted">Status</div>
+        <div id="sumStatus">—</div>
+      </div>
+      <div class="summary-row">
+        <div class="muted">Stream</div>
+        <div id="sumStream">—</div>
+      </div>
+      <div class="summary-row">
+        <div class="muted">Category</div>
+        <div id="sumCategory">—</div>
+      </div>
+      <div class="summary-row">
+        <div class="muted">Career</div>
+        <div id="sumCareer">—</div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <div style="font-weight:700;margin-bottom:6px">Quick tips</div>
+        <ul class="clean">
+          <li id="tip1">रुचि और योग्यता (गणित, जीवविज्ञान, भाषाएँ, रचनात्मकता) के आधार पर चुनें</li>
+          <li id="tip2">प्रतियोगी परीक्षाओं के लिए, मॉक टेस्ट और समय प्रबंधन का अभ्यास जल्दी शुरू करें।</li>
+        </ul>
+      </div>
+
+      <footer class="small">Made for students — simple language.किसी भी कदम पर वापस जाने के लिए पीछे के बटन का उपयोग करें।</footer>
+    </aside>
+  </div>
+
+  <script>
+    /**********************************************
+     * Grami Dost — Interactive Career Guidance App
+     * All data below is structured so adding more
+     * streams / categories is easy.
+     **********************************************/
+
+    // Application state
+    const state = {
+      status: null,
+      stream: null,
+      category: null,
+      career: null
+    };
+
+    // Data model: streams -> categories -> career details
+    const DATA = {
+      "Science (PCM)": {
+        categories: {
+          "Engineering": {
+            title: "Engineering",
+            overview: "Designing, building and maintaining infrastructure, machines, electronics and software. Good if you like maths and problem solving.",
+            paths: [
+              { label: "B.Tech / BE (4 years)", desc: "Standard 4-year degree after qualifying an entrance exam." },
+              { label: "Diploma → Lateral Entry to B.Tech", desc: "3-year diploma then join 2nd year of B.Tech through lateral entry." },
+              { label: "Government engineering entrance exams", desc: "JEE Main → JEE Advanced for IITs; state-level CETs for state colleges." },
+              { label: "Private engineering options", desc: "Many reputed private colleges with campus placements." },
+              { label: "Top branches", desc: "Computer Science, Electronics & Communication, Mechanical, Civil, Electrical, Chemical, Aerospace, IT, Biomedical, Civil." }
+            ],
+            courses: {
+              requiredSubjects: ["Physics", "Chemistry", "Mathematics", "Engineering Graphics (optional)"],
+              entranceExams: ["JEE Main", "JEE Advanced (for IITs)", "State CETs (e.g., MHT-CET, KCET)", "BITSAT (for BITS Pilani)"],
+              skills: ["Strong math & physics", "Problem solving", "Programming (for CS/IT)", "Hands-on lab skills", "Teamwork"],
+              topOnline: [
+                {title:"Intro to Programming (Python) — free course", provider:"Coursera / edX / NPTEL"},
+                {title:"Linear Algebra / Calculus refresher", provider:"Khan Academy / MIT OCW"},
+                {title:"Data Structures & Algorithms", provider:"Coursera / Udemy / NPTEL"}
+              ],
+              syllabusOverview: "Mechanics, Electricity & Magnetism, Thermodynamics, Calculus including limits, derivatives, integrals; basic programming for CS branches."
+            },
+            colleges: {
+              topGovt: ["IITs (IIT Bombay, Delhi, Madras, Kanpur...)", "NITs (NIT Trichy, NIT Surathkal...)", "IIITs"],
+              topPrivate: ["BITS Pilani", "VIT Vellore", "SRM University", "Amrita", "Manipal"],
+              admissionProcess: "Qualify entrance exam (JEE Main/WB JEE/CET/BITSAT), apply via counselling / college portal, document verification.",
+              feesRange: "Govt: ₹0.5L - ₹2.5L per year; Private: ₹2L - ₹6L per year (varies widely).",
+              scholarships: "Merit scholarships, central/state scholarships, EWS/SC/ST/OBC reservations."
+            },
+            future: {
+              jobs: ["Software Engineer", "Design Engineer", "R&D Engineer", "Quality Engineer", "Project Manager"],
+              startingSalary: "₹3.5 LPA - ₹12 LPA (entry level, varies by branch & college)",
+              growth: "High for CS & AI; steady for core engineering; growth into management or specialist roles over 5-10 years.",
+              govtJobs: ["ISRO, DRDO, BARC, Public Sector Units (BSNL, BHEL, ONGC) through GATE/Recruitment"],
+              abroad: "MS in USA/Europe/Australia; roles in product companies, research labs; good ROI for top grads."
+            }
+          },
+
+          "Defence": {
+            title: "Defence Services",
+            overview: "Roles in Army, Navy, Air Force — disciplined career with training and service to nation.",
+            paths: [
+              { label: "NDA / CDS / Technical Entry", desc: "National Defence Academy (NDA) after 12th; CDS after graduation; Technical Entry Schemes for engineering grads." }
+            ],
+            courses: {
+              requiredSubjects: ["Physical fitness & academics (Basic Maths, English & General Knowledge)"],
+              entranceExams: ["NDA exam (12th pass), AFCAT, CDS"],
+              skills: ["Physical fitness", "Discipline", "Leadership", "Basic field/technical knowledge"]
+            },
+            colleges: { topGovt: ["NDA (Khadakwasla)"], topPrivate: [], admissionProcess: "Exam + SSB interview" },
+            future: { jobs:["Officer roles, technical branches"], startingSalary:"₹5 LPA+ (with allowances)", growth:"Steady with rank promotions", govtJobs:["Permanent commission options"], abroad:"UN peacekeeping, exchange programs" }
+          },
+
+          "Computer Science": {
+            title: "Computer Science & IT",
+            overview: "Programming, software, systems, AI — great if you love coding, building apps or solving logic puzzles.",
+            paths: [
+              { label: "B.Tech in CSE / BCA / Integrated courses", desc: "Traditional routes into software careers." },
+              { label: "Bootcamps / Online nanodegrees", desc: "Shorter, skill-focused routes into dev jobs." }
+            ],
+            courses: {
+              requiredSubjects: ["Mathematics is highly recommended", "Computer basics"],
+              entranceExams: ["JEE Main; state exams; direct college admission; or BCA entrance tests"],
+              skills: ["Programming (Python/Java/C++)", "Data Structures & Algorithms", "Web dev, DB, OS basics", "Problem solving"],
+              topOnline: [{title:"CS50 (Harvard)",provider:"edX"},{title:"Algorithms (Princeton)",provider:"Coursera"}],
+              syllabusOverview: "Programming fundamentals → Data Structures → Algorithms → DBMS → OS → Computer Networks → AI/ML basics"
+            },
+            colleges: {
+              topGovt: ["IITs", "NITs", "IIITs"],
+              topPrivate: ["BITS Pilani", "VIT", "IIIT Hyderabad (semi-private)"],
+              admissionProcess: "JEE-based + college counseling or direct application for private colleges.",
+              feesRange: "Govt: ₹1L - ₹3L yearly; Private: ₹2L - ₹6L yearly"
+            },
+            future: {
+              jobs:["Software Developer", "Data Scientist", "DevOps Engineer", "Product Manager"],
+              startingSalary:"₹4 LPA - ₹20 LPA (top campus placements)",
+              growth:"Very high demand for AI/ML, cloud and data roles",
+              govtJobs:["DRDO, ISRO, NIC, C-DAC"],
+              abroad:"Very good prospects—tech hubs in USA, EU, Canada"
+            }
+          },
+
+          "Research": {
+            title: "Research & Academia",
+            overview: "If you enjoy discovery, experiments and long-term projects. Often involves MSc → PhD.",
+            paths: [{ label:"BSc → MSc → PhD", desc:"Strong maths/science background needed; join labs or internships" }],
+            courses: {
+              requiredSubjects: ["Strong fundamentals in chosen subject"],
+              entranceExams: ["CSIR-UGC NET (for research fellowships), institute-specific tests"],
+              skills: ["Analytical thinking", "Patience", "Lab skills", "Academic writing"]
+            },
+            colleges: { topGovt:["IISc, IISERs, TIFR (varies)"], topPrivate:[] },
+            future:{ jobs:["Research Scientist", "Lecturer"], startingSalary:"₹3 LPA - ₹10 LPA in industry/research", growth:"Steady; depends on publications & grants"}
+          },
+
+          "Aviation": {
+            title: "Aviation (Pilot / Airport Ops)",
+            overview: "Includes commercial pilot training, air traffic control, cabin crew, ground operations.",
+            paths:[{label:"Commercial Pilot License (CPL)",desc:"Fly planes — requires CPL training from DGCA-approved institutes."}],
+            courses:{requiredSubjects:["Physics, Math useful"], entranceExams:["DGCA medical & theory tests"], skills:["Spatial skills", "Quick decision making"]},
+            colleges:{topGovt:[], topPrivate:["Private flying schools (DGCA-approved)"], admissionProcess:"Medical + Flying Aptitude" },
+            future:{ jobs:["Pilot, ATC, Ground Operations"], startingSalary:"Varies widely; pilot pay starts high after type rating", growth:"Depends on aviation market recovery"}
+          },
+
+          "Data Science": {
+            title: "Data Science & Analytics",
+            overview: "Work with data to derive insights — mix of statistics, programming and business sense.",
+            paths:[{label:"B.Tech/BSc + specialized master's/bootcamps", desc:"Strong in math and coding helps."}],
+            courses:{
+              requiredSubjects:["Math (Statistics), Programming"],
+              entranceExams:["College-specific, or direct hire after bootcamps"],
+              skills:["Python/R, Statistics, ML, SQL, Data viz"],
+              topOnline:[{title:"Intro to Data Science", provider:"Coursera"}, {title:"Machine Learning", provider:"Coursera (Andrew Ng)"}]
+            },
+            colleges:{topGovt:["IITs, IISc"], topPrivate:["IIITs, top private universities"]},
+            future:{jobs:["Data Analyst","Data Scientist","ML Engineer"], startingSalary:"₹4 LPA - ₹15 LPA", growth:"Very high demand across industries"}
+          },
+
+          "UPSC": {
+            title:"UPSC / Civil Services",
+            overview:"If you want to serve in administrative services. Very competitive and requires months/years of focused study.",
+            paths:[{label:"Graduate → UPSC CSE preparation", desc:"Most candidates prepare after graduation; some join coaching."}],
+            courses:{requiredSubjects:["General studies, optional subject of your choice"], entranceExams:["UPSC CSE (Prelims, Mains, Interview)"], skills:["Reading, writing, current affairs, critical thinking"]},
+            colleges:{topGovt:[], topPrivate:[]},
+            future:{jobs:["IAS, IPS, IFS etc."], startingSalary:"₹50k+ with government perks", growth:"High prestige and stable growth in responsibility"}
+          },
+
+          "Polytechnic": {
+            title:"Polytechnic / Diploma",
+            overview:"Shorter technical diploma courses (3 years) focused on practical skills — good for earlier job entry.",
+            paths:[{label:"3-year Diploma → Industry jobs or lateral to 2nd year B.Tech", desc:"Hands-on training and internships."}],
+            courses:{requiredSubjects:["PCM basics"], entranceExams:["State-level polytechnic entrance tests"], skills:["Practical skills, workshops"]},
+            colleges:{topGovt:["State polytechnic institutes"], topPrivate:[]},
+            future:{jobs:["Technician, Junior Engineer"], startingSalary:"₹1.8 LPA - ₹4 LPA"}
+          },
+
+          "Diploma Courses": {
+            title:"Short / Vocational Diplomas",
+            overview:"1-2 year focused courses — electrician, mechanic, web dev, UI/UX — fast to job.",
+            paths:[{label:"Short-term diplomas & certificate courses",desc:"Good for quick entry into workforce"}],
+            courses:{requiredSubjects:["Varies by trade"], entranceExams:[], skills:["Hands-on trade skills"]},
+            colleges:{topGovt:[], topPrivate:["ITIs, private vocational institutes"]},
+            future:{jobs:["Technician, Junior Developer"], startingSalary:"₹1.5 LPA - ₹4 LPA"}
+          }
+        }
+      },
+
+      "Science (PCB)": {
+        categories: {
+          "Medical (MBBS / BDS / Nursing)": {
+            title:"Medical & Allied Health",
+            overview:"Work as doctors, dentists or allied health professionals. Requires strong biology and long study.",
+            paths:[
+              {label:"MBBS (5.5 years including internship)", desc:"Doctor degree — requires NEET qualification."},
+              {label:"BDS (5 years)", desc:"Dentistry via NEET."},
+              {label:"B.Sc Nursing / ANM / Paramedical", desc:"Shorter routes into healthcare"}
+            ],
+            courses:{
+              requiredSubjects:["Biology, Chemistry, Physics/Maths optional"],
+              entranceExams:["NEET-UG for MBBS/BDS, AIIMS/other tests for some colleges"],
+              skills:["Compassion, memorization, practical skills, stamina"],
+              topOnline:[{title:"Anatomy & Physiology intro",provider:"Coursera"}, {title:"Medical ethics basics",provider:"edX"}]
+            },
+            colleges:{
+              topGovt:["AIIMS (various), Top government medical colleges by state rank"],
+              topPrivate:["Private medical colleges (varies by state)"],
+              admissionProcess:"NEET rank → counselling → seat allotment",
+              feesRange:"Govt: low (₹50k-₹2L total), Private: high (₹10L+ per year)"
+            },
+            future:{
+              jobs:["Resident Doctor, Surgeon, Specialist"], startingSalary:"₹6 LPA - ₹20 LPA (varies widely)", growth:"High demand; specialization increases pay", govtJobs:["PG seats, public hospitals"], abroad:"High demand but requires licensing exams (USMLE, PLAB)"
+            }
+          },
+          "Pharmacy": {
+            title:"Pharmacy",
+            overview:"Work in drug development, dispensing, quality control and pharma industry.",
+            paths:[{label:"B.Pharm (4 years), D.Pharm (2 years)","desc":"Various roles in industry and hospitals."}],
+            courses:{requiredSubjects:["Biology/Chemistry"], entranceExams:["State-level pharmacy entrance tests"], skills:["Chemistry, lab skills"]},
+            colleges:{topGovt:["Govt pharmacy colleges"], topPrivate:[]},
+            future:{jobs:["Pharmacist, QC Analyst"], startingSalary:"₹2 LPA - ₹6 LPA"}
+          }
+        }
+      },
+
+      "Commerce": {
+        categories: {
+          "Accounting / CA / CMA": {
+            title:"Accounting & Professional Finance",
+            overview:"Roles in accounting, auditing, taxation — good for detail-oriented students.",
+            paths:[
+              {label:"CA (Charted Accountant)", desc:"Professional path via CA Foundation → Intermediate → Final; rigorous but respected."},
+              {label:"B.Com → M.Com / MBA", desc:"Traditional commerce degrees."}
+            ],
+            courses:{
+              requiredSubjects:["Accounts, Economics, Business Studies, Maths helpful"],
+              entranceExams:["CA Foundation / CMA / University entrance"],
+              skills:["Accounting, Excel, Tax laws, Attention to detail"],
+              topOnline:[{title:"GST & Taxation basics", provider:"Udemy"}, {title:"Financial Accounting", provider:"Coursera"}]
+            },
+            colleges:{topGovt:[], topPrivate:["Top commerce colleges like SRCC, St. Xavier's, Loyola"]},
+            future:{jobs:["Auditor, Tax Consultant, CFO (senior)"], startingSalary:"₹2.5 LPA - ₹8 LPA", growth:"Strong for qualified professionals"}
+          },
+          "Business / Management": {
+            title:"Business Management & Entrepreneurship",
+            overview:"Startups, marketing, HR, operations; suitable for people with leadership interest.",
+            paths:[{label:"BBA → MBA", desc:"Grow into management roles; MBA increases scope."}],
+            courses:{requiredSubjects:["Basic math, business studies"], entranceExams:["University tests; MBA requires CAT/XAT/CMAT later"]},
+            colleges:{topGovt:[], topPrivate:["SRCC, NMIMS, XLRI (MBA for PG)"]},
+            future:{jobs:["Marketing Manager, Operations, HR"], startingSalary:"₹3 LPA - ₹10 LPA"}
+          },
+          "Finance / Investment Banking": {
+            title:"Finance & Banking",
+            overview:"Careers in banks, investment firms, fintech — math & analytical skills help.",
+            paths:[{label:"B.Com / BAF / BBA Finance → Certifications (CFA/FRM)",desc:"Certs boost careers"}],
+            courses:{requiredSubjects:["Maths, Accounts"], entranceExams:["Banking exams, campus placements"], skills:["Excel, modeling, analytics"]},
+            colleges:{topGovt:[], topPrivate:[]},
+            future:{jobs:["Bank PO, Analyst, Relationship Manager"], startingSalary:"₹3 LPA - ₹12 LPA"}
+          }
+        }
+      },
+
+      "Arts/Humanities": {
+        categories: {
+          "Teaching / Education": {
+            title:"Teaching & Education",
+            overview:"Become a teacher, trainer or academic; satisfying if you like explaining things to others.",
+            paths:[{label:"B.Ed after graduation or B.El.Ed after 12th",desc:"Teaching certifications required for school teaching"}],
+            courses:{requiredSubjects:["Languages, Social Studies, Philosophy"], entranceExams:["B.Ed entrance tests"], skills:["Communication, patience"]},
+            colleges:{topGovt:[], topPrivate:[]},
+            future:{jobs:["School Teacher, Trainer"], startingSalary:"₹1.8 LPA - ₹5 LPA"}
+          },
+          "Design / Media / Arts": {
+            title:"Design, Media & Creative Arts",
+            overview:"Graphic design, fine arts, film, journalism, animation — good for creative students.",
+            paths:[{label:"Degree / Diploma in Design, Animation, Journalism",desc:"Combine portfolio with internships"}],
+            courses:{requiredSubjects:["Portfolio, creative work"], entranceExams:["NID, NIFT, CEED for design PG"], skills:["Creativity, software skills (Adobe)"]},
+            colleges:{topGovt:["National Institutes (NID/NIFT)"], topPrivate:[]},
+            future:{jobs:["Designer, Editor, Content Creator"], startingSalary:"₹2 LPA - ₹8 LPA"}
+          }
+        }
+      },
+
+      "Agriculture Stream": {
+        categories: {
+          "Agriculture & Allied": {
+            title:"Agriculture, Horticulture & Allied",
+            overview:"Work in farming tech, agri-business, animal husbandry; good for rural contexts & sustainability.",
+            paths:[{label:"B.Sc Agriculture",desc:"Focus on practical farm science and agri-business"}],
+            courses:{requiredSubjects:["Biology, Chemistry, Agricultural Science"], entranceExams:["State agriculture entrance tests"], skills:["Practical farm skills, agronomy"]},
+            colleges:{topGovt:[], topPrivate:[]},
+            future:{jobs:["Agronomist, Extension Officer"], startingSalary:"₹2 LPA - ₹6 LPA"}
+          }
+        }
+      },
+
+      "Vocational Stream": {
+        categories: {
+          "Trade & Skilled Work": {
+            title:"Vocational & Skilled Trades",
+            overview:"Practical trades — electrician, plumber, auto-mechanic, CNC operator — quick to employment.",
+            paths:[{label:"Industrial Training Institutes (ITI), Apprenticeships",desc:"1-2 year courses focusing on job readiness"}],
+            courses:{requiredSubjects:["Basic science / maths"], entranceExams:[], skills:["Hands-on trade skills, safety protocols"]},
+            colleges:{topGovt:["ITI institutes"], topPrivate:[]},
+            future:{jobs:["Technician, Electrician"], startingSalary:"₹1.5 LPA - ₹4 LPA"}
+          }
+        }
+      },
+
+      "IT / Computer Stream": {
+        categories: {
+          "Software Development": {
+            title:"Software Development",
+            overview:"Coding, web/mobile apps, cloud — huge demand and many entry paths.",
+            paths:[
+              {label:"B.Tech CSE / BCA / Bootcamps", desc:"Formal degree or bootcamp + portfolio can land developer roles."}
+            ],
+            courses:{
+              requiredSubjects:["Maths helpful; programming basics"],
+              entranceExams:["JEE Main or university admissions for degrees"],
+              skills:["JavaScript, Python, Data Structures, Web Dev, Git"],
+              topOnline:[{title:"Full Stack Web Developer Track", provider:"Coursera / Udemy"}]
+            },
+            colleges:{topGovt:["IITs, NITs, IIITs"], topPrivate:["Leading private universities"]},
+            future:{jobs:["Frontend/Backend Developer, Mobile Dev"], startingSalary:"₹3.5 LPA - ₹12 LPA"}
+          }
+        }
+      },
+
+      "Class 10th Student": {
+        categories: {
+          "Choose Stream After 10th": {
+            title:"Choosing Stream After 10th",
+            overview:"Pick based on interest & marks. PCM -> Engineering/IT; PCB -> Medical; Commerce -> Business; Arts -> Creative/Teaching.",
+            paths:[
+              {label:"Explore sample subjects and career mapping", desc:"Use this tool to simulate different choices."}
+            ],
+            courses:{requiredSubjects:[], entranceExams:[], skills:[]},
+            colleges:{topGovt:[],topPrivate:[]},
+            future:{jobs:[],startingSalary:"Varies"}
+          }
+        }
+      },
+
+      "Searching For Short-Term Courses": {
+        categories: {
+          "Short-Term Technical Courses": {
+            title:"Short-Term Courses",
+            overview:"Fast skill-building: web dev, digital marketing, plumbing, electrician, beauty tech, data analytics.",
+            paths:[
+              {label:"Duration 1-12 months", desc:"Choose based on quick employability and local demand."}
+            ],
+            courses:{
+              requiredSubjects:["None usually; basic schooling helpful"],
+              entranceExams:[],
+              skills:["Hands-on skills, industry projects"],
+              topOnline:[{title:"Google IT Support Professional Certificate", provider:"Coursera"}, {title:"Digital Marketing", provider:"Google / HubSpot"}]
+            },
+            colleges:{topGovt:["Local polytechnics/ITI"], topPrivate:["Private training institutes & online platforms"]},
+            future:{jobs:["Technician, Junior Developer, Digital Marketer"], startingSalary:"₹1.5 LPA - ₹6 LPA"}
+          }
+        }
+      }
+
+    };
+
+    // UI helpers
+    const $ = sel => document.querySelector(sel);
+    const $$ = sel => Array.from(document.querySelectorAll(sel));
+
+    function showPanel(id){
+      $$('.panel').forEach(p => p.classList.remove('active'));
+      const panel = document.getElementById(id);
+      if(panel) panel.classList.add('active');
+    }
+
+    function updateSummary(){
+      $('#sumStatus').textContent = state.status || '—';
+      $('#sumStream').textContent = state.stream || '—';
+      $('#sumCategory').textContent = state.category || '—';
+      $('#sumCareer').textContent = state.career || '—';
+    }
+
+    // Step 1 buttons
+    $$('.btn-card[data-next="step2"]').forEach(btn => {
+      btn.addEventListener('click', (e)=>{
+        const status = btn.dataset.choice;
+        state.status = status;
+        // Move to step 2
+        populateStreamsForStatus(status);
+        updateSummary();
+        showPanel('step2');
+        window.scrollTo({top:0,behavior:'smooth'});
+      });
+    });
+
+    // Populate streams for Step 2 based on status
+    function populateStreamsForStatus(status){
+      const container = $('#streamOptions');
+      container.innerHTML = '';
+      $('#streamIntro').textContent = `You selected: ${status}. Choose the stream that best matches your 12th/interest.`;
+
+      // If user is Class 10th, show stream guidance; else show full list
+      let streamsList = [];
+      if(status === '12th Pass-Out'){
+        streamsList = ["Science (PCM)","Science (PCB)","Commerce","Arts/Humanities","Agriculture Stream","Vocational Stream","IT / Computer Stream"];
+      } else if(status === 'College Pass-Out'){
+        streamsList = ["Science (PCM)","Science (PCB)","Commerce","Arts/Humanities","IT / Computer Stream","Vocational Stream"];
+      } else if(status === 'Class 10th Student'){
+        streamsList = ["Science (PCM)","Science (PCB)","Commerce","Arts/Humanities","Vocational Stream","IT / Computer Stream"];
+      } else if(status === 'Searching For Short-Term Courses'){
+        streamsList = ["Searching For Short-Term Courses"];
+      }
+
+      streamsList.forEach(name=>{
+        const btn = document.createElement('button');
+        btn.className = 'btn-card';
+        btn.textContent = name;
+        btn.addEventListener('click', ()=>{
+          state.stream = name;
+          updateSummary();
+          populateCategoriesForStream(name);
+          showPanel('step3');
+          window.scrollTo({top:0,behavior:'smooth'});
+        });
+        container.appendChild(btn);
+      });
+    }
+
+    // Step 3: categories for a stream
+    function populateCategoriesForStream(stream){
+      const data = DATA[stream];
+      const container = $('#careerCategories');
+      container.innerHTML = '';
+      $('#streamSelected').textContent = `Stream: ${stream}. Pick a major career category (these are broad directions).`;
+
+      if(!data){
+        // fallback
+        const btn = document.createElement('button');
+        btn.className = 'btn-card';
+        btn.textContent = 'Explore generic options';
+        btn.addEventListener('click', ()=>{
+          state.category = 'General';
+          state.career = 'General Career';
+          updateSummary();
+          showCareerDetails({title:'General Career', overview:'General career options. Choose a field you enjoy.'});
+          showPanel('step4');
+        });
+        container.appendChild(btn);
+        return;
+      }
+
+      const categories = Object.keys(data.categories);
+      categories.forEach(catName=>{
+        const cat = data.categories[catName];
+        const btn = document.createElement('button');
+        btn.className = 'btn-card';
+        btn.innerHTML = `<strong>${catName}</strong><span style="font-weight:400;font-size:13px;color:var(--muted);margin-top:6px;display:block">${cat.title || ''}</span>`;
+        btn.addEventListener('click', ()=>{
+          state.category = catName;
+          updateSummary();
+          showCareerDetails(cat);
+          showPanel('step4');
+          window.scrollTo({top:0,behavior:'smooth'});
+        });
+        container.appendChild(btn);
+      });
+    }
+
+    // Show career details (Step 4)
+    function showCareerDetails(cat){
+      $('#careerSelectedIntro').textContent = `Category: ${state.category || cat.title}. Basic overview:`;
+      const box = $('#careerDetails');
+      box.innerHTML = '';
+
+      // Overview
+      const ov = document.createElement('div');
+      ov.innerHTML = `<p style="margin:0 0 8px 0">${cat.overview || 'Overview not available.'}</p>`;
+      box.appendChild(ov);
+
+      // Paths
+      const pTitle = document.createElement('div'); pTitle.className='muted'; pTitle.style.marginTop='6px'; pTitle.textContent='Common career paths / options:';
+      box.appendChild(pTitle);
+      const ul = document.createElement('ul'); ul.className='clean';
+      (cat.paths || []).forEach(p=>{
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${p.label}</strong> — <span class="muted" style="font-weight:500">${p.desc || ''}</span>`;
+        ul.appendChild(li);
+      });
+      box.appendChild(ul);
+
+      // Extra: show top branches / highlights if present
+      if(cat.topBranches){
+        const b = document.createElement('div'); b.className='muted'; b.textContent='Top branches/specializations:';
+        box.appendChild(b);
+        const ul2=document.createElement('ul');ul2.className='clean';
+        cat.topBranches.forEach(tb=>{
+          const li=document.createElement('li');li.textContent=tb;ul2.appendChild(li);
+        });
+        box.appendChild(ul2);
+      }
+
+      // Save career (for summary)
+      // We'll pick the category title as career if not more detailed
+      state.career = cat.title || state.category;
+      updateSummary();
+
+      // Store the currently displayed cat data for next steps
+      currentCatData = cat;
+    }
+
+    // Keep last selected career/category data
+    let currentCatData = null;
+
+    // Navigation: next buttons
+    $('#toCourses').addEventListener('click', ()=>{
+      populateCourses(currentCatData);
+      showPanel('step5');
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+
+    $('#toColleges').addEventListener('click', ()=>{
+      populateColleges(currentCatData);
+      showPanel('step6');
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+
+    $('#toColleges2').addEventListener('click', ()=>{
+      populateColleges(currentCatData);
+      showPanel('step6');
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+
+    $('#toFuture').addEventListener('click', ()=>{
+      populateFuture(currentCatData);
+      showPanel('step7');
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+
+    // Back buttons
+    $('#back1').addEventListener('click', ()=>{ showPanel('step1'); window.scrollTo({top:0,behavior:'smooth'}); });
+    $('#back2').addEventListener('click', ()=>{ showPanel('step2'); window.scrollTo({top:0,behavior:'smooth'}); });
+    $('#back3').addEventListener('click', ()=>{ showPanel('step3'); window.scrollTo({top:0,behavior:'smooth'}); });
+    $('#back4').addEventListener('click', ()=>{ showPanel('step4'); window.scrollTo({top:0,behavior:'smooth'}); });
+    $('#back5').addEventListener('click', ()=>{ showPanel('step5'); window.scrollTo({top:0,behavior:'smooth'}); });
+    $('#back6').addEventListener('click', ()=>{ showPanel('step6'); window.scrollTo({top:0,behavior:'smooth'}); });
+
+    $('#startOver').addEventListener('click', ()=>{
+      state.status = state.stream = state.category = state.career = null;
+      currentCatData = null;
+      updateSummary();
+      showPanel('step1');
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+
+    // Populate Courses (Step 5)
+    function populateCourses(cat){
+      $('#coursesForCareer').textContent = `Career: ${state.career || state.category}. These are the typical course & skill requirements (simple language).`;
+      const container = $('#coursesDetails');
+      container.innerHTML = '';
+
+      if(!cat || !cat.courses){
+        container.innerHTML = `<div class="muted">No detailed courses found. General advice: focus on core subjects, practice real projects, learn basic tools used in the field.</div>`;
+        return;
+      }
+
+      const c = cat.courses;
+
+      const ul = document.createElement('ul'); ul.className='clean';
+      ul.innerHTML = `
+        <li><strong>Required Subjects:</strong> ${Array.isArray(c.requiredSubjects) && c.requiredSubjects.length? c.requiredSubjects.join(', ') : 'Varies'}</li>
+        <li><strong>Entrance Exams:</strong> ${Array.isArray(c.entranceExams) && c.entranceExams.length? c.entranceExams.join(', ') : 'Often none — check institutes'}</li>
+        <li><strong>Skill Requirements:</strong> ${Array.isArray(c.skills) && c.skills.length? c.skills.join(', ') : 'Soft skills and domain basics'}</li>
+      `;
+      container.appendChild(ul);
+
+      // Online courses list
+      if(c.topOnline && c.topOnline.length){
+        const sub = document.createElement('div'); sub.className='muted'; sub.style.marginTop='8px'; sub.textContent='Top recommended online courses (start with these):';
+        container.appendChild(sub);
+        const ul2 = document.createElement('ul'); ul2.className='clean';
+        c.topOnline.forEach(item=>{
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>${item.title}</strong> — <span class="muted">${item.provider}</span>`;
+          ul2.appendChild(li);
+        });
+        container.appendChild(ul2);
+      }
+
+      // Short syllabus overview
+      if(c.syllabusOverview){
+        const sTitle = document.createElement('div'); sTitle.className='muted'; sTitle.style.marginTop='8px'; sTitle.textContent = 'Syllabus overview:';
+        container.appendChild(sTitle);
+        const p = document.createElement('p'); p.style.marginTop='6px'; p.textContent = c.syllabusOverview;
+        container.appendChild(p);
+      }
+    }
+
+    // Populate Colleges & Exams (Step 6)
+    function populateColleges(cat){
+      $('#collegesIntro').textContent = `For: ${state.career || state.category}. Here are top colleges, admission process and fees — simple language.`;
+      const container = $('#collegesDetails');
+      container.innerHTML = '';
+
+      if(!cat || !cat.colleges){
+        container.innerHTML = `<div class="muted">No college data available for this category. Search local colleges or vocational centers in your state.</div>`;
+        return;
+      }
+
+      const c = cat.colleges;
+
+      const govt = document.createElement('div'); govt.style.marginTop='6px';
+      govt.innerHTML = `<div style="font-weight:700">Top Government Colleges</div><div class="muted">${(c.topGovt && c.topGovt.length) ? c.topGovt.join(', ') : 'Varies by state/institute'}</div>`;
+      container.appendChild(govt);
+
+      const priv = document.createElement('div'); priv.style.marginTop='8px';
+      priv.innerHTML = `<div style="font-weight:700">Top Private Colleges</div><div class="muted">${(c.topPrivate && c.topPrivate.length) ? c.topPrivate.join(', ') : 'Many private options — check accreditation & placements'}</div>`;
+      container.appendChild(priv);
+
+      const admission = document.createElement('div'); admission.style.marginTop='8px';
+      admission.innerHTML = `<div style="font-weight:700">Admission Process</div><div class="muted">${c.admissionProcess || 'Entrance exam → counselling / direct admission depending on college'}</div>`;
+      container.appendChild(admission);
+
+      const fees = document.createElement('div'); fees.style.marginTop='8px';
+      fees.innerHTML = `<div style="font-weight:700">Fees Range</div><div class="muted">${c.feesRange || 'Varies; government colleges generally lower'}</div>`;
+      container.appendChild(fees);
+
+      const schol = document.createElement('div'); schol.style.marginTop='8px';
+      schol.innerHTML = `<div style="font-weight:700">Scholarships</div><div class="muted">${c.scholarships || 'Merit & state/federal scholarships often available'}</div>`;
+      container.appendChild(schol);
+    }
+
+    // Populate Future scope (Step 7)
+    function populateFuture(cat){
+      $('#futureIntro').textContent = `Future for ${state.career || state.category}: what jobs, salary and growth to expect (simple words).`;
+      const container = $('#futureDetails');
+      container.innerHTML = '';
+
+      if(!cat || !cat.future){
+        container.innerHTML = `<div class="muted">No specific future data. General advice: build skills, internships, and network. Consider short courses if job market is tight.</div>`;
+        return;
+      }
+
+      const f = cat.future;
+      const ul = document.createElement('ul'); ul.className='clean';
+      ul.innerHTML = `
+        <li><strong>Job Opportunities:</strong> ${Array.isArray(f.jobs)? f.jobs.join(', ') : f.jobs || 'Varies'}</li>
+        <li><strong>Starting Salary (typical):</strong> ${f.startingSalary || 'Varies by college & branch'}</li>
+        <li><strong>Growth Rate:</strong> ${f.growth || 'Depends on specialization and performance'}</li>
+        <li><strong>Government Job Options:</strong> ${f.govtJobs ? (Array.isArray(f.govtJobs) ? f.govtJobs.join(', ') : f.govtJobs) : 'Look for PSU/Govt recruitments'} </li>
+        <li><strong>Abroad Opportunities:</strong> ${f.abroad || 'Possible, often requires additional tests/certifications'} </li>
+      `;
+      container.appendChild(ul);
+
+      // Simple next steps advice
+      const advice = document.createElement('div'); advice.style.marginTop='10px';
+      advice.innerHTML = `<div style="font-weight:700">Next steps — simple & practical</div>
+        <ul class="clean">
+          <li>Start with small projects or internships to build a portfolio.</li>
+          <li>If an entrance exam is needed, make a 6-12 month study plan with mock tests.</li>
+          <li>Take free online courses for basics (Khan Academy, Coursera, NPTEL).</li>
+        </ul>`;
+      container.appendChild(advice);
+    }
+
+    // Initialize summary defaults
+    updateSummary();
+
+    // Accessibility: keyboard support for card buttons
+    document.addEventListener('keydown', e=>{
+      if(e.key === 'Escape'){
+        // Escape returns to first screen
+        showPanel('step1');
+      }
+    });
+
+    // On first load, show step1 exactly as asked
+    showPanel('step1');
+  </script>
+</body>
+</html>

@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ग्रामीण दोस्त — किसान और स्टूडेंट का साथी</title>
+    <meta name="description" content="Grami Dost - आपका स्मार्ट कृषि और शिक्षा सहयोगी। मौसम जानकारी, AI टूल्स, PDF नोट्स, और बहुत कुछ।">
+    <meta property="og:title" content="ग्रामीण दोस्त — किसान और स्टूडेंट का साथी">
+    <meta property="og:description" content="Grami Dost - आपका स्मार्ट कृषि और शिक्षा सहयोगी">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables */
+        :root {
+            --dark-green: #0d3b1d;
+            --primary-green: #1b8a2f;
+            --light-green: #c8ffb0;
+            --yellow: #fde047;
+            --white: #ffffff;
+            --light-yellow: #faff71;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-green);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--dark-green);
+            color: var(--white);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-menu li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        .nav-menu li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .light-section {
+            background-color: var(--light-green);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--dark-green);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--primary-green);
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            min-height: 80vh;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            color: var(--dark-green);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(27, 138, 47, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(27, 138, 47, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: var(--yellow);
+            color: #333;
+            box-shadow: 0 4px 12px rgba(253, 224, 71, 0.3);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(253, 224, 71, 0.4);
+        }
+
+       .hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-illustration {
+    width: 100%;
+    max-width: 500px; /* Desktop पर बड़ी image */
+    height: auto;
+    background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative circles */
+.hero-illustration::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    top: -50px;
+    left: -50px;
+}
+
+.hero-illustration::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    bottom: -50px;
+    right: -50px;
+}
+
+/* ⭐ Image Styling */
+.hero-main-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    z-index: 5;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .hero-illustration {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .hero-main-img {
+        width: 100%;
+    }
+}
+
+        /* Weather Widget */
+        .weather-widget {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+            transition: var(--transition);
+        }
+
+        .weather-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .weather-title {
+            font-size: 1.5rem;
+            color: var(--dark-green);
+        }
+
+        .location-input {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .location-input input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+
+        .location-input button {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-green);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .location-input button:hover {
+            background-color: var(--dark-green);
+        }
+
+        .weather-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .weather-icon {
+            font-size: 4rem;
+            color: var(--primary-green);
+        }
+
+        .temperature {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--dark-green);
+        }
+
+        .weather-description {
+            font-size: 1.2rem;
+            color: #555;
+            text-transform: capitalize;
+        }
+
+        .weather-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .weather-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--primary-green);
+        }
+
+        .error {
+            text-align: center;
+            padding: 2rem;
+            color: #e74c3c;
+        }
+
+        /* Mandi Bhav Section */
+        .districts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .district-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .district-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .district-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+        }
+
+        /* AI Tools Section */
+        .ai-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .ai-tool-card {
+            background-color: var(--light-yellow);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .ai-tool-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+
+.ai-tool1-card {
+            background-color: var(--yellow);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+
+
+        .ai-tool1-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .tool-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+        }
+
+        .tool-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .tool-button {
+            align-self: flex-start;
+            margin-top: auto;
+        }
+
+        /* Image Slider */
+.slider-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+}
+
+/* Dots */
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1.5rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.dot.active {
+    background-color: var(--primary-green);
+}
+
+@media(max-width: 600px) {
+    .slide img {
+        height: 200px;
+    }
+}
+
+        /* Farming Calculator */
+        .calculator-container {
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .calculator-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-green);
+        }
+
+        .form-group select, .form-group input {
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .calculate-btn {
+            grid-column: span 2;
+            background-color: var(--primary-green);
+            color: var(--white);
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .calculate-btn:hover {
+            background-color: var(--dark-green);
+        }
+
+        .results {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .result-item {
+            background-color: var(--light-yellow);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .result-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--dark-green);
+            margin-top: 0.5rem;
+        }
+
+        /* PDF Notes Section */
+        .pdf-notes {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .pdf-content {
+            flex: 1;
+        }
+
+        .pdf-title {
+            font-size: 2.5rem;
+            color: var(--dark-green);
+            margin-bottom: 1.5rem;
+        }
+
+        .pdf-description {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .pdf-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .pdf-illustration {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .pdf-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        /* Ad Unit */
+        .ad-unit {
+            background-color: #f5f5f5;
+            border: 1px dashed #ccc;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem auto;
+            max-width: 800px;
+            border-radius: 8px;
+            color: #777;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-green);
+            color: var(--white);
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-green);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-green);
+            transform: translateY(-3px);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--dark-green);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Background Effects */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            border-radius: 50%;
+            background: var(--primary-green);
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 1rem;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark-green);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .pdf-notes {
+                flex-direction: column;
+            }
+            
+            .calculator-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .calculate-btn {
+                grid-column: span 1;
+            }
+            
+            .ai-tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .results {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="floating-shapes" id="floatingShapes"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-img">GD</div>
+                <div class="logo-text">GRAMI DOST — किसान और स्टूडेंट का साथी</div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#weather"><i class="fas fa-cloud-sun"></i> मौसम</a></li>
+                <li><a href="#ai-tools"><i class="fas fa-robot"></i> AI Tools</a></li>
+                <li><a href="#pdf-notes"><i class="fas fa-file-pdf"></i> PDF Notes</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero light-section">
+            <div class="hero-content">
+                <h1 class="hero-title">GRAMI DOST — आपका स्मार्ट सहयोगी</h1>
+                <p class="hero-subtitle">किसानों और छात्रों के लिए एक ही प्लेटफॉर्म पर सभी जरूरी सुविधाएं। मौसम जानकारी, AI टूल्स, PDF नोट्स, और बहुत कुछ।</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary"> <i class="fas fa-cloud-sun"></i> <a href="weather-advisor.html"> मौसम जानें </a></button>
+                    <button class="btn btn-secondary"><i class="fas fa-robot"></i> <a href="#ai-tools"> AI टूल्स </a></button>
+                </div>
+            </div>
+           <div class="hero-image">
+    <div class="hero-illustration">
+        <img src="HEROSECTION.png" alt="Grami Dost Image" class="hero-main-img">
+    </div>
+</div>
+
+            </div>
+        </section>
+        <!-- Grami Dost AI Agent - Floating Left -->
+
+
+<div id="grami-agent-container">
+  <script src='https://cdn.jotfor.ms/agent/embedjs/019ad5a02f6579e39e706d66831664745772/embed.js'>
+</script>
+</div>
+
+
+        <!-- Weather Widget -->
+        <section id="weather" class="light-section">
+            <h2 class="section-title">मौसम जानकारी</h2>
+            <div class="weather-widget">
+                <div class="weather-header">
+                    <h3 class="weather-title">आज का मौसम</h3>
+                    <button id="locationBtn"><i class="fas fa-location-arrow"></i></button>
+                </div>
+                <div class="location-input">
+                    <input type="text" id="locationInput" placeholder="शहर या जिला नाम दर्ज करें">
+                    <button id="searchBtn">खोजें</button>
+                </div>
+                <div class="weather-content" id="weatherContent">
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i> मौसम जानकारी लोड हो रही है...
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mandi Bhav Section -->
+        <section class="light-section">
+            <h2 class="section-title">आज के जिलेवार मंडी भाव</h2>
+            <div class="districts-grid">
+                <div class="district-card">
+                    <div class="district-name"> हनुमानगढ़</div>
+                   <a href="haumangarh.html"> <button class="btn btn-primary">देखें भाव </button> </a>
+                </div>
+                <div class="district-card">
+                    <div class="district-name">श्री गंगानगर</div>
+                  <a href="ganganagar.html">  <button class="btn btn-primary">देखें भाव</button></a>
+                </div>
+                <div class="district-card">
+                    <div class="district-name">बीकानेर</div>
+                  <a href="bikaner.html">  <button class="btn btn-primary">देखें भाव</button> </a>
+                </div>
+                <div class="district-card">
+                    <div class="district-name">चूरू</div>
+                    <button class="btn btn-primary">देखें भाव</button>
+                </div>
+                <div class="district-card">
+                    <div class="district-name">नागौर</div>
+                    <button class="btn btn-primary">देखें भाव</button>
+                </div>
+                <div class="district-card">
+                    <div class="district-name">जैसलमेर</div>
+                    <button class="btn btn-primary">देखें भाव</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Tools Section -->
+        <section id="ai-tools" class="light-section">
+            <h2 class="section-title">-Explore Smart AI Tools-</h2>
+            <div class="ai-tools-grid">
+                <div class="ai-tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="tool-title">योजना सलाहकार-</h3>
+                    <p class="tool-description">सरकारी योजनाओं की पूरी और सही जानकारी, आपकी ज़रूरत और पात्रता के हिसाब से बिल्कुल सटीक सलाह।</p>
+                   <a href="yojana-advisor.html"> <button class="btn btn-primary tool-button">Open Tool</button> </a>
+                </div>
+                <div class="ai-tool1-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="tool-title">करियर गाइडेंस-</h3>
+                    <p class="tool-description">आपकी पढ़ाई, स्किल और रुचियों के आधार पर सही करियर चुनने में मदद करने वाला स्मार्ट AI मार्गदर्शक।</p>
+                   <a href="career-guide.html"> <button class="btn btn-primary tool-button">Open Tool</button> </a>
+                </div>
+                <div class="ai-tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-cloud-sun-rain"></i>
+                    </div>
+                    <h3 class="tool-title">मौसम सलाहकार-</h3>
+                    <p class="tool-description">खेती से पहले मौसम की पूरी रिपोर्ट, फसल के अनुसार सलाह और आने वाले दिनों की सही तैयारी।</p>
+                    <a href="weather-advisor.html"><button class="btn btn-primary tool-button">Open Tool</button> </a>
+                </div>
+                <div class="ai-tool1-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="tool-title">टाइम टेबल मेकर-</h3>
+                    <p class="tool-description">आपकी पढ़ाई, समय और टारगेट के हिसाब से स्मार्ट AI आपके लिए परफेक्ट टाइम टेबल तैयार करता है।</p>
+                   <a href="smart-timetable.html"> <button class="btn btn-primary tool-button">Open Tool</button> </a>
+                </div>
+            </div>
+        </section>
+
+      <!-- Image Slider -->
+<section class="light-section">
+    <h2 class="section-title">ग्रामीण दोस्त की सेवाएं</h2>
+
+    <div class="slider-container">
+        <div class="slider" id="slider">
+
+            <div class="slide">
+                <img src="time-table.png" alt="">
+            </div>
+
+            <div class="slide">
+                <img src="pdf notes.png" alt="">
+            </div>
+
+            <div class="slide">
+                <img src="service.png" alt="">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="slider-dots" id="sliderDots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+</section>
+
+
+        <!-- Farming Calculator -->
+        <section class="light-section">
+            <h2 class="section-title">खेती कैलकुलेटर</h2>
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="crop-select">फसल चुनें</label>
+                        <select id="crop-select">
+                            <option value="wheat">गेहूं</option>
+                            <option value="rice">धान</option>
+                            <option value="cotton">कपास</option>
+                            <option value="mustard">सरसों</option>
+                            <option value="bajra">बाजरा</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="land-area">कितने बीघा</label>
+                        <input type="number" id="land-area" placeholder="बीघा में क्षेत्रफल">
+                    </div>
+                    <button class="calculate-btn" id="calculateBtn">कैलकुलेट करें</button>
+                </div>
+                <div class="results" id="results">
+                    <div class="result-item">
+                        <div>आवश्यक बीज</div>
+                        <div class="result-value" id="seeds">-</div>
+                    </div>
+                    <div class="result-item">
+                        <div>पानी</div>
+                        <div class="result-value" id="water">-</div>
+                    </div>
+                    <div class="result-item">
+                        <div>खाद/उर्वरक</div>
+                        <div class="result-value" id="fertilizer">-</div>
+                    </div>
+                    <div class="result-item">
+                        <div>Spray Schedule</div>
+                        <div class="result-value" id="spray">-</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PDF Notes Section -->
+        <section id="pdf-notes" class="light-section">
+            <div class="pdf-notes">
+                <div class="pdf-content">
+                    <h2 class="pdf-title">बिना टेंशन पढ़ो, आपके सभी नोट्स एक क्लिक में!</h2>
+                    <p class="pdf-description">कक्षा 9 से 12 तक के सभी विषयों के लिए संपूर्ण PDF नोट्स। विज्ञान, गणित, सामाजिक विज्ञान, अंग्रेजी और हिंदी के लिए विशेष रूप से तैयार किए गए नोट्स।</p>
+                    <div class="pdf-button">
+                       <a href="notes.html"> <button class="btn btn-primary"><i class="fas fa-file-pdf"></i> Open PDF Notes</button> </a>
+                    </div>
+                </div>
+                <div class="pdf-image">
+                    <div class="pdf-illustration">
+                        PDF नोट्स
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ad Unit -->
+        <div class="ad-unit">AdSpace</div>
+    </main>
+
+
+
+
+<!-- ================== Grami Dost Feedback Card Section (3D + Emojis + Animation) ================== -->
+
+<style>
+  /* Floating Emoji Animation */
+  @keyframes gdFloat {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    50% { transform: translateY(-25px) rotate(10deg); opacity: 0.9; }
+    100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  }
+
+  /* Slide-in Animation */
+  @keyframes gdSlideUp {
+    0% { transform: translateY(80px) scale(0.9); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+  }
+
+  .gd-feedback-container {
+    width: 100%;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  /* Floating Emojis */
+  .gd-emoji {
+    position: absolute;
+    font-size: 38px;
+    animation: gdFloat 3.5s ease-in-out infinite;
+    opacity: 0.75;
+  }
+
+  .gd-e1 { top: 10%; left: 12%; animation-delay: 0s; }
+  .gd-e2 { top: 65%; left: 8%; animation-delay: 0.7s; }
+  .gd-e3 { top: 25%; right: 10%; animation-delay: 1.2s; }
+  .gd-e4 { top: 72%; right: 14%; animation-delay: 0.4s; }
+
+  /* 3D Gradient Card */
+  .gd-feedback-card {
+    max-width: 900px;
+    width: 100%;
+    background: linear-gradient(135deg, rgba(76,175,80,0.92), rgba(212,225,87,0.92));
+    border-radius: 25px;
+    padding: 40px 32px;
+    text-align: center;
+    color: #000;
+    backdrop-filter: blur(12px);
+    box-shadow: 
+      0 18px 40px rgba(0,0,0,0.25),
+      0 0 20px rgba(76,175,80,0.6),
+      inset 0 0 18px rgba(255,255,255,0.45);
+    border: 2px solid rgba(255,255,255,0.55);
+    transform: perspective(1100px) rotateX(0deg) rotateY(0deg);
+    transition: transform 0.45s ease, box-shadow 0.45s ease;
+    animation: gdSlideUp 0.9s ease-out;
+  }
+
+  .gd-feedback-card:hover {
+    transform: perspective(900px) rotateX(6deg) rotateY(-6deg) scale(1.03);
+    box-shadow: 
+      0 22px 55px rgba(0,0,0,0.28),
+      0 0 26px rgba(212,225,87,0.9);
+  }
+
+  .gd-feedback-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 18px;
+    text-shadow: 0 0 8px rgba(0,0,0,0.4);
+  }
+
+  .gd-feedback-desc {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 28px;
+  }
+
+  /* Dark CTA Button */
+  .gd-feedback-btn {
+    background: #000;
+    padding: 15px 38px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 2px solid #4CAF50;
+    transition: 0.28s ease;
+    box-shadow: 0 0 14px rgba(0,0,0,0.45);
+  }
+
+  .gd-feedback-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(76,175,80,0.9);
+    border-color: #D4E157;
+  }
+
+  @media (max-width: 600px) {
+    .gd-feedback-card {
+      padding: 30px 20px;
+    }
+    .gd-feedback-title { font-size: 22px; }
+    .gd-feedback-desc { font-size: 15px; }
+    .gd-feedback-btn { font-size: 16px; padding: 12px 28px; }
+    .gd-emoji { font-size: 28px; }
+  }
+</style>
+
+<section class="gd-feedback-container">
+
+  <!-- Floating Emojis -->
+  <div class="gd-emoji gd-e1">💬</div>
+  <div class="gd-emoji gd-e2">✨</div>
+  <div class="gd-emoji gd-e3">💭</div>
+  <div class="gd-emoji gd-e4">🌾</div>
+
+  <div class="gd-feedback-card">
+
+    <h2 class="gd-feedback-title">
+      क्या आपके मन में कोई सवाल है? अपनी राय, सुझाव या अनुभव हमारे साथ साझा करें!
+    </h2>
+
+    <p class="gd-feedback-desc">
+      Grami Dost आपकी सुविधा और भरोसे के लिए बना है। अगर आप मंडी भाव, फसल जानकारी,
+      वेबसाइट अनुभव या किसी भी विषय पर अपनी राय देना चाहते हैं, तो नीचे दिए गए बटन पर क्लिक करें।
+      आपकी राय हमारे लिए बेहद महत्वपूर्ण है।
+    </p>
+
+    <button class="gd-feedback-btn"
+      onclick="window.location.href='https://form.jotform.com/253332146038451'">
+      FEEDBACK
+    </button>
+
+  </div>
+</section>
+
+<!-- ================== END SECTION ================== -->
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>ग्रामीण दोस्त</h3>
+                <p>किसानों और छात्रों के लिए एक ही प्लेटफॉर्म पर सभी जरूरी सुविधाएं।</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>AI टूल्स</h3>
+                <ul class="footer-links">
+                    <li><a href="yojana-advisor.html"><i class="fas fa-chevron-right"></i> योजना सलाहकार</a></li>
+                    <li><a href="career-guide.html"><i class="fas fa-chevron-right"></i> करियर गाइडेंस</a></li>
+                    <li><a href="weather-advisor.html"><i class="fas fa-chevron-right"></i> मौसम सलाहकार</a></li>
+                    <li><a href="smart-timetable.html"><i class="fas fa-chevron-right"></i> टाइम टेबल मेकर</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>किसान टूल्स</h3>
+                <ul class="footer-links">
+                    <li><a href="weather-advisor.html"><i class="fas fa-chevron-right"></i> मौसम जानकारी</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> मंडी भाव</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> खेती कैलकुलेटर</a></li>
+                   
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>लिंक्स</h3>
+                <ul class="footer-links">
+                    <li><a href="privacy-policy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                    <li><a href="terms-conditions.html"><i class="fas fa-chevron-right"></i> Terms & Conditions</a></li>
+                    <li><a href="aboutus.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="https://form.jotform.com/253332146038451"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 ग्रामी दोस्त. सर्वाधिकार सुरक्षित.
+        </div>
+
+
+
+
+
+
+
+
+<!-- ================== Developer Mini Profile (Footer Bottom - 3D + POP + SLIDE) ================== -->
+<style>
+
+  /* Slide-in from bottom */
+  @keyframes gdDevSlide {
+    0% { transform: translateY(60px) scale(0.9); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+  }
+
+  /* Logo floating pop animation */
+  @keyframes gdLogoPop {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-8px) scale(1.05); }
+    100% { transform: translateY(0) scale(1); }
+  }
+
+  .gd-dev-footer {
+    width: 100%;
+    padding: 25px 10px;
+    background: #0b0b0b;
+    color: #fff;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    animation: gdDevSlide 0.8s ease-out;
+  }
+
+  .gd-dev-footer .dev-box {
+    display: inline-block;
+    padding: 15px 20px;
+    border-radius: 18px;
+    background: rgba(40, 40, 40, 0.45);
+    backdrop-filter: blur(6px);
+    box-shadow: 
+      0 0 14px rgba(76,175,80,0.4),
+      inset 0 0 12px rgba(255,255,255,0.15);
+    transition: 0.35s ease;
+    transform: perspective(900px) rotateX(0deg) rotateY(0deg);
+  }
+
+  .gd-dev-footer .dev-box:hover {
+    transform: perspective(700px) rotateX(5deg) rotateY(-6deg) scale(1.05);
+    box-shadow: 
+      0 0 22px rgba(212,225,87,0.9),
+      0 0 14px rgba(76,175,80,0.6);
+  }
+
+  /* Developer Logo */
+  .gd-dev-logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+    animation: gdLogoPop 3s ease-in-out infinite;
+    box-shadow: 0 0 14px rgba(212,225,87,0.85);
+    border: 2px solid #4CAF50;
+  }
+
+  .gd-dev-footer .dev-name {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #D4E157;
+  }
+
+  .gd-dev-footer .dev-role {
+    font-size: 14px;
+    color: #cfcfcf;
+    margin-bottom: 8px;
+  }
+
+  .gd-dev-footer .dev-social a {
+    margin: 0 6px;
+    font-size: 20px;
+    color: #4CAF50;
+    transition: 0.25s;
+    text-decoration: none;
+  }
+
+  .gd-dev-footer .dev-social a:hover {
+    color: #D4E157;
+  }
+
+</style>
+
+<div class="gd-dev-footer">
+  <div class="dev-box">
+
+    <!-- YOUR PNG LOGO HERE -->
+    <img src="mylogo.png" alt="Developer Logo" class="gd-dev-logo">
+
+    <div class="dev-name">👨‍💻 Developed by Virender</div>
+
+    <div class="dev-role">Full Stack Web Developer • UI/UX Designer • Creator of Grami Dost</div>
+
+    <div class="dev-social">
+      <a href="https://www.instagram.com/" target="_blank">🌐</a>
+      <a href="https://www.youtube.com/" target="_blank">▶️</a>
+      <a href="mailto:yourmail@gmail.com">✉️</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================== END SECTION ================== -->
+
+
+
+        
+
+
+
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'flex';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+         
+
+    // Image Slider
+const slider = document.getElementById('slider');
+const dots = document.querySelectorAll('.dot');
+let currentSlide = 0;
+
+function showSlide(index) {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+
+    currentSlide = index;
+}
+
+dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+        showSlide(i);
+    });
+});
+
+// Auto slide
+setInterval(() => {
+    currentSlide = (currentSlide + 1) % dots.length;
+    showSlide(currentSlide);
+}, 4000);
+
+
+
+        // Farming Calculator
+        const calculateBtn = document.getElementById('calculateBtn');
+        const cropSelect = document.getElementById('crop-select');
+        const landArea = document.getElementById('land-area');
+        const seeds = document.getElementById('seeds');
+        const water = document.getElementById('water');
+        const fertilizer = document.getElementById('fertilizer');
+        const spray = document.getElementById('spray');
+        
+        calculateBtn.addEventListener('click', () => {
+            const crop = cropSelect.value;
+            const area = parseFloat(landArea.value) || 0;
+            
+            if (area <= 0) {
+                alert('कृपया वैध क्षेत्रफल दर्ज करें');
+                return;
+            }
+            
+            // Mock calculations based on crop and area
+            let seedValue, waterValue, fertilizerValue, sprayValue;
+            
+            switch(crop) {
+                case 'wheat':
+                    seedValue = `${(area * 40).toFixed(0)} किलो`;
+                    waterValue = `${(area * 500).toFixed(0)} लीटर`;
+                    fertilizerValue = `${(area * 50).toFixed(0)} किलो`;
+                    sprayValue = '15 दिन बाद';
+                    break;
+                case 'rice':
+                    seedValue = `${(area * 25).toFixed(0)} किलो`;
+                    waterValue = `${(area * 1200).toFixed(0)} लीटर`;
+                    fertilizerValue = `${(area * 60).toFixed(0)} किलो`;
+                    sprayValue = '20 दिन बाद';
+                    break;
+                case 'cotton':
+                    seedValue = `${(area * 5).toFixed(0)} किलो`;
+                    waterValue = `${(area * 600).toFixed(0)} लीटर`;
+                    fertilizerValue = `${(area * 45).toFixed(0)} किलो`;
+                    sprayValue = '10 दिन बाद';
+                    break;
+                case 'mustard':
+                    seedValue = `${(area * 2).toFixed(0)} किलो`;
+                    waterValue = `${(area * 300).toFixed(0)} लीटर`;
+                    fertilizerValue = `${(area * 30).toFixed(0)} किलो`;
+                    sprayValue = '25 दिन बाद';
+                    break;
+                case 'bajra':
+                    seedValue = `${(area * 4).toFixed(0)} किलो`;
+                    waterValue = `${(area * 200).toFixed(0)} लीटर`;
+                    fertilizerValue = `${(area * 25).toFixed(0)} किलो`;
+                    sprayValue = '30 दिन बाद';
+                    break;
+                default:
+                    seedValue = '-';
+                    waterValue = '-';
+                    fertilizerValue = '-';
+                    sprayValue = '-';
+            }
+            
+            seeds.textContent = seedValue;
+            water.textContent = waterValue;
+            fertilizer.textContent = fertilizerValue;
+            spray.textContent = sprayValue;
+        });
+        
+        // Weather Widget
+        const locationBtn = document.getElementById('locationBtn');
+        const searchBtn = document.getElementById('searchBtn');
+        const locationInput = document.getElementById('locationInput');
+        const weatherContent = document.getElementById('weatherContent');
+        
+        // Replace with your actual API key
+        const API_KEY = "3835eaedb0b957ab8bfb8fe37723dfda";
+        
+        function getWeatherByLocation(lat, lon) {
+            if (!API_KEY || API_KEY === "YOUR_API_KEY_HERE") {
+                showWeatherError("कृपया API key सेट करें");
+                return;
+            }
+            
+            const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&lang=hi`;
+            
+            fetchWeatherData(url);
+        }
+        
+        function getWeatherByCity(city) {
+            if (!API_KEY || API_KEY === "YOUR_API_KEY_HERE") {
+                showWeatherError("कृपया API key सेट करें");
+                return;
+            }
+            
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=hi`;
+            
+            fetchWeatherData(url);
+        }
+        
+        function fetchWeatherData(url) {
+            weatherContent.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> मौसम जानकारी लोड हो रही है...</div>';
+            
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    displayWeatherData(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching weather data:', error);
+                    showWeatherError("मौसम जानकारी प्राप्त करने में त्रुटि");
+                });
+        }
+        
+        function displayWeatherData(data) {
+            const date = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = date.toLocaleDateString('hi-IN', options);
+            
+            const weatherIcon = getWeatherIcon(data.weather[0].main);
+            
+            weatherContent.innerHTML = `
+                <div class="weather-icon">${weatherIcon}</div>
+                <div class="temperature">${Math.round(data.main.temp)}°C</div>
+                <div class="weather-description">${data.weather[0].description}</div>
+                <div class="location">${data.name}, ${data.sys.country}</div>
+                <div class="date">${formattedDate}</div>
+                <div class="weather-details">
+                    <div class="weather-detail">
+                        <span>हवा की गति</span>
+                        <span>${data.wind.speed} m/s</span>
+                    </div>
+                    <div class="weather-detail">
+                        <span>नमी</span>
+                        <span>${data.main.humidity}%</span>
+                    </div>
+                    <div class="weather-detail">
+                        <span>अधिकतम</span>
+                        <span>${Math.round(data.main.temp_max)}°C</span>
+                    </div>
+                    <div class="weather-detail">
+                        <span>न्यूनतम</span>
+                        <span>${Math.round(data.main.temp_min)}°C</span>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function showWeatherError(message) {
+            weatherContent.innerHTML = `<div class="error">${message}</div>`;
+        }
+        
+        function getWeatherIcon(weatherMain) {
+            const iconMap = {
+                'Clear': '<i class="fas fa-sun"></i>',
+                'Clouds': '<i class="fas fa-cloud"></i>',
+                'Rain': '<i class="fas fa-cloud-rain"></i>',
+                'Drizzle': '<i class="fas fa-cloud-drizzle"></i>',
+                'Thunderstorm': '<i class="fas fa-bolt"></i>',
+                'Snow': '<i class="fas fa-snowflake"></i>',
+                'Mist': '<i class="fas fa-smog"></i>',
+                'Smoke': '<i class="fas fa-smog"></i>',
+                'Haze': '<i class="fas fa-smog"></i>',
+                'Dust': '<i class="fas fa-smog"></i>',
+                'Fog': '<i class="fas fa-smog"></i>',
+                'Sand': '<i class="fas fa-smog"></i>',
+                'Ash': '<i class="fas fa-smog"></i>',
+                'Squall': '<i class="fas fa-wind"></i>',
+                'Tornado': '<i class="fas fa-tornado"></i>'
+            };
+            
+            return iconMap[weatherMain] || '<i class="fas fa-cloud"></i>';
+        }
+        
+        locationBtn.addEventListener('click', () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    position => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        getWeatherByLocation(lat, lon);
+                    },
+                    error => {
+                        console.error('Error getting location:', error);
+                        showWeatherError("स्थान प्राप्त करने में त्रुटि");
+                    }
+                );
+            } else {
+                showWeatherError("ब्राउज़र स्थान सेवाओं का समर्थन नहीं करता");
+            }
+        });
+        
+        searchBtn.addEventListener('click', () => {
+            const city = locationInput.value.trim();
+            if (city) {
+                getWeatherByCity(city);
+            } else {
+                showWeatherError("कृपया एक स्थान दर्ज करें");
+            }
+        });
+        
+        // Initialize with default location (Delhi)
+        window.addEventListener('load', () => {
+            getWeatherByCity("Delhi");
+        });
+        
+        // Floating Shapes Background
+        const floatingShapes = document.getElementById('floatingShapes');
+        
+        for (let i = 0; i < 15; i++) {
+            const shape = document.createElement('div');
+            shape.classList.add('shape');
+            
+            const size = Math.random() * 100 + 50;
+            const left = Math.random() * 100;
+            const animationDuration = Math.random() * 20 + 10;
+            const animationDelay = Math.random() * 5;
+            
+            shape.style.width = `${size}px`;
+            shape.style.height = `${size}px`;
+            shape.style.left = `${left}%`;
+            shape.style.animationDuration = `${animationDuration}s`;
+            shape.style.animationDelay = `${animationDelay}s`;
+            
+            floatingShapes.appendChild(shape);
+        }
+    </script>
+</body>
+</html>

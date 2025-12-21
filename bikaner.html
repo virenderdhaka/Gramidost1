@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Grami Dost – Bikaner Mandi Prices</title>
+  <meta name="description" content="Grami Dost — बीकानेर मंडी भाव (धान, गेहूं, कपास, ग्वार, चना, सरसों, दालें और सब्जियों के ताज़ा दर)।">
+  <style>
+    /* ---------- Theme & Typography ---------- */
+    :root{
+      --primary:#4CAF50;
+      --accent:#A5D6A7;
+      --bg:#f6fff7;
+      --card:#ffffff;
+      --muted:#6b6b6b;
+      --text-dark:#0b2a0b;
+      --radius:14px;
+    }
+    html,body{height:100%;margin:0;font-family: "Noto Sans", "Segoe UI", Roboto, Arial, sans-serif;background: linear-gradient(180deg, #f0fff2 0%, #f6fff7 100%);color:var(--text-dark);}
+
+    .container{max-width:1100px;margin:32px auto;padding:20px;}
+    .hero{display:flex;flex-direction:column;gap:18px;align-items:center;text-align:center}
+    h1{font-size:clamp(28px,4.6vw,44px);margin:0;background: linear-gradient(90deg,var(--primary), #388E3C);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700;line-height:1.05}
+    .intro{font-size:clamp(14px,1.6vw,18px);color:var(--muted);max-width:880px}
+
+    .hero-image{width:100%;border-radius:16px;box-shadow:0 10px 30px rgba(78,154,85,0.14);overflow:hidden;position:relative;aspect-ratio:1600/700}
+    .hero-image img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.02) saturate(1.05)}
+    .hero-image::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(74, 174, 86, 0.06), rgba(74, 174, 86, 0.08));pointer-events:none}
+
+    .sections{margin-top:28px;display:grid;gap:18px}
+    .card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:0 8px 24px rgba(10,30,10,0.04);transition:transform .25s ease, box-shadow .25s ease;border:1px solid rgba(76,175,80,0.06)}
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(10,30,10,0.08)}
+
+    .section-title{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+    .section-title h2{margin:0;font-size:18px;color:var(--primary);display:flex;align-items:center;gap:8px;font-weight:700}
+    .icon{width:34px;height:34px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(150deg,var(--accent), #E8F5E9);font-size:18px}
+
+    .table-wrap{overflow:auto}
+    table{width:100%;border-collapse:collapse;font-size:14px;min-width:600px}
+    thead th{padding:10px 12px;font-weight:700;color:var(--text-dark);background: linear-gradient(180deg, rgba(230,248,235,0.8), rgba(240,252,240,0.8));position:sticky;top:0;z-index:2}
+    tbody td{padding:10px 12px;border-bottom:1px solid rgba(0,0,0,0.04)}
+    tbody tr:nth-child(odd){background: linear-gradient(90deg, rgba(245,255,245,0.6), rgba(255,255,255,0))}
+    tbody tr:hover{background: linear-gradient(90deg, rgba(230,255,235,0.9), rgba(255,255,255,0.8))}
+
+    .price{font-weight:700;color:var(--primary);cursor:default;position:relative}
+    .small{display:block;color:var(--muted);font-size:12px;margin-top:6px}
+
+    .advice{background: linear-gradient(180deg, rgba(165,214,167,0.14), rgba(165,214,167,0.08));padding:16px;border-radius:12px;border:1px solid rgba(74,174,86,0.09)}
+
+    .sources{margin-top:10px;font-size:12px;color:var(--muted)}
+
+    @media (min-width:900px){.sections{grid-template-columns: 1fr 1fr}}
+    @media (max-width:420px){.iconsmall{display:none}thead th{font-size:13px}tbody td{font-size:13px;padding:8px}}
+
+    .fade-up{opacity:0;transform:translateY(10px);animation:fadeUp .6s forwards}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero card fade-up" style="text-align:center;">
+      <h1>बीकानेर के बेहतरीन मंडी भाव</h1>
+      <p class="intro">Grami Dost पर आपका स्वागत — नीचे बीकानेर मंडी के प्रमुख फसलों और सब्जियों के ताज़ा (placeholder) भाव दिए गये हैं। वास्तविक अपडेट के लिए Agmarknet/Nafed API एकीकृत करें।</p>
+
+      <!-- single image placeholder -->
+      <div class="hero-image" aria-hidden="false">
+        <img src="bikaner.jpg" alt="Bikaner Mandi" width="1600" height="700">
+      </div>
+
+      <div class="sources" style="margin-top:10px;">
+        <strong>Prices shown (example/placeholders)</strong> — sourced from mandi aggregator snapshots. For automated accuracy integrate Agmarknet/Nafed.
+      </div>
+    </section>
+
+    <!-- SECTIONS -->
+    <section class="sections" aria-label="Mandi Prices">
+      <!-- PADDY -->
+      <article class="card fade-up" style="animation-delay:.05s">
+        <div class="section-title">
+          <span class="icon" aria-hidden="true">🌾</span>
+          <h2>धान (Paddy)</h2>
+        </div>
+        <div class="table-wrap" role="table" aria-label="Paddy prices table">
+          <table>
+            <thead>
+              <tr>
+                <th>मंडी</th>
+                <th>वैरायटी</th>
+                <th>प्रति क्विंटल</th>
+                <th>ताज़ा</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bikaner</td>
+                <td>Basmati</td>
+                <td class="price" title="Last updated: 29-Nov-2025">₹2550 / qtl</td>
+                <td>29-Nov-2025</td>
+              </tr>
+              <tr>
+                <td>Bikaner</td>
+                <td>1121</td>
+                <td class="price" title="Last updated: 29-Nov-2025">₹2580 / qtl</td>
+                <td>29-Nov-2025</td>
+              </tr>
+              <tr>
+                <td>Bikaner</td>
+                <td>Sela</td>
+                <td class="price" title="Last updated: 29-Nov-2025">₹2520 / qtl</td>
+                <td>29-Nov-2025</td>
+              </tr>
+              <tr>
+                <td>Kolayat</td>
+                <td>Local</td>
+                <td class="price" title="Last updated: 22-Nov-2025">₹2400 / qtl</td>
+                <td>22-Nov-2025</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sources">Values are placeholders; integrate Agmarknet/Nafed for live numbers.</div>
+      </article>
+
+      <!-- WHEAT -->
+      <article class="card fade-up" style="animation-delay:.1s">
+        <div class="section-title">
+          <span class="icon" aria-hidden="true">🌾</span>
+          <h2>गेहूं (Wheat)</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>मंडी</th>
+                <th>वैरायटी</th>
+                <th>प्रति क्विंटल</th>
+                <th>ताज़ा</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bikaner</td>
+                <td>Sharbati</td>
+                <td class="price" title="Last updated: 29-Nov-2025">₹2600 / qtl</td>
+                <td>29-Nov-2025</td>
+              </tr>
+              <tr>
+                <td>Bikaner</td>
+                <td>Raj 307</td>
+                <td class="price" title="Last updated: 29-Nov-2025">₹2550 / qtl</td>
+                <td>29-Nov-2025</td>
+              </tr>
+              <tr>
+                <td>Bikaner</td>
+                <td>PBW-343</td>
+                <td class="price" title="Last updated: 29-Nov-2025">₹2580 / qtl</td>
+                <td>29-Nov-2025</td>
+              </tr>
+              <tr>
+                <td>Deshnoke</td>
+                <td>Local</td>
+                <td class="price" title="Sample avg">₹2525 / qtl</td>
+                <td>27-Nov-2025</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sources">Placeholder wheat rates — Agmarknet/Nafed recommended for production. </div>
+      </article>
+
+      <!-- COTTON -->
+      <article class="card fade-up" style="animation-delay:.15s">
+        <div class="section-title">
+          <span class="icon" aria-hidden="true">🧵</span>
+          <h2>कपास (Cotton)</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>मंडी</th><th>वैरायटी</th><th>प्रति क्विंटल</th><th>ताज़ा</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Bikaner</td><td>BT</td><td class="price" title="Last updated: 29-Nov-2025">₹7,200 / qtl</td><td>29-Nov-2025</td></tr>
+              <tr><td>Bikaner</td><td>Desi</td><td class="price">₹6,900 / qtl</td><td>29-Nov-2025</td></tr>
+              <tr><td>Hanumangarh (nearby)</td><td>Average</td><td class="price">₹7,000 / qtl</td><td>25-Nov-2025</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- GUAR -->
+      <article class="card fade-up" style="animation-delay:.2s">
+        <div class="section-title"><span class="icon">🌿</span><h2>ग्वार (Guar)</h2></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>मंडी</th><th>वैरायटी</th><th>प्रति क्विंटल</th><th>ताज़ा</th></tr></thead>
+            <tbody>
+              <tr><td>Bikaner</td><td>Guar Seed</td><td class="price">₹5,100 / qtl</td><td>29-Nov-2025</td></tr>
+              <tr><td>Bikaner</td><td>Guar Gum (sample)</td><td class="price">₹9,000 / qtl</td><td>29-Nov-2025</td></tr>
+              <tr><td>District Avg</td><td>Average</td><td class="price">₹4,800 / qtl</td><td>29-Nov-2025</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- CHANA -->
+      <article class="card fade-up" style="animation-delay:.25s">
+        <div class="section-title"><span class="icon">🌱</span><h2>चना (Chickpea)</h2></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>मंडी</th><th>वैरायटी</th><th>प्रति क्विंटल</th><th>ताज़ा</th></tr></thead>
+            <tbody>
+              <tr><td>Bikaner</td><td>Desi</td><td class="price">₹5,000 / qtl</td><td>29-Nov-2025</td></tr>
+              <tr><td>Bikaner</td><td>White</td><td class="price">₹5,200 / qtl</td><td>29-Nov-2025</td></tr>
+              <tr><td>Bikaner</td><td>Kabuli</td><td class="price">₹5,400 / qtl</td><td>29-Nov-2025</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- MUSTARD -->
+      <article class="card fade-up" style="animation-delay:.3s">
+        <div class="section-title"><span class="icon">🟡</span><h2>सरसों (Mustard)</h2></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>मंडी</th><th>वैरायटी</th><th>प्रति क्विंटल</th><th>ताज़ा</th></tr></thead>
+            <tbody>
+              <tr><td>Bikaner</td><td>Yellow</td><td class="price">₹5,700 / qtl</td><td>29-Nov-2025</td></tr>
+              <tr><td>Bikaner</td><td>Black</td><td class="price">₹5,650 / qtl</td><td>29-Nov-2025</td></tr>
+              <tr><td>District Avg</td><td>Average</td><td class="price">₹5,600 / qtl</td><td>29-Nov-2025</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- PULSES (Moong, Masoor, Toor) -->
+      <article class="card fade-up" style="animation-delay:.35s">
+        <div class="section-title"><span class="icon">🍲</span><h2>दालें (Moong, Masoor, Toor)</h2></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>फसल</th><th>प्रति किलो / क्विंटल</th><th>ताज़ा</th></tr></thead>
+            <tbody>
+              <tr><td>मूंग दाल (Moong Dal)</td><td class="price">₹120 / kg</td><td>29-Nov-2025</td></tr>
+              <tr><td>मसूर दाल (Masoor Dal)</td><td class="price">₹100 / kg</td><td>29-Nov-2025</td></tr>
+              <tr><td>तुअर (Toor)</td><td class="price">₹90 / kg</td><td>29-Nov-2025</td></tr>
+              <tr><td>मूंग (Whole)</td><td class="price">₹7,500 / qtl</td><td>29-Nov-2025</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- VEGETABLES -->
+      <article class="card fade-up" style="animation-delay:.4s">
+        <div class="section-title"><span class="icon">🥕</span><h2>सब्जियाँ (Brinjal, टमाटर, गाजर, आलू, मिर्च)</h2></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>सब्जी</th><th>प्रति किलो</th><th>ताज़ा</th></tr></thead>
+            <tbody>
+              <tr><td>टमाटर</td><td class="price">₹25 / kg</td><td>29-Nov-2025</td></tr>
+              <tr><td>आलू</td><td class="price">₹18 / kg</td><td>29-Nov-2025</td></tr>
+              <tr><td>गाजर</td><td class="price">₹22 / kg</td><td>29-Nov-2025</td></tr>
+              <tr><td>बैगन (Brinjal)</td><td class="price">₹30 / kg</td><td>29-Nov-2025</td></tr>
+              <tr><td>मिर्च (Green Chillies)</td><td class="price">₹60 / kg</td><td>29-Nov-2025</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- ADVICE / SUGGESTIONS -->
+      <article class="card advice fade-up" style="animation-delay:.45s">
+        <div class="section-title" style="margin-bottom:6px"><span class="icon">💡</span><h2>सलाह / सुझाव (Farmers' Advice)</h2></div>
+        <p style="margin:0;line-height:1.6;color:var(--text-dark)">धान और गेहूं की उच्च गुणवत्ता वाली किस्मों को प्राथमिकता दें। कपास और ग्वार की बिक्री मंडी में सावधानीपूर्वक करें। सब्जियों और दालों के लिए ताज़ा और मोटी किस्में बेचें। सरसों का सबसे अच्छा समय सुबह है। चने की बिक्री में मंडी भाव और मौसम का ध्यान रखें।</p>
+      </article>
+
+      <!-- INTEGRATION NOTES -->
+      <article class="card fade-up" style="animation-delay:.5s">
+        <div class="section-title"><span class="icon">🔗</span><h2>इंटीग्रेशन नोट</h2></div>
+        <p class="small" style="margin:0 0 8px 0;color:var(--muted)">यह सिंगल-फाइल टेम्पलेट भविष्य की JS/API इंटीग्रेशन के लिए तैयार है। तालिकाओं को data-* attributes दें ताकि Agmarknet/Nafed से आने वाले JSON से आसानी से अपडेट हों।</p>
+        <ul style="margin:8px 0 0 18px;color:var(--muted)">
+          <li>Client-side fetch के लिए सर्वर-प्रॉक्सी का उपयोग करें ताकि CORS न आए।</li>
+          <li>प्राइस-सेल्स पर <code>title</code> ऐट्रिब्यूट में "Last updated" रखा गया है।</li>
+        </ul>
+      </article>
+
+    </section>
+
+    <div style="margin-top:18px;text-align:center;color:var(--muted);font-size:13px;">© Grami Dost — Bikaner · Example prices are placeholders; for live production use Agmarknet / Nafed feeds.</div>
+
+  </main>
+
+  <script>
+    // JS hooks for future integration (same style as earlier Hanumangarh/Ganganagar templates)
+    function updatePriceRow(rowEl, price, dateStr){
+      if(!rowEl) return;
+      const priceCell = rowEl.querySelector('.price');
+      if(priceCell){ priceCell.textContent = price; priceCell.setAttribute('title', 'Last updated: ' + dateStr); }
+      const dateCell = rowEl.querySelector('td:last-child');
+      if(dateCell) dateCell.textContent = dateStr;
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=> {
+      document.querySelectorAll('.fade-up').forEach((el, i) => {
+        el.style.animation = `fadeUp .55s ${i*80}ms forwards`;
+      });
+    });
+  </script>
+</body>
+</html>

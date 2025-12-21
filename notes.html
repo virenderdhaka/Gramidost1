@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grami Dost - Notes & PDF Zone</title>
+    <style>
+        /* Base Styles & Variables */
+        :root {
+            --primary-green: #1b8a2f;
+            --soft-green: #e7ffe7;
+            --leaf-yellow: #fff7c2;
+            --white: #fff;
+            --dark-green: #0a3f16;
+            --black: #111;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--soft-green), #d4ffd4);
+            color: var(--black);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 30px 0;
+            animation: fadeInUp 1s ease;
+        }
+
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+
+        .sub-heading {
+            font-size: 1.4rem;
+            color: var(--dark-green);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Class Dropdowns */
+        .class-dropdown {
+            margin-bottom: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(27, 138, 47, 0.2);
+        }
+
+        .class-header {
+            padding: 18px 25px;
+            background: var(--primary-green);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .class-header:hover {
+            background: var(--dark-green);
+        }
+
+        .class-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .class-icon {
+            font-size: 1.5rem;
+        }
+
+        .toggle-icon {
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .class-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .class-content.active {
+            max-height: 5000px;
+        }
+
+        /* Subject Sections */
+        .subject-section {
+            margin: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(27, 138, 47, 0.1);
+        }
+
+        .subject-section:last-child {
+            border-bottom: none;
+        }
+
+        .subject-title {
+            font-size: 1.2rem;
+            color: var(--dark-green);
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background: var(--leaf-yellow);
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        /* Chapters Grid */
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        /* Chapter Cards */
+        .chapter-card {
+            background: var(--glass-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.5s ease;
+            animation-fill-mode: both;
+            border: 1px solid rgba(27, 138, 47, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(27, 138, 47, 0.2);
+            border-color: rgba(27, 138, 47, 0.3);
+        }
+
+        .chapter-icon {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            color: var(--primary-green);
+        }
+
+        .chapter-name {
+            font-size: 1.1rem;
+            color: var(--dark-green);
+            margin-bottom: 15px;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+
+        /* Button Styles */
+        .btn-container {
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .pdf-btn {
+            background: var(--primary-green);
+            color: var(--white);
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(27, 138, 47, 0.3);
+        }
+
+        .pdf-btn:hover {
+            background: var(--dark-green);
+            transform: scale(1.03);
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+
+        /* Background Shapes */
+        .bg-shape {
+            position: fixed;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .shape-1 {
+            top: 10%;
+            left: 5%;
+            width: 200px;
+            height: 200px;
+            background: var(--primary-green);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            bottom: 10%;
+            right: 5%;
+            width: 150px;
+            height: 150px;
+            background: var(--dark-green);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .shape-3 {
+            top: 50%;
+            left: 80%;
+            width: 100px;
+            height: 100px;
+            background: var(--primary-green);
+            border-radius: 20% 80% 80% 20% / 20% 20% 80% 80%;
+            animation: float 7s ease-in-out infinite;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        @keyframes dropdownSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .chapters-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .sub-heading {
+                font-size: 1.2rem;
+            }
+            
+            .class-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .chapters-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .class-header {
+                padding: 15px 20px;
+            }
+            
+            .chapter-card {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            .sub-heading {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 20px 0;
+            }
+            
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            h1 {
+                font-size: 1.4rem;
+            }
+            
+            .sub-heading {
+                font-size: 1rem;
+            }
+            
+            .class-title {
+                font-size: 1rem;
+            }
+            
+            .chapter-name {
+                font-size: 1rem;
+            }
+            
+            .pdf-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Shapes -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">📚</div>
+        <h1>Grami Dost – Notes & PDF Zone</h1>
+        <p class="sub-heading">सबसे आसान तरीके से कक्षा अनुसार नोट्स, चैप्टर वाइज PDF डाउनलोड करें</p>
+    </header>
+
+    <!-- Main Content -->
+    <main id="notes-container">
+        <!-- Classes will be dynamically generated here -->
+    </main>
+
+    <script>
+        // Study Data Structure
+        const studyData = {
+            "RBSE": {
+                "9th": {
+                    "Science": {
+                        "हमारे चारों ओर पदार्थ": "1fgbTGc4R5DLEmiCDpu0t7HSVC-9gvMrv",
+                        "क्या हमारे आस-पास का पदार्थ शुद्ध है?": "14-28GWw_HZSHGVEc74c4yLLWyyMHq-uv",
+                        "परमाणु एवं अणु": "1jg4bu5yIp-OJrPOlD-p6kyLAAFznCC8c",
+                        "परमाणु की संरचना": "1TU9lg5mTCLQeqFBLsrFzhKaVcyurbUF_",
+                        "कोशिका जीवन की इकाई": "1ukDDKaSgHMS1mgRtgUTgPHs5tiFOvepo",
+                        "ऊतक": "1VkKXoRRpNPELI9Pe_QqtoboTufcEqQzd",
+                        "गति": "1yzz0MeRjwu6RBsdoItF5LYQtfVeInpuu",
+                        "बल एवं गति के नियम": "1qB345Cu1WfHeUZbYvwXi84-l7u5Fdc6d",
+                        "गुरुत्वाकर्षण": "1W2a3V9ycbBSeCtqJ1KMnVOaVUUcOI1uM",
+                        "कार्य एवं ऊर्जा": "1qoaJhTdW5usz9ZSGPeZRRH45-kQnqytb",
+                        "ध्वनि": "1kaJmLHD8wbHzBPG0_JM5FNh2YBUSPGjP",
+                        "खाद्य संसाधनों में सुधार": "1ZUIgTW6uKuXW-InqtNL4qRDmhkEwjVUL"
+                    },
+                    "Mathematics": {
+                        "संख्या पद्धति": "114UZaJVkjWROmevftV223M5X4miwW1R3",
+                        "बहुपद": "1m2-ghRUzm_bzOXBHHICJYuYW266pfHUF",
+                        "निर्देशांक ज्यामिति": "15N6inXmKmhS3Tj3sgHslBmOAlQa-uU--",
+                        "दो चरों वाले रैखिक समीकरण": "Yewowtxr1sCgOHXwWMbqT3GWQ8s0nx6x",
+                        "यूक्लिड की ज्यामिति का परिचय": "1kJxL_ZNePC0iVGYZkvmjRR7wn6kVnuQY",
+                        "रेखाएँ और कोण": "1QUkIIMlht_uz3ZJTJuUH99bUxFCljoje",
+                        "त्रिभुज": "driveID2",
+                        "चतुर्भुज": "driveID2",
+                        "समानांतर चतुर्भुज एवं त्रिभुज के क्षेत्रफल": "driveID2",
+                        "वृत्त": "driveID2",
+                        "निर्माण (Constructions)": "driveID2",
+                        "हेरॉन का सूत्र": "driveID2",
+                        "पृष्ठीय क्षेत्रफल एवं आयतन": "driveID2",
+                        "सांख्यिकी": "driveID2",
+                        "प्रायिकता": "driveID2"
+                    },
+                    "Social Science": {
+                        "इतिहास": "driveIdRBSE4"
+                    }
+                },
+                "10th": {
+                    "Science": {
+                        "रासायनिक अभिक्रियाएँ एवं समीकरण": "driveIdRBSE_SCI1",
+                        "अम्ल, क्षारक एवं लवण": "driveIdRBSE_SCI2",
+                        "धातु एवं अधातु": "driveIdRBSE_SCI3",
+                        "कार्बन एवं इसके यौगिक": "driveIdRBSE_SCI4",
+                        "तत्वों का आवर्त वर्गीकरण": "driveIdRBSE_SCI5",
+                        "जैव प्रक्रम": "driveIdRBSE_SCI6",
+                        "नियंत्रण एवं समन्वय": "driveIdRBSE_SCI7",
+                        "जीव प्रजनन": "driveIdRBSE_SCI8",
+                        "अनुवांशिकता एवं जैव विकास": "driveIdRBSE_SCI9",
+                        "प्रकाश – परावर्तन तथा अपवर्तन": "driveIdRBSE_SCI10",
+                        "मानव नेत्र तथा रंग-बिरंगा संसार": "driveIdRBSE_SCI11",
+                        "विद्युत": "driveIdRBSE_SCI12",
+                        "धारा का चुंबकीय प्रभाव": "driveIdRBSE_SCI13",
+                        "हमारा पर्यावरण": "driveIdRBSE_SCI14"
+                    },
+                    "Mathematics": {
+                        "वास्तविक संख्याएँ": "driveIdRBSE1",
+                        "बहुपद": "driveIdRBSE2",
+                        "दो चरों वाले रैखिक समीकरण युग्म": "driveIdRBSE3",
+                        "द्विघात समीकरण": "driveIdRBSE4",
+                        "समान्तर श्रेढ़ियाँ": "driveIdRBSE5",
+                        "त्रिभुज": "driveIdRBSE6",
+                        "निर्देशांक ज्यामिति": "driveIdRBSE7",
+                        "त्रिकोणमिति का परिचय": "driveIdRBSE8",
+                        "त्रिकोणमिति के अनुप्रयोग": "driveIdRBSE9",
+                        "वृत्त": "driveIdRBSE10",
+                        "वृत्त से संबंधित क्षेत्र तथा स्पर्श रेखाएँ": "driveIdRBSE11",
+                        "पृष्ठीय क्षेत्रफल एवं आयतन": "driveIdRBSE12",
+                        "सांख्यिकी": "driveIdRBSE13",
+                        "प्रायिकता": "driveIdRBSE14"
+                    },
+                    "History": {
+                        "यूरोप में राष्ट्रवाद का उदय": "driveIdRBSE_HIS1",
+                        "भारत में राष्ट्रवाद": "driveIdRBSE_HIS2",
+                        "वैश्वीकरण की अर्थव्यवस्था का निर्माण": "driveIdRBSE_HIS3",
+                        "उद्योग, किसान और औपनिवेशिकता": "driveIdRBSE_HIS4",
+                        "मुद्रण संस्कृति और आधुनिक विश्व": "driveIdRBSE_HIS5"
+                    },
+                    "Geography": {
+                        "संसाधन और विकास": "driveIdRBSE_GEO1",
+                        "जल संसाधन": "driveIdRBSE_GEO2",
+                        "कृषि": "driveIdRBSE_GEO3",
+                        "खनिज और ऊर्जा संसाधन": "driveIdRBSE_GEO4",
+                        "निर्माण उद्योग": "driveIdRBSE_GEO5",
+                        "राष्ट्रीय अर्थव्यवस्था की जीवन रेखाएँ": "driveIdRBSE_GEO6"
+                    },
+                    "Political Science": {
+                        "शक्ति साझाकरण": "driveIdRBSE_POL1",
+                        "संघवाद": "driveIdRBSE_POL2",
+                        "लोकतंत्र और विविधता": "driveIdRBSE_POL3",
+                        "लिंग, धर्म और जाति": "driveIdRBSE_POL4",
+                        "लोकप्रिय संघर्ष और आंदोलन": "driveIdRBSE_POL5",
+                        "राजनीतिक दल": "driveIdRBSE_POL6",
+                        "लोकतंत्र की परिणति": "driveIdRBSE_POL7"
+                    },
+                    "Economics": {
+                        "विकास": "driveIdRBSE_ECO1",
+                        "भारतीय अर्थव्यवस्था के क्षेत्र": "driveIdRBSE_ECO2",
+                        "मनी और क्रेडिट": "driveIdRBSE_ECO3",
+                        "वैश्वीकरण और भारतीय अर्थव्यवस्था": "driveIdRBSE_ECO4",
+                        "उपभोक्ता अधिकार": "driveIdRBSE_ECO5"
+                    }
+                },
+                "11th Science": {
+                    "Physics": {
+                        "भौतिक जगत": "driveIdRBSE11_PHY1",
+                        "मापन": "driveIdRBSE11_PHY2",
+                        "सीधी रेखा में गति": "driveIdRBSE11_PHY3",
+                        "समतल में गति": "driveIdRBSE11_PHY4",
+                        "गति के नियम": "driveIdRBSE11_PHY5",
+                        "कार्य, ऊर्जा और शक्ति": "driveIdRBSE11_PHY6",
+                        "कणों के तंत्र का गति विज्ञान": "driveIdRBSE11_PHY7",
+                        "गुरुत्वाकर्षण": "driveIdRBSE11_PHY8",
+                        "ठोसों की यांत्रिकी गुण": "driveIdRBSE11_PHY9",
+                        "द्रवों की यांत्रिकी गुण": "driveIdRBSE11_PHY10",
+                        "ताप और तापीय प्रसार": "driveIdRBSE11_PHY11",
+                        "ऊष्मा का संचरण": "driveIdRBSE11_PHY12",
+                        "ऊष्मागतिकी": "driveIdRBSE11_PHY13",
+                        "गतिज सिद्धांत": "driveIdRBSE11_PHY14",
+                        "दोलन": "driveIdRBSE11_PHY15",
+                        "तरंगें": "driveIdRBSE11_PHY16"
+                    },
+                    "Chemistry": {
+                        "रसायन विज्ञान की कुछ मूलभूत अवधारणाएँ": "driveIdRBSE11_CHE1",
+                        "परमाणु की संरचना": "driveIdRBSE11_CHE2",
+                        "तत्वों का वर्गीकरण और आवर्तता": "driveIdRBSE11_CHE3",
+                        "रासायनिक बंधन और अणुओं की संरचना": "driveIdRBSE11_CHE4",
+                        "द्रव्यमान, मोल और गैस के नियम": "driveIdRBSE11_CHE5",
+                        "द्रव अवस्था": "driveIdRBSE11_CHE6",
+                        "ऊष्मागतिकी": "driveIdRBSE11_CHE7",
+                        "रासायनिक संतुलन": "driveIdRBSE11_CHE8",
+                        "रेडॉक्स अभिक्रियाएँ": "driveIdRBSE11_CHE9",
+                        "हाइड्रोजन": "driveIdRBSE11_CHE10",
+                        "s-ब्लॉक तत्व": "driveIdRBSE11_CHE11",
+                        "p-ब्लॉक तत्व": "driveIdRBSE11_CHE12",
+                        "कार्बनिक रसायन — मूल सिद्धांत और तकनीकें": "driveIdRBSE11_CHE13",
+                        "हाइड्रोकार्बन": "driveIdRBSE11_CHE14",
+                        "पर्यावरणीय रसायन": "driveIdRBSE11_CHE15"
+                    },
+                    "Biology": {
+                        "जीवों का वर्गीकरण": "driveIdRBSE11_BIO1",
+                        "पादप जगत का परिचय": "driveIdRBSE11_BIO2",
+                        "पादप ऊतक": "driveIdRBSE11_BIO3",
+                        "पुष्पीय पादपों की आकृति विज्ञान": "driveIdRBSE11_BIO4",
+                        "पुष्पीय पादपों का शारीरिक विज्ञान": "driveIdRBSE11_BIO5",
+                        "पादप शरीर क्रिया विज्ञान — परिवहन": "driveIdRBSE11_BIO6",
+                        "प्रकाश संश्लेषण": "driveIdRBSE11_BIO7",
+                        "पादप श्वसन": "driveIdRBSE11_BIO8",
+                        "पादप वृद्धि और विकास": "driveIdRBSE11_BIO9",
+                        "जन्तुओं का वर्गीकरण": "driveIdRBSE11_BIO10",
+                        "जन्तु ऊतक": "driveIdRBSE11_BIO11",
+                        "पाचन तंत्र": "driveIdRBSE11_BIO12",
+                        "श्वसन तंत्र": "driveIdRBSE11_BIO13",
+                        "परिसंचरण तंत्र": "driveIdRBSE11_BIO14",
+                        "उत्सर्जन तंत्र": "driveIdRBSE11_BIO15",
+                        "तंत्रिका और समन्वय": "driveIdRBSE11_BIO16",
+                        "जनन और प्रजनन": "driveIdRBSE11_BIO17"
+                    },
+                    "Mathematics": {
+                        "समुच्चय": "driveIdRBSE11_MAT1",
+                        "संबंध और फलन": "driveIdRBSE11_MAT2",
+                        "त्रिकोणमिति के सिद्धांत": "driveIdRBSE11_MAT3",
+                        "गणितीय आगमन का सिद्धांत": "driveIdRBSE11_MAT4",
+                        "सम्मिश्र संख्याएँ और द्विघात समीकरण": "driveIdRBSE11_MAT5",
+                        "रैखिक असमिकी": "driveIdRBSE11_MAT6",
+                        "अनुक्रम और श्रेणियाँ": "driveIdRBSE11_MAT7",
+                        "द्विपद प्रमेय": "driveIdRBSE11_MAT8",
+                        "सीमाएँ और अवकलज": "driveIdRBSE11_MAT9",
+                        "निर्देशांक ज्यामिति — सीधी रेखा": "driveIdRBSE11_MAT10",
+                        "शंकु अनुभाग": "driveIdRBSE11_MAT11",
+                        "त्रिविमीय ज्यामिति का परिचय": "driveIdRBSE11_MAT12",
+                        "Permutation और Combination": "driveIdRBSE11_MAT13",
+                        "प्रायिकता": "driveIdRBSE11_MAT14",
+                        "सांख्यिकी": "driveIdRBSE11_MAT15"
+                    }
+                },
+                "11th Arts": {
+                    "History": {
+                        "इतिहास के अर्थ, अवधारणा और परिमाण": "driveIdRBSE11_ARTS_HIS1",
+                        "लेखन कला और शिलालेख": "driveIdRBSE11_ARTS_HIS2",
+                        "राज्य, राजनीतिक विचार और प्रशासन": "driveIdRBSE11_ARTS_HIS3",
+                        "राज्य, समाज और संस्कृति का उत्कर्ष": "driveIdRBSE11_ARTS_HIS4",
+                        "गुप्तोत्तर कालीन भारत": "driveIdRBSE11_ARTS_HIS5",
+                        "मध्यकालीन भारत का राजनीतिक इतिहास": "driveIdRBSE11_ARTS_HIS6",
+                        "मुगल साम्राज्य और प्रशासन": "driveIdRBSE11_ARTS_HIS7",
+                        "मुगल कालीन समाज, अर्थव्यवस्था और संस्कृति": "driveIdRBSE11_ARTS_HIS8",
+                        "अठारहवीं शताब्दी में भारत": "driveIdRBSE11_ARTS_HIS9"
+                    },
+                    "Political Science": {
+                        "राजनीति विज्ञान का अध्ययन": "driveIdRBSE11_ARTS_POL1",
+                        "राजनीति विज्ञान का क्षेत्र": "driveIdRBSE11_ARTS_POL2",
+                        "राज्य का उद्भव": "driveIdRBSE11_ARTS_POL3",
+                        "राज्य के तत्व": "driveIdRBSE11_ARTS_POL4",
+                        "संप्रभुता": "driveIdRBSE11_ARTS_POL5",
+                        "राज्य के कार्य": "driveIdRBSE11_ARTS_POL6",
+                        "लोकतंत्र": "driveIdRBSE11_ARTS_POL7",
+                        "निर्वाचन और प्रतिनिधित्व": "driveIdRBSE11_ARTS_POL8",
+                        "राजनीतिक विचारक — प्लेटो, अरस्तू, माकियावेली": "driveIdRBSE11_ARTS_POL9"
+                    },
+                    "Economics": {
+                        "अर्थशास्त्र का अर्थ, प्रकृति और क्षेत्र": "driveIdRBSE11_ARTS_ECO1",
+                        "अर्थशास्त्र की मूल अवधारणाएँ": "driveIdRBSE11_ARTS_ECO2",
+                        "उपभोक्ता व्यवहार": "driveIdRBSE11_ARTS_ECO3",
+                        "मांग और आपूर्ति": "driveIdRBSE11_ARTS_ECO4",
+                        "उत्पादन के सिद्धांत": "driveIdRBSE11_ARTS_ECO5",
+                        "लागत, आय और मूल्य निर्धारण": "driveIdRBSE11_ARTS_ECO6",
+                        "राष्ट्रीय आय और संबंधित अवधारणाएँ": "driveIdRBSE11_ARTS_ECO7",
+                        "भारत की अर्थव्यवस्था का परिचय": "driveIdRBSE11_ARTS_ECO8",
+                        "कृषि, उद्योग और सेवा क्षेत्र": "driveIdRBSE11_ARTS_ECO9",
+                        "गरीबी, बेरोजगारी और जनसंख्या": "driveIdRBSE11_ARTS_ECO10"
+                    }
+                },
+                "11th Agriculture": {
+                    "Agriculture": {
+                        "कृषि का महत्व एवं क्षेत्र": "driveIdRBSE11_AGRI1",
+                        "मृदा तैयारी, बीज चयन और बुवाई की विधियाँ": "driveIdRBSE11_AGRI2",
+                        "फसलों की सिंचाई एवं जल निकास": "driveIdRBSE11_AGRI3",
+                        "फसलों की खाद एवं उर्वरक प्रबंधन": "driveIdRBSE11_AGRI4",
+                        "मुख्य खरीफ और रबी फसलों का अध्ययन": "driveIdRBSE11_AGRI5",
+                        "फसल चक्र एवं मिश्रित कृषि": "driveIdRBSE11_AGRI6",
+                        "उद्यानिकी का परिचय एवं महत्व": "driveIdRBSE11_AGRI7",
+                        "फल, सब्जी एवं फूलों की खेती": "driveIdRBSE11_AGRI8",
+                        "मृदा के प्रकार, गुण और संरक्षण": "driveIdRBSE11_AGRI9",
+                        "सिंचाई के स्रोत, विधियाँ एवं जल संरक्षण": "driveIdRBSE11_AGRI10",
+                        "कृषि यंत्र एवं उपकरण": "driveIdRBSE11_AGRI11",
+                        "उर्वरक, कीटनाशक और खरपतवारनाशी": "driveIdRBSE11_AGRI12",
+                        "मृदा परीक्षण और पोषक तत्व प्रबंधन": "driveIdRBSE11_AGRI13",
+                        "फसल रोग और उनके नियंत्रण उपाय": "driveIdRBSE11_AGRI14",
+                        "पशुपालन का परिचय एवं महत्व": "driveIdRBSE11_AGRI15",
+                        "दुग्ध उत्पादन एवं पशु स्वास्थ्य": "driveIdRBSE11_AGRI16"
+                    },
+                    "Agricultural Biology": {
+                        "पौधों की संरचना और कार्य": "driveIdRBSE11_BIO1",
+                        "प्रकाश संश्लेषण और श्वसन": "driveIdRBSE11_BIO2",
+                        "पौध प्रजनन के प्रकार": "driveIdRBSE11_BIO3",
+                        "अनुवांशिकी के मूल सिद्धांत": "driveIdRBSE11_BIO4",
+                        "फसल रोग एवं रोगकारक सूक्ष्मजीव": "driveIdRBSE11_BIO5",
+                        "पौध वृद्धि एवं विकास": "driveIdRBSE11_BIO6"
+                    },
+                    "Agricultural Chemistry": {
+                        "कृषि रसायन का परिचय": "driveIdRBSE11_CHEM1",
+                        "उर्वरकों का वर्गीकरण और उपयोग": "driveIdRBSE11_CHEM2",
+                        "कीटनाशक एवं खरपतवारनाशी": "driveIdRBSE11_CHEM3",
+                        "मृदा परीक्षण एवं खाद सिफारिशें": "driveIdRBSE11_CHEM4",
+                        "मृदा की अम्लता, क्षारीयता एवं लवणता": "driveIdRBSE11_CHEM5",
+                        "पौधों के लिए आवश्यक पोषक तत्व": "driveIdRBSE11_CHEM6"
+                    }
+                },
+                "12th Science": {
+                    "Physics": {
+                        "वैद्युत आवेश तथा क्षेत्र": "1Yx6HTtRm3jPVeFGFSPzdePEFx4n174uG",
+                        "वैद्युत विभव तथा धारिता": "1wk0CcSYifEQb4_RLbKCAMqroJk3OSnfl",
+                        "वैद्युत धारा": "1_ZdRiv7SEimsNbBCvc1yhYM_CuJn6a8e",
+                        "गतिमान आवेश एवं चुम्बकत्व": "10-mDAsrguleq7_xWMh0kJN_IdHaUIMza",
+                        "चुम्बकीय प्रभाव": "1EZ0-jErlePCCiVfZ9isSKZXdHQ6YhwMI",
+                        "वैद्युत चुम्बकीय प्रेरण": "18dADa4qBSxKQ78bMFqaDBnxGmbzjDDps",
+                        "परिवर्ती धारा": "1Jm2Xcmf95XFuEvjGiEeUPW69o_LWqKLP",
+                        "वैद्युत चुम्बकीय तरंगें": "1nj_my0N8mjkOnsLQ3LDTToK5r_1hmoe_",
+                        "किरण प्रकाशिकी": "1aW9ELy37VJ-yVKrBSZn6gHjV0N8_GrKM",
+                        "तरंग प्रकाशिकी": "1cbF4NyoqvXd46MzRbk8rxf4skdPmpUte",
+                        "विकिरण एवं पदार्थ का द्वैत स्वरूप": "driveIdRBSE12_PHY11",
+                        "परमाणु एवं नाभिक": "driveIdRBSE12_PHY12",
+                        "अर्धचालक इलेक्ट्रॉनिकी": "driveIdRBSE12_PHY13",
+                        "संचार प्रणाली": "driveIdRBSE12_PHY14"
+                    },
+                    "Chemistry": {
+                        "विलयन": "1HK4cSHTUYj8wtr7cAFrwYJyxzq_dbtgy",
+                        "वैद्युत रसायन": "1OvRKc5j0VocaipBnU_RMGCGkjcKjyJPx",
+                        "रासायनिक गतिकी": "10vux5kQUp9291aKH2Gikmn--O3kZKRwC",
+                        "हाइड्रोकार्बन": "1zwpfRcO85ALTX18SlzlRkPPcnLmqvR19",
+                        "उपसहसंयोजन यौगिक": "1zzxW4g2vSktWLY5B5HasWXUAG_HYKWOt",
+                        "p-ब्लॉक तत्त्व": "driveIdRBSE12_CHEM7",
+                        "d एवं f-ब्लॉक तत्त्व": "driveIdRBSE12_CHEM8",
+                        "समन्वय यौगिक": "driveIdRBSE12_CHEM9",
+                        "हेलोएल्केन एवं हेलोएरीन": "1dLNYad_tFs8TnK8ayeJUgHBxIGgGj2bX",
+                        "अल्कोहल, फिनॉल एवं ईथर": "1INylBNZFG_7BduorDtu4wCT2T57c-eT5",
+                        "एल्डिहाइड, कीटोन एवं कार्बोक्सिलिक अम्ल": "1PcK94gbuCwRRoKqdfEZ4wvvdVbO_lj2G",
+                        "नाइट्रोजन युक्त जैव यौगिक": "driveIdRBSE12_CHEM13",
+                        "जैव-अणु": "1OJ20pkQaF6r3YUx5hDd7v92NWq8NEUWu",
+                        "बहुलक": "driveIdRBSE12_CHEM15",
+                        "दैनिक जीवन में रसायन": "driveIdRBSE12_CHEM16"
+                    },
+                    "Biology": {
+                        "जीवों में जनन": "driveIdRBSE12_BIO1",
+                        "पुष्पी पादपों में लैंगिक जनन": "1ouzWbTzPs1VlGNwsev9cCxEz47yPLB9J",
+                        "मानव जनन": "1SVYWDZf8dRzHIEuzC3fLYFn9_CqJZubX",
+                        "जनन स्वास्थ्य": "1W3lGFgG8TrlJi90C1iRO1vNTgX_qxepQ",
+                        "वंशागति तथा विविधता के सिद्धांत": "1CNJSVQGWB8cjbS8KzVrM0tv8E0sqe6s-",
+                        "वंशागति के आणविक आधार": "1QnR1JbRLioK6BYg3PsvVAkUrTZzjGoL9",
+                        "विकास": "1AB5muaoSQxcSk85DtTOaezcigYxxXr76",
+                        "मानव स्वास्थ्य तथा रोग": "1NkMs4Iih75gDPm0Q2tIhIBBki2tXMikb",
+                        "खाद्य उत्पादन में वृद्धि की कार्यनीति": "driveIdRBSE12_BIO9",
+                        "मानव कल्याण में सूक्ष्म जीव": "h1KBqM1fAOhFAx5KnZzmAFDfa579EhVsMy",
+                        "जैव प्रौद्योगिकी: सिद्धांत और प्रक्रम": "1Eh0Z9vvz1Uy-RFhaboGDCfgTvWIGWru7",
+                        "जैव प्रौद्योगिकी और उसके उपयोग": "1XIC0Vt1Fr-SCyVVY_vfU3i8Aev5SxVJt"
+                    },
+                    "Mathematics": {
+                        "संबंध और फलन": "1MTk5Cab3lFHIHDnPTHjQJ-OlJChe6-8F",
+                        "प्रतिलोम त्रिकोणमितीय फलन": "1c4vdegtEw0xPc-m69jjMZu1wDkgThc3Q",
+                        "आव्यूह": "1kqPYYVuQKxnu6k4By2YX7J0FGxfCs3CH",
+                        "सारणिक (Determinants)": "10k90LToWr9IpmGx9tWG5DsYBrtK6Gf2W",
+                        "सांतत्य तथा अवकलनीयता": "1hUTC0QNVoV2OIcYqAznCkuw3z8HAwxme",
+                        "अवकलन के अनुप्रयोग": "1E9sWRSXY575Iqr_LXN1B4try2va9_EjU",
+                        "समाकलन": "1PiAamte5Q3w6jAR40rLGCarhIPJiOY87",
+                        "समाकलन के अनुप्रयोग": "1HVWeygM2ibEhYmwaFXJHMv4ZJbQRf_4g",
+                        "अवकल समीकरण": "driveIdRBSE12_MATH9",
+                        "सदिश बीजगणित": "driveIdRBSE12_MATH10",
+                        "त्रिविमीय ज्यामिति": "driveIdRBSE12_MATH11",
+                        "रेखीय प्रोग्रामिंग": "driveIdRBSE12_MATH12",
+                        "प्रायिकता": "driveIdRBSE12_MATH13"
+                    }
+                },
+                "12th Arts": {
+                    "History": {
+                        "ईंटें, मोती और हड्डियाँ: हड़प्पा सभ्यता": "1LFKf5QLyRV-Ivgt9GU2Z2Bg3cc8xAqYl",
+                        "राजा, किसान और नगर: प्रारंभिक राज्य और अर्थव्यवस्थाएँ": "12w5eHg3zG5ISKkA9u6upZkky2jqS9w-Y",
+                        "यात्रियों की नज़र से": "11_ByjOGNKJC9ZzPcZNNswo7RHDn6Af20",
+                        "भक्ति-सूफी परंपराएँ": "1RKVPczb-lVmiPAVR7o_WaPd1j_21jPZU",
+                        "एक साम्राज्य की राजधानी: विजयनगर": "1KUG4R1Ib74VKehb8kq7ReWrpCXWV7odL",
+                        "किसान, ज़मींदार और राज्य": "1lyWxVKon226Wt1VkfzSKcIPsDvr57K8-",
+                        "औपनिवेशिकता और साम्राज्यवाद": "1k6ik8Ib3jTuCuWJsURaj6e8TY798YUFd",
+                        "भारतीय राष्ट्रीय आंदोलन का आरंभ": "driveIdRBSE12_ARTS_HIS8",
+                        "गांधी युग और स्वतंत्रता संग्राम": "driveIdRBSE12_ARTS_HIS9",
+                        "स्वतंत्रता के बाद का भारत": "driveIdRBSE12_ARTS_HIS10"
+                    },
+                    "Political Science": {
+                        "शीतयुद्ध का दौर": "14bdQF1Wj-dqixHou4-Orr6ZeuQeG962o",
+                        "दो ध्रुवीयता का अंत": "183pZfqkA7R_yhdXPzE2G-fMvn24PyRNG",
+                        "समकालीन विश्व में अमेरीकी वर्चस्व": "15Xme896b5OyX7SlDfrtgctb77Le1jHfW",
+                        "सत्ता के वैकल्पिक केंद्र": "1a4CGpvJ355bXt8dGiWx3IT6xOmD5KHtK",
+                        "समकालीन दक्षिण एशिया": "1L09JDz2UvAhlPEWQtrMZ7Zc6hl6TeStG",
+                        "अंतर्राष्ट्रीय संगठन": "1kg-F8K6MCgs7m3C_FS4BxBpErFhYvaL6",
+                        "समकालीन विश्व में सुरक्षा": "1W515reAtEWlh3d-KrfNZ5iHdmZWp1Kex",
+                        "पर्यावरण और प्राकृतिक संसाधन": "14i5D831GzpY0M_kIncOgwi-FS4bE_9lf",
+                        "वैश्वीकरण": "1vPp_veR5Ovoap6w1tECgVuFMt81i4tbJ",
+                        "राष्ट्र-निर्माण की चुनौतियाँ": "14U6fGAypeEZg2PQEjxFXRSDGi7_m2lBC",
+                        "एक दल के प्रभुत्व का दौर": "1L9j-eZtBgm_W2qtbfATkXQuFSZELjwzE",
+                        "नियोजित विकास की राजनीति": "1m_677JrHldV0OdTUqNeICF-BSp5cHN5B",
+                        "भारत के विदेश संबंध": "1m0r9UczX6ED9-fuxvqtIZkLoduK4Lirk",
+                        "कांग्रेस प्रणाली: चुनौतियाँ और पुनर्स्थापना": "1WNBOFt3bFoZbvaqqUdXifrkio8pYzbVF",
+                        "लोकतांत्रिक व्यवस्था का संकट": "1lbfRiHwn14rzHF06B7CdZE85-TpEu5gj",
+                        "जन आंदोलनों का उदय": "1dDwar1Tax6mzj6Q8Ywj9NW4bWljdDcMs",
+                        "क्षेत्रीय आकांक्षाएँ": "15QTunTZOvUYiP8UMzZhzreb9gN85Z_wS",
+                        "भारतीय राजनीति: नए बदलाव": "1ZTFwVyuMnQpjmAF6IXLXNbSG2o939l2y"
+                    },
+                    "Economics": {
+                        "All Chapter In One PDF": "1jBwpwyMxWc4kU4jX-2kP0Kao-A31yYJF"
+                    }
+                },
+                "12th Agriculture": {
+                    "Agriculture": {
+                        "कृषि का विकास एवं महत्व": "driveIdRBSE12_AGRI1",
+                        "फसल उत्पादन की उन्नत तकनीकें": "driveIdRBSE12_AGRI2",
+                        "बीज उत्पादन एवं प्रसंस्करण": "driveIdRBSE12_AGRI3",
+                        "फसलों की सिंचाई एवं जल प्रबंधन": "driveIdRBSE12_AGRI4",
+                        "खाद एवं उर्वरक प्रबंधन": "driveIdRBSE12_AGRI5",
+                        "फसल रोग एवं कीट नियंत्रण": "driveIdRBSE12_AGRI6",
+                        "कृषि में मशीनीकरण": "driveIdRBSE12_AGRI7",
+                        "भंडारण एवं अनाज संरक्षण": "driveIdRBSE12_AGRI8",
+                        "पशुपालन एवं दुग्ध उत्पादन": "driveIdRBSE12_AGRI9",
+                        "मत्स्य पालन एवं कुक्कुट पालन": "driveIdRBSE12_AGRI10",
+                        "कृषि विपणन एवं मूल्य निर्धारण": "driveIdRBSE12_AGRI11",
+                        "ग्रामीण विकास एवं सहकारी समितियाँ": "driveIdRBSE12_AGRI12"
+                    },
+                    "Agricultural Biology": {
+                        "पौध संरचना एवं ऊतक": "driveIdRBSE12_BIO1",
+                        "पौध वृद्धि एवं विकास": "driveIdRBSE12_BIO2",
+                        "प्रकाश संश्लेषण एवं श्वसन": "driveIdRBSE12_BIO3",
+                        "पौध पोषण एवं तत्वों का परिवहन": "driveIdRBSE12_BIO4",
+                        "अनुवांशिकी एवं वंशागति के सिद्धांत": "driveIdRBSE12_BIO5",
+                        "फसल सुधार एवं पौध प्रजनन": "driveIdRBSE12_BIO6",
+                        "पौध रोग एवं रोगकारक जीव": "driveIdRBSE12_BIO7",
+                        "पर्यावरण, पारिस्थितिकी एवं जैव विविधता": "driveIdRBSE12_BIO8"
+                    },
+                    "Agricultural Chemistry": {
+                        "कृषि रसायन का परिचय": "driveIdRBSE12_CHEM1",
+                        "मृदा का रासायनिक संघटन": "driveIdRBSE12_CHEM2",
+                        "उर्वरकों का वर्गीकरण एवं रासायनिक संरचना": "driveIdRBSE12_CHEM3",
+                        "पौधों में पोषक तत्वों का विश्लेषण": "driveIdRBSE12_CHEM4",
+                        "कीटनाशक, फफूंदनाशी एवं खरपतवारनाशी": "driveIdRBSE12_CHEM5",
+                        "मृदा प्रदूषण एवं सुधार उपाय": "driveIdRBSE12_CHEM6",
+                        "कृषि में जैव उर्वरक एवं जैव रसायन": "driveIdRBSE12_CHEM7",
+                        "कृषि प्रयोगशाला तकनीकें": "driveIdRBSE12_CHEM8"
+                    }
+                }
+            }
+        };
+
+        // Function to render the study data
+        function renderStudyData() {
+            const container = document.getElementById('notes-container');
+            
+            for (const [board, classes] of Object.entries(studyData)) {
+                for (const [className, subjects] of Object.entries(classes)) {
+                    // Create class dropdown
+                    const classDropdown = document.createElement('div');
+                    classDropdown.className = 'class-dropdown';
+                    
+                    // Create class header
+                    const classHeader = document.createElement('div');
+                    classHeader.className = 'class-header';
+                    classHeader.innerHTML = `
+                        <div class="class-title">
+                            <span class="class-icon">🎒</span>
+                            <span>${board} - ${className}</span>
+                        </div>
+                        <span class="toggle-icon">▼</span>
+                    `;
+                    
+                    // Create class content
+                    const classContent = document.createElement('div');
+                    classContent.className = 'class-content';
+                    
+                    // Add subjects and chapters
+                    for (const [subjectName, chapters] of Object.entries(subjects)) {
+                        const subjectSection = document.createElement('div');
+                        subjectSection.className = 'subject-section';
+                        
+                        const subjectTitle = document.createElement('h3');
+                        subjectTitle.className = 'subject-title';
+                        subjectTitle.textContent = subjectName;
+                        
+                        const chaptersGrid = document.createElement('div');
+                        chaptersGrid.className = 'chapters-grid';
+                        
+                        // Add chapters
+                        for (const [chapterName, driveId] of Object.entries(chapters)) {
+                            const chapterCard = document.createElement('div');
+                            chapterCard.className = 'chapter-card';
+                            chapterCard.style.animationDelay = `${Math.random() * 0.5}s`;
+                            
+                            chapterCard.innerHTML = `
+                                <div class="chapter-icon">📘</div>
+                                <h4 class="chapter-name">${chapterName}</h4>
+                                <div class="btn-container">
+                                    <button class="pdf-btn" data-drive-id="${driveId}">
+                                        <span>📄</span>
+                                        Open PDF
+                                    </button>
+                                </div>
+                            `;
+                            
+                            chaptersGrid.appendChild(chapterCard);
+                        }
+                        
+                        subjectSection.appendChild(subjectTitle);
+                        subjectSection.appendChild(chaptersGrid);
+                        classContent.appendChild(subjectSection);
+                    }
+                    
+                    classDropdown.appendChild(classHeader);
+                    classDropdown.appendChild(classContent);
+                    container.appendChild(classDropdown);
+                    
+                    // Add click event to toggle dropdown
+                    classHeader.addEventListener('click', function() {
+                        const content = this.nextElementSibling;
+                        const icon = this.querySelector('.toggle-icon');
+                        
+                        if (content.classList.contains('active')) {
+                            content.classList.remove('active');
+                            icon.textContent = '▼';
+                        } else {
+                            content.classList.add('active');
+                            icon.textContent = '▲';
+                        }
+                    });
+                }
+            }
+            
+            // Add event listeners to PDF buttons
+            document.querySelectorAll('.pdf-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Create ripple effect
+                    const ripple = document.createElement('span');
+                    ripple.classList.add('ripple');
+                    
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                    
+                    // Open PDF
+                    const driveId = this.getAttribute('data-drive-id');
+                    if (driveId && !driveId.includes('driveId')) {
+                        window.open(`https://drive.google.com/file/d/${driveId}/view`, '_blank');
+                    } else {
+                        alert('PDF link not available yet');
+                    }
+                });
+            });
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderStudyData();
+            
+            // Add scroll animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all chapter cards
+            document.querySelectorAll('.chapter-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
