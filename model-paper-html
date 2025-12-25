@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/x-icon" href="favicon-16x16.png">
+<script>(function(s){s.dataset.zone='10369669',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+<script src="https://3nbf4.com/act/files/tag.min.js?z=10373062" data-cfasync="false" async></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Papers for Board Classes - Grami Dost</title>
+    <meta name="description" content="Free model papers for board classes 9-12 RBSE & CBSE. Download PDFs for Hindi, English, Mathematics, Science, Social Science and all subjects.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+            padding: 60px 0 40px;
+            text-align: center;
+            border-bottom: 3px solid #4CAF50;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,30 Q40,10 60,30 T100,30" fill="none" stroke="%234CAF50" stroke-width="0.5" opacity="0.3"/><circle cx="30" cy="50" r="3" fill="%234CAF50" opacity="0.2"/><circle cx="70" cy="70" r="2" fill="%234CAF50" opacity="0.2"/><path d="M10,80 Q30,60 50,80 T90,80" fill="none" stroke="%234CAF50" stroke-width="0.5" opacity="0.3"/></svg>');
+            background-size: 200px;
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            color: #2E7D32;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .sub-heading {
+            font-size: 1.4rem;
+            color: #555;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        
+        .hero-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .hero-icons i {
+            font-size: 2.2rem;
+            color: #4CAF50;
+            background-color: white;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* SEO Description Section */
+        .seo-section {
+            background-color: white;
+            padding: 40px;
+            margin: 30px auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .seo-section h2 {
+            color: #2E7D32;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #FFEB3B;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .seo-section p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #444;
+        }
+        
+        .highlight {
+            color: #2E7D32;
+            font-weight: 600;
+        }
+        
+        /* Class Selection Section */
+        .class-selection {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .section-heading {
+            color: #2E7D32;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-heading i {
+            color: #4CAF50;
+        }
+        
+        .class-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .class-btn {
+            padding: 18px 30px;
+            font-size: 1.2rem;
+            background-color: #f1f8e9;
+            border: 2px solid #C8E6C9;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #2E7D32;
+            min-width: 140px;
+            text-align: center;
+        }
+        
+        .class-btn:hover {
+            background-color: #E8F5E9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+        
+        .class-btn.active {
+            background-color: #4CAF50;
+            color: white;
+            border-color: #388E3C;
+        }
+        
+        /* Subjects Section */
+        .subjects-section {
+            display: none;
+            margin-bottom: 40px;
+        }
+        
+        .subjects-section.active {
+            display: block;
+        }
+        
+        .subjects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .subject-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid #4CAF50;
+            transition: transform 0.3s ease;
+        }
+        
+        .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        
+        .subject-name {
+            font-size: 1.4rem;
+            color: #2E7D32;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .subject-name i {
+            color: #4CAF50;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex: 1;
+            min-width: 130px;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        
+        .btn-open {
+            background-color: #E8F5E9;
+            color: #2E7D32;
+            border: 1px solid #C8E6C9;
+        }
+        
+        .btn-open:hover {
+            background-color: #C8E6C9;
+        }
+        
+        .btn-download {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .btn-download:hover {
+            background-color: #388E3C;
+        }
+        
+        /* Info Boxes */
+        .info-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .info-box {
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .info-box-1 {
+            background-color: #F9FBE7;
+            border-left: 5px solid #FFEB3B;
+        }
+        
+        .info-box-2 {
+            background-color: #E8F5E9;
+            border-left: 5px solid #4CAF50;
+        }
+        
+        .info-box-3 {
+            background-color: #FFF3E0;
+            border-left: 5px solid #FF9800;
+        }
+        
+        .info-box h3 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        
+        .badge-yellow {
+            background-color: #FFEB3B;
+            color: #333;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2E7D32;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #FFEB3B;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .sub-heading {
+                font-size: 1.1rem;
+            }
+            
+            .class-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .class-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .subjects-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+            
+            .info-boxes {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-icons {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .seo-section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <h1>Model Papers for Board Classes</h1>
+            <div class="sub-heading">RBSE & CBSE – Class 10th and 12th</div>
+            
+            <div class="hero-icons">
+                <i class="fas fa-book-open"></i>
+                <i class="fas fa-file-alt"></i>
+                <i class="fas fa-graduation-cap"></i>
+                <i class="fas fa-chart-line"></i>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- SEO Description Section -->
+        <section class="seo-section">
+            <h2>Model Papers for Board Classes – Grami Dost</h2>
+            <p><span class="highlight">Grami Dost</span> पर बोर्ड कक्षाओं के विद्यार्थियों के लिए विशेष रूप से तैयार किए गए मॉडल पेपर्स उपलब्ध कराए जाते हैं, जो परीक्षा की सही तैयारी में महत्वपूर्ण भूमिका निभाते हैं। यहाँ कक्षा 9वीं से 12वीं तक के छात्रों के लिए नवीनतम बोर्ड पैटर्न पर आधारित मॉडल पेपर्स, पिछले वर्षों के प्रश्न पत्र और अभ्यास प्रश्न उपलब्ध हैं।</p>
+            
+            <p>हमारे मॉडल पेपर्स <span class="highlight">RBSE और CBSE बोर्ड</span> के अनुसार डिज़ाइन किए गए हैं, जिससे विद्यार्थियों को वास्तविक परीक्षा पैटर्न को समझने में सहायता मिलती है। इन मॉडल पेपर्स में सभी प्रमुख विषय जैसे <span class="highlight">हिंदी, अंग्रेज़ी, गणित, विज्ञान, सामाजिक विज्ञान, भौतिक विज्ञान, रसायन विज्ञान, जीव विज्ञान, इतिहास, भूगोल, राजनीति विज्ञान और अर्थशास्त्र</span> शामिल हैं।</p>
+            
+            <p>यदि आप <span class="highlight">कक्षा 9, 10, 11 या 12</span> के छात्र हैं और बोर्ड परीक्षा में बेहतर प्रदर्शन करना चाहते हैं, तो Grami Dost के मॉडल पेपर्स आपकी तैयारी को और मजबूत बनाएंगे। यह अध्ययन सामग्री न केवल परीक्षा के लिए उपयोगी है, बल्कि विद्यार्थियों के आत्मविश्वास को भी बढ़ाती है।</p>
+            
+            <p>हमारी वेबसाइट पर उपलब्ध सभी मॉडल पेपर्स मुफ्त हैं और किसी लॉगिन की आवश्यकता नहीं है। आप सीधे अपनी कक्षा और विषय का चयन करके पीडीएफ डाउनलोड या ऑनलाइन देख सकते हैं। प्रत्येक मॉडल पेपर में नवीनतम सिलेबस, मार्किंग स्कीम और परीक्षा पैटर्न को ध्यान में रखा गया है।</p>
+            
+            
+        </section>
+
+        <!-- Class Selection Section -->
+        <section class="class-selection">
+            <h2 class="section-heading"><i class="fas fa-chalkboard-teacher"></i> Choose Your Class</h2>
+            <div class="class-buttons">
+               
+                <div class="class-btn" data-class="10">Class 10</div>
+                
+                <div class="class-btn" data-class="12">Class 12</div>
+            </div>
+        </section>
+
+        
+
+        <!-- Class 10 Subjects Section -->
+        <section class="subjects-section" id="class10-subjects">
+            <h2 class="section-heading"><i class="fas fa-book"></i> Class 10 Subjects</h2>
+            <div class="subjects-container">
+                <!-- Subjects will be dynamically generated by JavaScript -->
+            </div>
+        </section>
+
+       
+        <!-- Class 12 Subjects Section -->
+        <section class="subjects-section" id="class12-subjects">
+            <h2 class="section-heading"><i class="fas fa-book"></i> Class 12 Subjects</h2>
+            <div class="subjects-container">
+                <!-- Subjects will be dynamically generated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Info Boxes -->
+        <div class="info-boxes">
+            <div class="info-box info-box-1">
+                <h3><i class="fas fa-question-circle"></i> Why Use Our Model Papers?</h3>
+                <p>Our model papers are designed by experienced educators to match the latest board exam patterns. They help students understand question formats, time management, and self-assessment.</p>
+                <div class="badge badge-yellow">Exam Preparation Tips</div>
+            </div>
+            
+            <div class="info-box info-box-2">
+                <h3><i class="fas fa-clipboard-check"></i> Board Pattern Based</h3>
+                <p>All model papers are created according to the latest RBSE and CBSE syllabus and examination patterns. They include marking schemes and important questions frequently asked in board exams.</p>
+                <div class="badge">Latest Board Pattern Based</div>
+            </div>
+            
+            <div class="info-box info-box-3">
+                <h3><i class="fas fa-download"></i> Free & Accessible</h3>
+                <p>All resources are completely free with no login required. Direct PDF downloads and online viewing options available for all subjects from Class 9 to 12.</p>
+                <div class="badge">Free PDF – No Login Required</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">Grami Dost</div>
+            <p>Empowering rural and urban students with quality educational resources for board exam success.</p>
+            <p>© 2026 Grami Dost. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample data for subjects and PDF links
+        const subjectsData = {
+           
+            
+            10: [
+                { name: "Hindi", icon: "fa-language", openLink: "https://drive.google.com/file/d/1apLvThVjItSpEn1zdaiMeTNRTvCan2a_/view?usp=sharing", downloadLink: "https://drive.google.com/file/d/1apLvThVjItSpEn1zdaiMeTNRTvCan2a_/view?usp=sharing" },
+                { name: "English", icon: "fa-language", openLink: "https://drive.google.com/file/d/138vgVmWQaxvl2ptM4Y9roqz_HAL1ZcUg/view?usp=sharing", downloadLink: "https://drive.google.com/file/d/138vgVmWQaxvl2ptM4Y9roqz_HAL1ZcUg/view?usp=sharing" },
+                { name: "Mathematics", icon: "fa-calculator", openLink: "https://drive.google.com/file/d/1RouQWoKrOqCZ1v2XDeCQEy6oqVlb3TPk/view?usp=sharing", downloadLink: "https://drive.google.com/file/d/1RouQWoKrOqCZ1v2XDeCQEy6oqVlb3TPk/view?usp=sharing" },
+                { name: "Science", icon: "fa-flask", openLink: "https://drive.google.com/file/d/1mKOE6lXObFW9cZEMMwvIy3yg4Ak_-IVU/view?usp=sharing", downloadLink: "https://drive.google.com/file/d/1mKOE6lXObFW9cZEMMwvIy3yg4Ak_-IVU/view?usp=sharing" },
+                { name: "Social Science", icon: "fa-globe-asia", openLink: "https://drive.google.com/file/d/1RYprTxAtRvT1XgT1MTJtVT2ZTNM6HiZq/view?usp=sharing", downloadLink: "https://drive.google.com/file/d/1RYprTxAtRvT1XgT1MTJtVT2ZTNM6HiZq/view?usp=sharing" },
+                { name: "Punjabi", icon: "fa-globe-asia", openLink: "https://drive.google.com/file/d/1PIRuv8-_9St0r4y4VfB1CGuuvr0Kwmn7/view?usp=drive_link", downloadLink: "https://drive.google.com/file/d/1PIRuv8-_9St0r4y4VfB1CGuuvr0Kwmn7/view?usp=drive_link" },
+                { name: "Sanskrit", icon: "fa-globe-asia", openLink: "https://drive.google.com/file/d/1lAfuuhGpdZ7nvyVmOgxTmsmY_gGzRcV3/view?usp=drive_link", downloadLink: "https://drive.google.com/file/d/1lAfuuhGpdZ7nvyVmOgxTmsmY_gGzRcV3/view?usp=drive_link" }
+            ],
+           
+            12: [
+                { name: "Physics", icon: "fa-atom", openLink: "https://drive.google.com/file/d/1f99qxL2NT50mhjl2nv2rWZb7Xd6toyYa/view?usp=drive_link", downloadLink: "https://drive.google.com/file/d/1f99qxL2NT50mhjl2nv2rWZb7Xd6toyYa/view?usp=drive_link" },
+                { name: "Chemistry", icon: "fa-vial", openLink: "https://drive.google.com/file/d/1fyjCVTm1jfVIuP0N_jqr7rKsmbbNgQJp/view?usp=drive_link", downloadLink: "https://drive.google.com/file/d/1fyjCVTm1jfVIuP0N_jqr7rKsmbbNgQJp/view?usp=drive_link" },
+                { name: "Biology", icon: "fa-dna", openLink: "https://drive.google.com/file/d/1yyjjrOkXUgW6kDlzE-opd5ddMvVyrQrM/view?usp=drive_link", downloadLink: "https://drive.google.com/file/d/1yyjjrOkXUgW6kDlzE-opd5ddMvVyrQrM/view?usp=drive_link" },
+                { name: "Mathematics", icon: "fa-calculator", openLink: "https://drive.google.com/file/d/1tC9UtYeJsGwmISjv3lOkSNJ4nWVV6cTQ/view?usp=drive_link", downloadLink: "https://drive.google.com/file/d/1tC9UtYeJsGwmISjv3lOkSNJ4nWVV6cTQ/view?usp=drive_link" },
+                { name: "Agriculture", icon: "fa-tractor", openLink: "https://drive.google.com/file/d/1ZpTksremZLT8bfsqHym4m5-yOoDRAf9L/view?usp=sharing", downloadLink: "https://drive.google.com/file/d/1ZpTksremZLT8bfsqHym4m5-yOoDRAf9L/view?usp=sharing" },
+                 { name: "Agriculture Bio", icon: "fa-chart-line", openLink: "https://drive.google.com/file/d/1YPZ9HQMfzNk06nhYIwo5Py07fe4bH2Zk/view?usp=sharing", downloadLink: "https://drive.google.com/file/d/1YPZ9HQMfzNk06nhYIwo5Py07fe4bH2Zk/view?usp=sharing" },
+                { name: "Agri. chemistry", icon: "fa-chart-line", openLink: "https://drive.google.com/file/d/1A5T1OM-du-0-zGs23ndUi6gnaQIKFNwf/view?usp=sharing", downloadLink: "https://drive.google.com/file/d/1A5T1OM-du-0-zGs23ndUi6gnaQIKFNwf/view?usp=sharing" },
+                { name: "History", icon: "fa-landmark", openLink: "https://drive.google.com/file/d/1kbMSExv3FskXk-Xcq-Oe2yqE5SdPdc_m/view?usp=drive_link", downloadLink: "https://drive.google.com/file/d/1kbMSExv3FskXk-Xcq-Oe2yqE5SdPdc_m/view?usp=drive_link" },
+                { name: "Geography", icon: "fa-globe-americas", openLink: "https://drive.google.com/file/d/12ZMStKqP4yGtlHu2z5csSs6HdgRJsF9p/view?usp=drive_link", downloadLink: "https://drive.google.com/file/d/12ZMStKqP4yGtlHu2z5csSs6HdgRJsF9p/view?usp=drive_link" },
+                { name: "Political Science", icon: "fa-balance-scale", openLink: "https://drive.google.com/file/d/11MIdXJSJzZWMa5zkQl4g-vfqZkkAJuzv/view?usp=sharing", downloadLink: "https://drive.google.com/file/d/11MIdXJSJzZWMa5zkQl4g-vfqZkkAJuzv/view?usp=sharing" },
+                { name: "Economics", icon: "fa-chart-line", openLink: "https://drive.google.com/file/d/1Qvh4IPpE-m43fwfkTygFbGUt9IOVldJz/view?usp=sharing", downloadLink: "https://drive.google.com/file/d/1Qvh4IPpE-m43fwfkTygFbGUt9IOVldJz/view?usp=sharing" },
+               
+            ]
+        };
+
+        // Class selection functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const classButtons = document.querySelectorAll('.class-btn');
+            const subjectSections = document.querySelectorAll('.subjects-section');
+            
+            // Initialize with Class 10 subjects
+            renderSubjects(10);
+            
+            // Add event listeners to class buttons
+            classButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const selectedClass = this.getAttribute('data-class');
+                    
+                    // Update active class button
+                    classButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding subjects section
+                    subjectSections.forEach(section => section.classList.remove('active'));
+                    document.getElementById(`class${selectedClass}-subjects`).classList.add('active');
+                    
+                    // Render subjects for selected class
+                    renderSubjects(parseInt(selectedClass));
+                });
+            });
+            
+            // Function to render subjects for a class
+            function renderSubjects(classNum) {
+                const subjectsContainer = document.querySelector(`#class${classNum}-subjects .subjects-container`);
+                const subjects = subjectsData[classNum];
+                
+                // Clear existing content
+                subjectsContainer.innerHTML = '';
+                
+                // Create subject cards
+                subjects.forEach(subject => {
+                    const subjectCard = document.createElement('div');
+                    subjectCard.className = 'subject-card';
+                    
+                    subjectCard.innerHTML = `
+                        <div class="subject-name">
+                            <i class="fas ${subject.icon}"></i>
+                            ${subject.name}
+                        </div>
+                        <div class="btn-group">
+                            <a href="${subject.openLink}" target="_blank" class="btn btn-open">
+                                <i class="fas fa-external-link-alt"></i> OPEN PDF
+                            </a>
+                            <a href="${subject.downloadLink}" class="btn btn-download">
+                                <i class="fas fa-download"></i> DOWNLOAD PDF
+                            </a>
+                        </div>
+                    `;
+                    
+                    subjectsContainer.appendChild(subjectCard);
+                });
+            }
+        });
+    </script>
+<script src="https://pl28325240.effectivegatecpm.com/4b/fa/8c/4bfa8c50917b0101a5f0c46fbf82f9f4.js"></script>
+</body>
+<script src="https://pl28325642.effectivegatecpm.com/58/67/98/5867982c3eaf4b558168d71e46be2d00.js"></script>
+</html>   
