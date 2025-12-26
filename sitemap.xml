@@ -11,7 +11,7 @@
   <!-- Core Pages -->
   <url>
     <loc>https://gramidost.com/mandi-bhav.html</loc>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
     <changefreq>daily</changefreq>
   </url>
 
@@ -23,13 +23,13 @@
 
   <url>
     <loc>https://gramidost.com/model-papers.html</loc>
-    <priority>0.85</priority>
+    <priority>0.95</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <url>
     <loc>https://gramidost.com/notes.html</loc>
-    <priority>0.85</priority>
+    <priority>1.00</priority>
     <changefreq>weekly</changefreq>
   </url>
 
@@ -67,7 +67,7 @@
   <!-- Trust & Legal Pages -->
   <url>
     <loc>https://gramidost.com/aboutus.html</loc>
-    <priority>0.60</priority>
+    <priority>0.40</priority>
     <changefreq>yearly</changefreq>
   </url>
 
