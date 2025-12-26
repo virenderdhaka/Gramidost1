@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Block unnecessary system files (optional)
+Disallow: /sw.js
+Disallow: /README.md
+
+# Sitemap
+Sitemap: https://gramidost.com/sitemap.xml
