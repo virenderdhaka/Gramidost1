@@ -64,12 +64,6 @@
     <changefreq>daily</changefreq>
   </url>
 
-  <!-- Trust & Legal Pages -->
-  <url>
-    <loc>https://gramidost.com/aboutus.html</loc>
-    <priority>0.40</priority>
-    <changefreq>yearly</changefreq>
-  </url>
 
   <url>
     <loc>https://gramidost.com/privacy-policy.html</loc>
