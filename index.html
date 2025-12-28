@@ -331,33 +331,44 @@
         }
 
         .location-input {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 1.5rem;
-        }
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
 
-        .location-input input {
-            flex: 1;
-            padding: 0.8rem 1rem;
-            border: 1px solid #ddd;
-            border-radius: 50px;
-            font-size: 1rem;
-        }
+.location-input input,
+.location-input button {
+  height: 48px;
+}
 
-        .location-input button {
-            padding: 0.8rem 1.5rem;
-            background-color: var(--primary-green);
-            color: var(--white);
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
+.location-input input {
+  flex: 1;
+  padding: 0 1rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 1rem;
+  min-width: 0;
+}
 
-        .location-input button:hover {
-            background-color: var(--dark-green);
-        }
+.location-input button {
+  padding: 0 1.5rem;
+  background-color: var(--primary-green);
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  white-space: nowrap;
+}
 
+.location-input button:hover {
+  background-color: var(--dark-green);
+}
         .weather-content {
             display: flex;
             flex-direction: column;
@@ -998,14 +1009,20 @@
   display: flex;
   justify-content: center;
   gap: 20px;
-  flex-wrap: nowrap; /* one row always */
+  flex-wrap: nowrap;
+}
+
+/* ===== Card Link Wrapper (NEW) ===== */
+.gd-card-link {
+  text-decoration: none;
+  color: inherit;
+  flex: 1 1 0;
+  max-width: 320px;
 }
 
 /* ===== Card Design ===== */
 .gd-card {
   position: relative;
-  flex: 1 1 0;
-  max-width: 320px;
   background: linear-gradient(145deg, #fefefe, #f8fbc4);
   border-radius: 16px;
   padding: 30px 20px;
@@ -1014,6 +1031,7 @@
   border: 1px solid rgba(244, 248, 7, 0.597);
   box-shadow: 0 0 25px rgba(246, 255, 0, 0.564);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
 }
 
 .gd-card:hover {
@@ -1038,7 +1056,7 @@
 .gd-card h3 {
   font-size: 25px;
   margin-bottom: 10px;
-  color: rgb(0, 0, 0);
+  color: #000;
 }
 
 .gd-card p {
@@ -1048,7 +1066,7 @@
   color: rgb(48, 32, 2);
 }
 
-/* ===== Button ===== */
+/* ===== Button (Same as before) ===== */
 .gd-btn {
   display: inline-block;
   padding: 10px 26px;
@@ -1094,7 +1112,7 @@
   100% { transform: scale(0.6); opacity: 0.4; }
 }
 
-/* ===== MOBILE RESPONSIVE FIX (ONLY CHANGE) ===== */
+/* ===== MOBILE RESPONSIVE FIX ===== */
 @media (max-width: 768px) {
 
   .gd-study-heading {
@@ -1143,26 +1161,35 @@
 
   <div class="gd-study-cards">
 
-    <div class="gd-card">
-      <i class="fas fa-file-alt"></i>
-      <h3>Model Papers</h3>
-      <p>Board based model papers and previous year question papers.</p>
-      <a href="model-papers.html" class="gd-btn">OPEN</a>
-    </div>
+    <!-- Model Papers -->
+    <a href="model-paper.html" class="gd-card-link">
+      <div class="gd-card">
+        <i class="fas fa-file-alt"></i>
+        <h3>Model Papers</h3>
+        <p>Board based model papers and previous year question papers.</p>
+        <span class="gd-btn">OPEN</span>
+      </div>
+    </a>
 
-    <div class="gd-card">
-      <i class="fas fa-book-open"></i>
-      <h3>PDF Notes</h3>
-      <p>Well-structured and easy notes for Class 9 to 12 students.</p>
-      <a href="notes.html" class="gd-btn">OPEN</a>
-    </div>
+    <!-- PDF Notes -->
+    <a href="notes.html" class="gd-card-link">
+      <div class="gd-card">
+        <i class="fas fa-book-open"></i>
+        <h3>PDF Notes</h3>
+        <p>Well-structured and easy notes for Class 9 to 12 students.</p>
+        <span class="gd-btn">OPEN</span>
+      </div>
+    </a>
 
-    <div class="gd-card">
-      <i class="fas fa-list-check"></i>
-      <h3>Syllabus</h3>
-      <p>Updated syllabus according to latest board guidelines.</p>
-      <a href="syllabus.html" class="gd-btn">OPEN</a>
-    </div>
+    <!-- Syllabus -->
+    <a href="syllabus.html" class="gd-card-link">
+      <div class="gd-card">
+        <i class="fas fa-list-check"></i>
+        <h3>Syllabus</h3>
+        <p>Updated syllabus according to latest board guidelines.</p>
+        <span class="gd-btn">OPEN</span>
+      </div>
+    </a>
 
   </div>
 </section>
@@ -1994,6 +2021,7 @@ setInterval(() => {
 </body>
   
 </html>
+
 
 
 
