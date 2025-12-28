@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grami Dost Blog | Rural Education & Farming Knowledge</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Grami Dost Blog provides daily education, exam guidance, agriculture tips, farming knowledge, motivation and awareness content for students and farmers of rural India.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Internal CSS -->
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --secondary: #f5f5f5;
+      --text: #333;
+      --light: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: var(--secondary);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: var(--light);
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      font-weight: normal;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1rem;
+    }
+
+    /* SEARCH BAR */
+    .search-box {
+      padding: 20px;
+      background: var(--light);
+      text-align: center;
+    }
+
+    .search-box input {
+      width: 90%;
+      max-width: 500px;
+      padding: 12px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    /* CATEGORY FILTER */
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 20px;
+      background: var(--light);
+    }
+
+    .categories button {
+      padding: 8px 15px;
+      border: none;
+      background: #e0e0e0;
+      cursor: pointer;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    .categories button.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* FEATURED ARTICLE */
+    .featured {
+      background: var(--light);
+      padding: 20px;
+      margin: 20px;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .featured img {
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    .featured h2 {
+      color: var(--primary);
+    }
+
+    .read-more {
+      display: inline-block;
+      padding: 8px 15px;
+      background: var(--primary);
+      color: white;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      width: fit-content;
+    }
+
+    /* BLOG GRID */
+    .blog-container {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .blog-card {
+      background: var(--light);
+      border-radius: 5px;
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .blog-content {
+      padding: 15px;
+      flex: 1;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #c8e6c9;
+      color: #1b5e20;
+      padding: 3px 8px;
+      font-size: 0.75rem;
+      border-radius: 3px;
+      margin-bottom: 5px;
+    }
+
+    .blog-content h3 {
+      font-size: 1rem;
+      margin: 8px 0;
+    }
+
+    .blog-content p {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .date {
+      font-size: 0.8rem;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    /* LOAD MORE */
+    .load-more {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .load-more button {
+      padding: 10px 20px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    @media(min-width:768px) {
+      .featured {
+        flex-direction: row;
+      }
+      .featured img {
+        width: 40%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <h1>-GRAMI DOST BLOG-</h1>
+  <h2>Students & Farmers Knowledge Hub</h2>
+  <p>
+    Grami Dost Blog एक knowledge-based platform है जो rural India के students और farmers के लिए बनाया गया है।
+    यहाँ आपको education guidance, exams help, agriculture tips, farming knowledge, motivation और awareness से जुड़ी
+    daily नई जानकारी simple Hindi + English mix में मिलती है।
+  </p>
+</section>
+
+<!-- SEARCH -->
+<section class="search-box">
+  <input type="text" id="searchInput" placeholder="Search article by title or topic...">
+</section>
+
+<!-- CATEGORY FILTER -->
+<section class="categories">
+  <button class="active" data-filter="all">All</button>
+  <button data-filter="student">Student Blog</button>
+  <button data-filter="farmer">Farmer Blog</button>
+  <button data-filter="exam">Exam & Education</button>
+  <button data-filter="agriculture">Agriculture Tips</button>
+  <button data-filter="motivation">Motivation & Awareness</button>
+</section>
+
+<!-- FEATURED ARTICLE -->
+<section class="featured">
+  <img src="https://via.placeholder.com/600x400" alt="Latest Article">
+  <div>
+    <h2>Today’s Important Article</h2>
+    <p>
+      Rural students और farmers के लिए यह आज का important article education और farming दोनों को ध्यान में रखकर लिखा गया है।
+    </p>
+    <a href="article-01.html" class="read-more">Read More</a>
+  </div>
+</section>
+
+<!-- BLOG GRID -->
+<section class="blog-container" id="blogContainer">
+
+  <!-- ===== COPY & PASTE NEW BLOG CARD BELOW THIS LINE ===== -->
+
+  <div class="blog-card" data-category="student">
+    <img src="1article-.png" alt="">
+    <div class="blog-content">
+      <span class="badge">Student Blog</span>
+      <h3>ग्रामीण छात्रों के लिए फ्री PDF नोट्स क्यों ज़रूरी हैं</h3>
+      <p>भारत का एक बड़ा हिस्सा आज भी गाँवों में रहता है। किताबें महंगी होती हैं, कोचिंग दूर होती है और इंटरनेट भी हर जगह उपलब्ध नहीं होता। ऐसे में फ्री PDF नोट्स ग्रामीण छात्रों के लिए किसी वरदान से कम नहीं हैं।</p>
+      <div class="date">1 dec 2026</div>
+      <a href="1article.html" class="read-more">Read More</a>
+    </div>
+  </div>
+
+  <div class="blog-card" data-category="farmer">
+    <img src="3article.png" alt="">
+    <div class="blog-content">
+      <span class="badge">Farmer Blog</span>
+      <h3>Low Cost Farming Ideas for Small Farmers</h3>
+      <p>मोबाइल ने खेती के पुराने तरीके को बदल दिया है। पहले किसान केवल अपने अनुभव और आसपास के लोगों पर निर्भर रहते थे। लेकिन अब मोबाइल के जरिये वे तेजी से जानकारी ले सकते हैं और सही निर्णय ले सकते हैं।</p>
+      <div class="date">1 dec 2026</div>
+      <a href="3article.html" class="read-more">Read More</a>
+    </div>
+  </div>
+
+  <div class="blog-card" data-category="motivation">
+    <img src="2article.png" alt="">
+    <div class="blog-content">
+      <span class="badge">Motivation</span>
+      <h3>10वीं–12वीं के छात्रों के लिए बेस्ट ऑनलाइन स्टडी प्लेटफॉर्म</h3>
+      <p>ऑनलाइन स्टडी प्लेटफॉर्म ऐसे डिजिटल माध्यम होते हैं जहाँ छात्र इंटरनेट के जरिए पढ़ाई से जुड़ी सामग्री प्राप्त कर सकते हैं। ये प्लेटफॉर्म वेबसाइट या मोबाइल ऐप के रूप में उपलब्ध होते हैं और छात्रों को घर बैठे सीखने की सुविधा देते हैं।</p>
+      <div class="date">1 dec 2026</div>
+      <a href="2article.html" class="read-more">Read More</a>
+    </div>
+  </div>
+
+  <!-- ===== ADD NEW ARTICLES ABOVE THIS LINE ===== -->
+
+</section>
+
+<!-- LOAD MORE -->
+<div class="load-more">
+  <button id="loadMoreBtn">Load More</button>
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+  const cards = document.querySelectorAll('.blog-card');
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  const searchInput = document.getElementById('searchInput');
+  const filterButtons = document.querySelectorAll('.categories button');
+
+  let visibleCount = 4;
+
+  function showCards() {
+    cards.forEach((card, index) => {
+      card.style.display = index < visibleCount ? 'flex' : 'none';
+    });
+    if (visibleCount >= cards.length) loadMoreBtn.style.display = 'none';
+  }
+
+  loadMoreBtn.addEventListener('click', () => {
+    visibleCount += 4;
+    showCards();
+  });
+
+  searchInput.addEventListener('keyup', () => {
+    const value = searchInput.value.toLowerCase();
+    cards.forEach(card => {
+      const text = card.innerText.toLowerCase();
+      card.style.display = text.includes(value) ? 'flex' : 'none';
+    });
+  });
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelector('.categories .active').classList.remove('active');
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        card.style.display =
+          filter === 'all' || card.dataset.category === filter ? 'flex' : 'none';
+      });
+    });
+  });
+
+  showCards();
+</script>
+
+</body>
+</html>
