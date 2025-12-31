@@ -40,6 +40,13 @@
   </url>
 
   <url>
+    <loc>https://gramidost.com/blog.html</loc>
+    <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  
+  <url>
     <loc>https://gramidost.com/yojana-advisor.html</loc>
     <priority>0.85</priority>
     <changefreq>weekly</changefreq>
