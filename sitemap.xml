@@ -9,11 +9,7 @@
   </url>
 
   <!-- Core Pages -->
-  <url>
-    <loc>https://gramidost.com/mandi-bhav.html</loc>
-    <priority>0.90</priority>
-    <changefreq>daily</changefreq>
-  </url>
+
 
   <url>
     <loc>https://gramidost.com/weather-advisor.html</loc>
@@ -60,17 +56,10 @@
 
   <!-- Location / Mandi Pages -->
   <url>
-    <loc>https://gramidost.com/bikaner.html</loc>
-    <priority>0.75</priority>
+    <loc>https://gramidost.com/mandi-bhav.html</loc>
+    <priority>0.90</priority>
     <changefreq>daily</changefreq>
   </url>
-
-  <url>
-    <loc>https://gramidost.com/ganganagar.html</loc>
-    <priority>0.75</priority>
-    <changefreq>daily</changefreq>
-  </url>
-
 
   <url>
     <loc>https://gramidost.com/privacy-policy.html</loc>
