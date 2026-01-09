@@ -10,6 +10,11 @@
 
   <!-- Core Pages -->
 
+  <url>
+    <loc>https://gramidost.com/syllabus.html</loc>
+    <priority>0.97</priority>
+    <changefreq>yearly</changefreq>
+  </url>
 
   <url>
     <loc>https://gramidost.com/weather-advisor.html</loc>
