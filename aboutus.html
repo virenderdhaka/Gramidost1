@@ -1,559 +1,287 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="hi">
 <head>
-   
-    <link rel="icon" type="image/x-icon" href="favicon-16x16.png"> 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1700130074742654"  crossorigin="anonymous"></script> 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Grami Dost – Digital Friend for Rural India</title>
+    <meta name="description" content="Grami Dost ek rural-focused digital platform hai jo students, farmers aur rural families ke liye education, yojana, mandi bhav aur smart tools provide karta hai.">
+    <meta name="keywords" content="Grami Dost, Rural India, Students Notes, Mandi Bhav, Yojana, Rural Education, Farmers Platform">
+    <meta name="author" content="Grami Dost">
 
-  <title>About — Grami Dost</title>
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --secondary: #f1f8e9;
+            --accent: #ffb300;
+            --dark: #1b1b1b;
+            --light: #ffffff;
+        }
 
-  <style>
-    /* =========================
-       Variables & Base Styles
-       Mobile-first responsive
-       ========================= */
-    :root{
-      --green: #2E7D32;
-      --light-green: #A5D6A7;
-      --white: #FFFFFF;
-      --soft-yellow: #FFF9C4;
-      --muted: #4a5a43;
-      --glass: rgba(255,255,255,0.75);
-      --card-shadow: 0 10px 30px rgba(46,125,50,0.10);
-      --card-shadow-strong: 0 18px 40px rgba(46,125,50,0.14);
-      --radius: 14px;
-      --ease: cubic-bezier(.2,.9,.3,1);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: "Segoe UI", sans-serif;
+        }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:
-        radial-gradient(1200px 600px at 10% 10%, rgba(165,214,167,0.10), transparent 10%),
-        radial-gradient(900px 500px at 95% 80%, rgba(255,249,196,0.09), transparent 8%),
-        linear-gradient(180deg, #f7fff0 0%, #ffffff 100%);
-      color:var(--muted);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding:20px;
-      display:flex;
-      justify-content:center;
-      align-items:flex-start;
-      gap:20px;
-      min-height:100vh;
-      animation: pageFade 700ms var(--ease) both;
-    }
+        body {
+            background: #fafafa;
+            color: #333;
+            line-height: 1.6;
+        }
 
-    @keyframes pageFade{
-      from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}
-    }
+        header {
+            background: var(--light);
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
 
-    .site{
-      width:100%;
-      max-width:1100px;
-      display:flex;
-      flex-direction:column;
-      gap:20px;
-      padding-bottom:60px;
-    }
+        header h1 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            text-align: center;
+        }
 
-    /* =========================
-       Header / Navbar (simple)
-       ========================= */
-    .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
-    .brand{
-      display:flex;
-      gap:12px;
-      align-items:center;
-    }
-    .logo{
-      width:56px; height:56px; border-radius:12px;
-      background:linear-gradient(135deg,var(--green),var(--light-green));
-      display:flex; align-items:center; justify-content:center;
-      color:var(--white); font-weight:700; font-size:18px;
-      box-shadow: 0 8px 24px rgba(46,125,50,0.18);
-    }
-    .brand h3{margin:0; font-size:18px; color:var(--green); letter-spacing:0.2px}
-    .brand p{margin:0; font-size:12px; color:#617b61}
+        section {
+            padding: 3rem 1rem;
+            max-width: 1100px;
+            margin: auto;
+        }
 
-    /* =========================
-       HERO
-       ========================= */
-    .hero{
-      position:relative;
-      border-radius:var(--radius);
-      padding:30px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(245,255,240,0.85));
-      box-shadow: var(--card-shadow);
-      overflow:hidden;
-      transform-style:preserve-3d;
-      perspective:1000px;
-    }
+        .hero {
+            text-align: center;
+            background: linear-gradient(to bottom, #e8f5e9, #ffffff);
+            padding: 4rem 1rem;
+        }
 
-    .hero-inner{
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-    }
+        .hero h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
 
-    .hero h1{
-      margin:0;
-      font-size:1.8rem;
-      color:var(--green);
-      line-height:1.05;
-      letter-spacing:0.2px;
-      transform:translateZ(40px) scale(1.01);
-    }
+        .hero p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
 
-    .hero p.lead{
-      margin:0;
-      color:#405a43;
-      font-size:1rem;
-      max-width:760px;
-    }
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: background 0.3s ease;
+        }
 
-    /* floating emoji bubbles */
-    .emoji {
-      position:absolute;
-      font-size:26px;
-      will-change:transform;
-      filter:drop-shadow(0 6px 18px rgba(46,125,50,0.12));
-      opacity:0.95;
-      transform-origin:center;
-    }
-    /* positions */
-    .e1{left:8%; top:12%; animation:floatA 7s ease-in-out infinite; transform:translateZ(20px)}
-    .e2{right:6%; top:8%; animation:floatB 9s ease-in-out infinite}
-    .e3{left:20%; bottom:8%; animation:floatC 8.5s ease-in-out infinite}
-    .e4{right:22%; bottom:12%; animation:floatA 10s ease-in-out infinite}
-    .e5{left:50%; top:4%; animation:floatB 6.5s ease-in-out infinite}
+        .btn:hover {
+            background: #1b5e20;
+        }
 
-    @keyframes floatA{
-      0%{transform:translateY(0) rotate(-6deg)}
-      50%{transform:translateY(-12px) rotate(6deg)}
-      100%{transform:translateY(0) rotate(-6deg)}
-    }
-    @keyframes floatB{
-      0%{transform:translateY(0) rotate(3deg)}
-      50%{transform:translateY(-18px) rotate(-3deg)}
-      100%{transform:translateY(0) rotate(3deg)}
-    }
-    @keyframes floatC{
-      0%{transform:translateY(0) translateX(0) rotate(0)}
-      50%{transform:translateY(-14px) translateX(6px) rotate(4deg)}
-      100%{transform:translateY(0) translateX(0) rotate(0)}
-    }
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
 
-    /* subtle 3D background accent */
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:-30%;
-      background: radial-gradient(circle at 20% 20%, rgba(165,214,167,0.12), transparent 6%),
-                  radial-gradient(circle at 80% 80%, rgba(255,249,196,0.10), transparent 5%);
-      transform:translateZ(-40px) scale(1.02);
-      pointer-events:none;
-    }
+        .section-title h3 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
 
-    /* Hero CTA card (soft 3D) */
-    .hero-card{
-      display:flex;
-      gap:12px;
-      padding:14px;
-      border-radius:12px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(245,255,240,0.9));
-      box-shadow: var(--card-shadow);
-      align-items:center;
-      transform:translateY(6px);
-      transition:transform 420ms var(--ease), box-shadow 420ms var(--ease);
-    }
-    .hero-card:hover{ transform:translateY(0); box-shadow: var(--card-shadow-strong) }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+        }
 
-    .hero-card .icon{
-      width:56px; height:56px; border-radius:10px;
-      background:linear-gradient(135deg,var(--light-green),#e6f6e7);
-      display:flex; align-items:center; justify-content:center;
-      font-size:22px; color:var(--green); box-shadow: 0 8px 18px rgba(46,125,50,0.06);
-    }
-    .hero-card .txt{ font-size:0.95rem; color:#38523a }
+        .card {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    /* =========================
-       MISSION - slide-in card
-       ========================= */
-    .mission{
-      display:block;
-      margin-top:8px;
-      border-radius:12px;
-      padding:18px;
-      background: linear-gradient(180deg,#fff 0%, #fbffef 100%);
-      box-shadow: var(--card-shadow);
-      transform:translateX(-10px);
-      opacity:0;
-      animation:slideIn 700ms 220ms var(--ease) forwards;
-    }
-    @keyframes slideIn{
-      to{transform:none; opacity:1}
-    }
-    .mission h3{margin:0 0 8px 0; color:var(--green)}
-    .mission p{margin:0; color:#465d49}
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
 
-    /* =========================
-       WHAT WE PROVIDE - 3D cards grid
-       ========================= */
-    .grid{
-      display:grid;
-      gap:12px;
-      grid-template-columns:1fr;
-    }
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.97), rgba(248,255,242,0.96));
-      padding:16px;
-      border-radius:12px;
-      box-shadow: var(--card-shadow);
-      transform-style:preserve-3d;
-      transition: transform 480ms var(--ease), box-shadow 480ms var(--ease);
-      will-change:transform;
-    }
-    .card:hover{
-      transform: translateY(-10px) rotateX(2deg) rotateY(1.2deg) scale(1.02);
-      box-shadow: var(--card-shadow-strong);
-    }
-    .card .head{
-      display:flex; gap:12px; align-items:center;
-    }
-    .badge{
-      width:52px; height:52px; border-radius:10px;
-      display:flex; align-items:center; justify-content:center;
-      font-size:22px; box-shadow:0 8px 20px rgba(0,0,0,0.06);
-      background: linear-gradient(135deg, var(--light-green), #e8f8e9);
-      color:var(--green);
-    }
-    .card h4{margin:0; color:#2f5630}
-    .card p{margin:8px 0 0 0; color:#435a46; font-size:0.95rem}
+        .icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
 
-    .cards-row{
-      display:grid;
-      gap:12px;
-      grid-template-columns:1fr 1fr;
-    }
+        .center-text {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+            font-size: 1rem;
+        }
 
-    /* small descriptive footer inside section */
-    .muted{ color:#6c7c6a; font-size:0.92rem }
+        footer {
+            background: var(--dark);
+            color: #ccc;
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
 
-    /* =========================
-       VISION - fade in
-       ========================= */
-    .vision{
-      margin-top:6px;
-      padding:16px;
-      border-radius:12px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(249,255,236,0.95));
-      box-shadow: var(--card-shadow);
-      opacity:0;
-      transform:translateY(10px);
-      animation:fadeInUp 700ms 380ms var(--ease) forwards;
-    }
-    @keyframes fadeInUp{ to{opacity:1; transform:none} }
+        footer h4 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
 
-    /* =========================
-       TEAM / FOUNDER CARD
-       ========================= */
-    .founder{
-      display:flex;
-      gap:14px;
-      align-items:center;
-      padding:14px;
-      border-radius:14px;
-      background: linear-gradient(180deg, #ffffff, #fbfff2);
-      box-shadow: 0 12px 30px rgba(46,125,50,0.08);
-      position:relative;
-      overflow:visible;
-      transition: transform 420ms var(--ease);
-    }
-    .founder:hover{ transform: translateY(-6px) }
-    .avatar{
-      width:86px; height:86px; border-radius:16px;
-      background:linear-gradient(135deg,var(--green),var(--light-green));
-      display:flex; align-items:center; justify-content:center;
-      color:var(--white); font-weight:700; font-size:20px;
-      box-shadow: 0 12px 30px rgba(46,125,50,0.12);
-      position:relative;
-    }
-    /* glowing border */
-    .founder::after{
-      content:"";
-      position:absolute;
-      inset:-6px;
-      border-radius:18px;
-      background:linear-gradient(90deg, rgba(255,249,196,0.18), rgba(165,214,167,0.12));
-      filter:blur(12px);
-      opacity:0.9;
-      z-index:-1;
-      transform:scale(0.98);
-      animation:glow 3.6s ease-in-out infinite;
-    }
-    @keyframes glow{
-      0%{opacity:0.6; transform:scale(0.98)}
-      50%{opacity:1; transform:scale(1)}
-      100%{opacity:0.6; transform:scale(0.98)}
-    }
-    .founder .info h4{margin:0; color:var(--green)}
-    .founder .info p{margin:6px 0 0 0; color:#425741}
+        footer p {
+            font-size: 0.85rem;
+        }
 
-    /* =========================
-       WHY CHOOSE US - checklist
-       ========================= */
-    .why{
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-      padding:16px;
-      border-radius:12px;
-      background: linear-gradient(180deg,#ffffff,#fbfff7);
-      box-shadow: var(--card-shadow);
-    }
-    .why .item{
-      display:flex; gap:12px; align-items:flex-start;
-      transform:translateY(12px);
-      opacity:0;
-      animation: slideUp 560ms var(--ease) forwards;
-    }
-    .why .item:nth-child(1){ animation-delay:120ms }
-    .why .item:nth-child(2){ animation-delay:220ms }
-    .why .item:nth-child(3){ animation-delay:320ms }
-    .why .item:nth-child(4){ animation-delay:420ms }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
 
-    @keyframes slideUp{ to{opacity:1; transform:none} }
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-    .check{
-      min-width:34px; height:34px; border-radius:8px;
-      background:linear-gradient(135deg,var(--light-green),#e8fbe7);
-      display:flex; align-items:center; justify-content:center; font-size:16px; color:var(--green);
-      box-shadow: 0 6px 18px rgba(46,125,50,0.06)
-    }
-    .why p{margin:0; color:#445a46}
-
-    /* =========================
-       Footer
-       ========================= */
-    footer.sitefoot{
-      margin-top:6px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      align-items:center;
-      padding:18px;
-      border-radius:12px;
-      background:linear-gradient(180deg, rgba(46,125,50,0.06), rgba(165,214,167,0.03));
-      box-shadow: 0 8px 24px rgba(46,125,50,0.06);
-    }
-    .socials{ display:flex; gap:10px; align-items:center }
-    .sbtn{
-      width:40px; height:40px; border-radius:8px; display:inline-flex; align-items:center; justify-content:center;
-      background:var(--white); box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-      transition: transform 250ms var(--ease);
-    }
-    .sbtn:hover{ transform:translateY(-6px) }
-    .copyright{ font-size:13px; color:#334c36; font-weight:600 }
-
-    /* =========================
-       Responsive Layouts
-       ========================= */
-    @media(min-width:720px){
-      .hero-inner{ flex-direction:row; align-items:center; justify-content:space-between; gap:24px }
-      .hero h1{ font-size:2.2rem }
-      .cards-row{ grid-template-columns:repeat(3, 1fr) }
-      .grid{ grid-template-columns: repeat(2, 1fr) }
-    }
-    @media(min-width:980px){
-      .site{ gap:28px; }
-      .brand h3{ font-size:20px }
-      .hero{ padding:36px }
-      .cards-row{ grid-template-columns: repeat(3, 1fr) }
-      .grid{ grid-template-columns: repeat(3, 1fr) }
-      .card{ padding:20px }
-    }
-
-    /* accessibility: reduce motion */
-    @media (prefers-reduced-motion: reduce){
-      .emoji, .hero, .mission, .vision, .founder, .why .item { animation: none !important; transition: none !important; transform: none !important }
-    }
-  </style>
+        @media(min-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <div class="site" role="main">
 
-    <!-- Top brand -->
-    <div class="topbar">
-      <div class="brand" aria-hidden="true">
-        <div class="logo">GD</div>
-        <div>
-          <h3>Grami Dost</h3>
-          <p>Connecting students & farmers through smart tools</p>
-        </div>
-      </div>
-      <div class="muted" style="font-size:13px">🌾 Rajasthan • Student Tools • Mandi Rates</div>
+<header>
+    <h1>Grami Dost</h1>
+</header>
+
+<section class="hero fade-in">
+    <h2>Grami Dost – A Digital Friend for Rural India</h2>
+    <p>Education, Krishi, Yojana aur Smart Digital Tools – सब कुछ एक ही जगह, सरल और भरोसा।</p>
+    <a href="index.html" class="btn">Explore Website</a>
+</section>
+
+<section class="fade-in">
+    <div class="section-title">
+        <h3>Grami Dost क्या है?</h3>
     </div>
+    <div class="cards">
+        <div class="card"><div class="icon">📘</div>Notes & Model Papers</div>
+        <div class="card"><div class="icon">🎯</div>Career Guide</div>
+        <div class="card"><div class="icon">🌾</div>Mandi Bhav</div>
+        <div class="card"><div class="icon">☁️</div>Weather Advisor</div>
+        <div class="card"><div class="icon">🏛️</div>Yojana Advisor</div>
+        <div class="card"><div class="icon">🤖</div>Smart Tools</div>
+    </div>
+</section>
 
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="about-heading">
-      <!-- Floating emojis -->
-      <span class="emoji e1" aria-hidden="true">🌾</span>
-      <span class="emoji e2" aria-hidden="true">🚜</span>
-      <span class="emoji e3" aria-hidden="true">📚</span>
-      <span class="emoji e4" aria-hidden="true">🌦️</span>
-      <span class="emoji e5" aria-hidden="true">📱</span>
+<section class="fade-in">
+    <div class="section-title">
+        <h3>Grami Dost Kyun Chune?</h3>
+    </div>
+    <div class="cards">
+        <div class="card"><div class="icon">✔️</div>Free & Trusted Information</div>
+        <div class="card"><div class="icon">📱</div>Mobile Friendly</div>
+        <div class="card"><div class="icon">🌍</div>Rural-Focused Platform</div>
+        <div class="card"><div class="icon">🔄</div>Regular Updates</div>
+        <div class="card"><div class="icon">👨‍🌾</div>Student & Farmer Friendly</div>
+        <div class="card"><div class="icon">🗣️</div>Simple Language</div>
+    </div>
+</section>
 
-      <div class="hero-inner">
-        <div style="max-width:68%">
-          <h1 id="about-heading">About Grami Dost</h1>
-          <p class="lead">Our vision is to connect students, farmers, and rural youth through technology — bringing mandi rates, weather updates, curated PDF notes, AI tools, and student utilities together in one friendly platform.</p>
+<section class="fade-in">
+    <div class="section-title">
+        <h3>Our Mission</h3>
+    </div>
+    <p class="center-text">
+        “Har gaon ke student, kisan aur yuva tak sahi jankari sahi samay par pahunchana.”
+    </p>
+</section>
 
-          <div class="hero-card" style="margin-top:16px; max-width:520px;">
-            <div class="icon">✨</div>
-            <div class="txt">
-              <strong>Trusted, simple tools</strong> — Designed for rural India, for education and agriculture.
-            </div>
-          </div>
-        </div>
+<section class="fade-in">
+    <div class="section-title">
+        <h3>Our Vision</h3>
+    </div>
+    <p class="center-text">
+        Grami Dost ko Bharat ka sabse bharosemand aur useful rural digital platform banana.
+    </p>
+</section>
 
-        <!-- 3D accent card on right -->
-        <div style="min-width:220px; max-width:300px;">
-          <div class="card" style="padding:18px; transform:translateZ(18px);">
-            <div class="head">
-              <div class="badge">📈</div>
-              <div>
-                <h4>Mandi & Market Data</h4>
-                <p class="muted">Live mandi rates and market insights for farmers and buyers.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<section class="fade-in">
+    <div class="section-title">
+        <h3>कौन इसका इस्तेमाल कर सकता है?</h3>
+    </div>
+    <div class="cards">
+        <div class="card"><div class="icon">🎓</div>Students</div>
+        <div class="card"><div class="icon">🌱</div>Farmers</div>
+        <div class="card"><div class="icon">💼</div>Job Seekers</div>
+        <div class="card"><div class="icon">👩‍🏫</div>Teachers</div>
+        <div class="card"><div class="icon">🏡</div>Rural Families</div>
+    </div>
+</section>
 
-    <!-- MISSION -->
-    <section class="mission" aria-labelledby="mission-heading">
-      <h3 id="mission-heading">Our Mission</h3>
-      <p>To equip rural India with practical digital tools — timely mandi rates, reliable weather updates, concise PDF study notes, intuitive AI helpers, and student utilities — so learners and farmers can make smarter decisions every day.</p>
-    </section>
+<section class="fade-in">
+    <div class="section-title">
+        <h3>Founder’s Note</h3>
+    </div>
+    <p class="center-text">
+        ग्रामी दोस्त इसलिए बनाया गया क्योंकि गांव के लोग भी डिजिटल इंडिया का पूरा फायदा ले सके।
+        ये मंच ग्रामीण भारत को मजबूत और आत्मनिर्भर बनाने की एक छोटी सी कोशिश है।
+    </p>
+</section>
 
-    <!-- WHAT WE PROVIDE -->
-    <section aria-labelledby="provide-heading">
-      <h3 id="provide-heading" style="color:var(--green)">What We Provide</h3>
-      <p class="muted">Practical tools and content built for students and farmers.</p>
+<section class="fade-in">
+    <div class="section-title">
+        <h3>Technology & Future</h3>
+    </div>
+    <p class="center-text">
+        Modern web technology, AI-based smart tools aur user feedback ke saath hum Grami Dost ko
+        har din aur behtar bana rahe hain.
+    </p>
+</section>
 
-      <div class="cards-row" style="margin-top:12px">
-        <div class="card">
-          <div class="head"><div class="badge">💱</div><div><h4>Mandi Rates</h4></div></div>
-          <p>Daily mandi price updates for major crops in Rajasthan and nearby regions.</p>
-        </div>
+<section class="fade-in">
+    <div class="section-title">
+        <h3>Trust & Transparency</h3>
+    </div>
+    <p class="center-text">
+        User privacy hamari priority hai. Sirf genuine aur verified jankari provide ki jati hai.
+        <br><br>
+        <strong>Privacy Policy</strong> | <strong>Terms & Conditions</strong>
+    </p>
+</section>
 
-        <div class="card">
-          <div class="head"><div class="badge">🌦️</div><div><h4>Weather</h4></div></div>
-          <p>Localized forecasts and advisories to help plan farm and field activities.</p>
-        </div>
+<footer>
+    <h4>Grami Dost</h4>
+    <p>Aapka Digital Dost – Gaon se Growth tak</p>
+    <p>© 2026 Grami Dost. All Rights Reserved.</p>
+</footer>
 
-        <div class="card">
-          <div class="head"><div class="badge">📄</div><div><h4>PDF Notes</h4></div></div>
-          <p>Downloadable study notes and PDFs for students — concise and exam-focused.</p>
-        </div>
+<script>
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    });
 
-        <div class="card">
-          <div class="head"><div class="badge">🤖</div><div><h4>AI Tools</h4></div></div>
-          <p>Small AI assistants for quick summaries, translations, and study help.</p>
-        </div>
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 
-        <div class="card">
-          <div class="head"><div class="badge">🧰</div><div><h4>Student Utilities</h4></div></div>
-          <p>Timetables, calculators, converters and other utilities for daily academic use.</p>
-        </div>
-
-        <div class="card">
-          <div class="head"><div class="badge">🌱</div><div><h4>Agriculture Guides</h4></div></div>
-          <p>Short practical guides on crop care, storage tips and season-wise advisories.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- VISION -->
-    <section class="vision" aria-labelledby="vision-heading">
-      <h3 id="vision-heading">Our Vision</h3>
-      <p>We imagine a digitally enabled rural India where students and farmers both thrive. By combining accurate local data with friendly learning tools, Grami Dost empowers communities to take confident, informed steps toward better education and sustainable agriculture.</p>
-    </section>
-
-    <!-- TEAM / FOUNDER -->
-    <section aria-labelledby="team-heading">
-      <h3 id="team-heading" style="color:var(--green)">Team & Founder</h3>
-      <div class="founder" style="margin-top:12px">
-        <div class="avatar" aria-hidden="true">V</div>
-        <div class="info">
-          <h4>Created by Virender</h4>
-          <p>Designer & developer focused on making tools that bridge the gap between education and agriculture. Passionate about friendly UX for rural users and practical solutions for everyday problems.</p>
-          <p class="muted" style="margin-top:8px; font-size:13px">Reach out: <strong>virender@gramidost.in</strong></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY CHOOSE US -->
-    <section aria-labelledby="why-heading">
-      <h3 id="why-heading" style="color:var(--green)">Why Choose Us</h3>
-      <div class="why" style="margin-top:12px">
-        <div class="item"><div class="check">✅</div><p><strong>Local-first data:</strong> Mandi rates and weather tailored for rural districts.</p></div>
-        <div class="item"><div class="check">✅</div><p><strong>Easy-to-use tools:</strong> Designed for low-connectivity and simplicity.</p></div>
-        <div class="item"><div class="check">✅</div><p><strong>Student-focused content:</strong> Concise PDFs and utilities to boost learning.</p></div>
-        <div class="item"><div class="check">✅</div><p><strong>Responsible design:</strong> Privacy-conscious and lightweight for rural users.</p></div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="sitefoot" role="contentinfo" aria-label="Footer">
-      <div style="display:flex; width:100%; justify-content:space-between; gap:12px; align-items:center; flex-wrap:wrap;">
-        <div>
-          <div style="font-weight:700; color:var(--green); font-size:16px">Grami Dost</div>
-          <div class="muted" style="font-size:13px">Connecting rural communities with modern tools</div>
-        </div>
-
-        <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
-          <div class="socials" aria-label="Social links">
-            <!-- Simple inline SVG icons -->
-            <a class="sbtn" href="#" aria-label="YouTube (placeholder)" title="YouTube">
-              <svg width="18" height="14" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23.6 2.2a2.9 2.9 0 0 0-2.05-2.05C19.6-.2 12 .2 12 .2s-7.6-.4-9.55 0A2.9 2.9 0 0 0 .4 2.2C0 4.15 0 8 0 8s0 3.85.4 5.8a2.9 2.9 0 0 0 2.05 2.05c1.95.4 9.55 0 9.55 0s7.6.4 9.55 0A2.9 2.9 0 0 0 23.6 13.8C24 11.85 24 8 24 8s0-3.85-.4-5.8z" fill="#E53E3E"/><path d="M9.8 10.4V5.6l5.2 2.4-5.2 2.4z" fill="#fff"/></svg>
-            </a>
-
-            <a class="sbtn" href="#" aria-label="Instagram (placeholder)" title="Instagram">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5" fill="#F59E0B"/><path d="M7 7h10v10H7z" fill="#fff" opacity="0.12"/><circle cx="12" cy="12" r="3.2" fill="#fff"/><circle cx="17.2" cy="6.8" r="0.8" fill="#fff"/></svg>
-            </a>
-
-            <a class="sbtn" href="#" aria-label="Website (placeholder)" title="Website">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 2v16" stroke="#2E7D32" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 12h16" stroke="#2E7D32" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-
-          <div style="display:flex; flex-direction:column; align-items:flex-end;">
-            <div class="muted" style="font-size:13px">Made with 🌾 for rural India</div>
-            <div class="copyright">© 2025 Grami Dost — All Rights Reserved</div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-  </div>
 </body>
- 
- 
 </html>
-
-
-
-
-
