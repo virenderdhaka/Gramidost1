@@ -7,13 +7,11 @@
     <changefreq>daily</changefreq>
   </url>
   <!-- Core Pages -->
-
   <url>
     <loc>https://gramidost.com/syllabus.html</loc>
     <priority>0.97</priority>
     <changefreq>yearly</changefreq>
   </url>
-
   <url>
     <loc>https://gramidost.com/weather-advisor.html</loc>
     <priority>0.90</priority>
@@ -28,7 +26,7 @@
 
   <url>
     <loc>https://gramidost.com/notes.html</loc>
-    <priority>1.00</priority>
+    <priority>0.93</priority>
     <changefreq>weekly</changefreq>
   </url>
 
