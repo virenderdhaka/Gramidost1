@@ -22,7 +22,6 @@
     <priority>0.95</priority>
     <changefreq>weekly</changefreq>
   </url>
-
   <url>
     <loc>https://gramidost.com/notes.html</loc>
     <priority>0.93</priority>
