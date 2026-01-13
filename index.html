@@ -126,36 +126,35 @@
     }
 
     // 🔔 Enable Notification Function
-    function enableNotifications() {
-      const status = document.getElementById("status");
+    unction enableNotifications() {
+  const status = document.getElementById("status");
 
-      messaging.requestPermission()
-        .then(function () {
-          status.innerHTML = "✅ Permission granted. Token generate ho raha hai...";
-          return messaging.getToken({
-            vapidKey: "BHTf1khHE_9OtVPp1XXwR8xxVW17U_xAy01RKjas0njhdPO5r7UmD87cEB-Ln-LcwFY874TkG2Dxwdiq35t44Io"
-          });
-        })
-        .then(function (token) {
-          console.log("FCM Token:", token);
-          status.innerHTML = "🎉 Notifications enabled successfully!";
-          // 👉 Yahin aap future me token server / database me save kar sakte ho
-        })
-        .catch(function (err) {
-          console.error(err);
-          status.innerHTML = "❌ Notification permission denied.";
-        });
-    }
+  // ✅ Step 1: Browser permission (correct way)
+  Notification.requestPermission()
+    .then(function (permission) {
+      if (permission !== "granted") {
+        status.innerHTML = "❌ Notification permission denied.";
+        return;
+      }
 
-    // 🔔 Foreground notification (jab website open ho)
-    messaging.onMessage(function(payload) {
-      console.log('Message received:', payload);
+      status.innerHTML = "✅ Permission granted. Token generate ho raha hai...";
 
-      alert(
-        payload.notification.title + "\n\n" +
-        payload.notification.body
-      );
+      // ✅ Step 2: Firebase token generate
+      return messaging.getToken({
+        vapidKey: "BHTf1khHE_90tVp1XXwR8xxVW17U_xAy01Rkjas0njhdPO5r7UmD87cEB-LnLcWF9874TkG2Dxwdiq35t44lo"
+      });
+    })
+    .then(function (token) {
+      if (!token) return;
+
+      console.log("🔥 FCM Token:", token);
+      status.innerHTML = "🎉 Notifications enabled successfully!";
+    })
+    .catch(function (err) {
+      console.error("Notification Error:", err);
+      status.innerHTML = "❌ Error enabling notifications.";
     });
+}
   </script>
 
 </body>
@@ -2147,6 +2146,7 @@ setInterval(() => {
 </body>
   
 </html>
+
 
 
 
