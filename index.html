@@ -26,14 +26,7 @@
   gtag('config', 'G-G5P916GTK3');
 </script>
     
-
-
-
-
 <meta name="p:domain_verify" content="49676ed7c64eacf8d659da551eddddd2"/>
-
-
-
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,124 +39,6 @@
     <meta property="og:description" content="Grami Dost - आपका स्मार्ट कृषि और शिक्षा सहयोगी">
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-
-
-
-
-
-
-<style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      padding: 40px;
-    }
-    .notify-box {
-      background: #fff;
-      padding: 60px;
-      border-radius: 8px;
-      max-width: 420px;
-      margin: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    button {
-      padding: 12px 20px;
-      font-size: 16px;
-      background: #2e7d32;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #1b5e20;
-    }
-    .status {
-      margin-top: 15px;
-      font-size: 14px;
-    }
-  </style>
-</head>
-
-<body>
-
-  <div class="notify-box">
-    <h2>🔔 Grami Dost Notifications</h2>
-    <p>Latest notes, exam updates aur important alerts ke liye notifications enable karein.</p>
-    <button onclick="enableNotifications()">Enable Notifications</button>
-    <div class="status" id="status"></div>
-  </div>
-
-  <script>
-    // 🔥 Firebase Configuration (Aapka hi data)
-    const firebaseConfig = {
-      apiKey: "AIzaSyAJWfNhVo-FMJ-AVZUdVqTaxGlYoCmNuZY",
-      authDomain: "gramidost.firebaseapp.com",
-      projectId: "gramidost",
-      storageBucket: "gramidost.firebasestorage.app",
-      messagingSenderId: "1011790665506",
-      appId: "1:1011790665506:web:854db0dbe38468851fb77b",
-      measurementId: "G-2ZJ4215B7M"
-    };
-
-    // ✅ Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-
-    // ✅ Firebase Messaging
-    const messaging = firebase.messaging();
-
-    // ✅ Register Service Worker
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('firebase-messaging-sw.js')
-        .then(function(registration) {
-          console.log('Service Worker registered');
-        })
-        .catch(function(err) {
-          console.error('Service Worker error', err);
-        });
-    }
-
-    // 🔔 Enable Notification Function
-    function enableNotifications() {
-  const status = document.getElementById("status");
-
-  // ✅ Step 1: Browser permission (correct way)
-  Notification.requestPermission()
-    .then(function (permission) {
-      if (permission !== "granted") {
-        status.innerHTML = "❌ Notification permission denied.";
-        return;
-      }
-
-      status.innerHTML = "✅ Permission granted. Token generate ho raha hai...";
-
-      // ✅ Step 2: Firebase token generate
-      return messaging.getToken({
-        vapidKey: "BHTf1khHE_9OtVPp1XXwR8xxVW17U_xAy01RKjas0njhdPO5r7UmD87cEB-Ln-LcwFY874TkG2Dxwdiq35t44Io"
-      });
-    })
-    .then(function (token) {
-      if (!token) return;
-
-      console.log("🔥 FCM Token:", token);
-      status.innerHTML = "🎉 Notifications enabled successfully!";
-    })
-    .catch(function (err) {
-      console.error("Notification Error:", err);
-      status.innerHTML = "❌ Error enabling notifications.";
-    });
-}
-  </script>
-
-</body>
-
-
-
-
-
-
 
         
     <style>
@@ -2141,11 +2016,11 @@ setInterval(() => {
         }
     </script>
 
-
     
 </body>
   
 </html>
+
 
 
 
