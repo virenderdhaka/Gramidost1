@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- ===== SEO TAGS ===== -->
+  <title>ब्लॉग | किसान, विद्यार्थी और कृषि जानकारी | ग्रामी दोस्त</title>
+  <meta name="description" content="ग्रामी दोस्त ब्लॉग — राजस्थान के किसानों और विद्यार्थियों के लिए उपयोगी Articles। मंडी भाव, RBSE Notes, Board Exam Tips, सरकारी योजनाएं, Pesticide जानकारी, Career Guidance और Agriculture Updates — सब हिंदी में।"/>
+  <meta name="keywords" content="grami dost blog, मंडी भाव 2026, RBSE notes free, board exam tips hindi, किसान ब्लॉग, agriculture blog hindi, PM Kisan yojana, RBSE class 10 notes, model paper 2026, sarkari yojana rajasthan, career guidance hindi, pesticide jankari, mandi bhav today, राजस्थान कृषि ब्लॉग, scholarship 2026, fasal bima yojana, RBSE syllabus 2026"/>
+  <meta name="author" content="ग्रामी दोस्त"/>
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"/>
+  <meta name="language" content="Hindi"/>
+  <meta name="geo.region" content="IN-RJ"/>
+  <link rel="canonical" href="https://gramidost.com/blog.html"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="ब्लॉग | किसान और विद्यार्थी जानकारी | ग्रामी दोस्त"/>
+  <meta property="og:description" content="मंडी भाव, RBSE Notes, Board Exam Tips, सरकारी योजनाएं और Agriculture Updates — सब हिंदी में।"/>
+  <meta property="og:url" content="https://gramidost.com/blog.html"/>
+  <meta property="og:site_name" content="ग्रामी दोस्त"/>
+  <meta property="og:locale" content="hi_IN"/>
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="ब्लॉग | ग्रामी दोस्त"/>
+  <meta name="twitter:description" content="किसान और विद्यार्थियों के लिए उपयोगी हिंदी Articles।"/>
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Blog","name":"ग्रामी दोस्त ब्लॉग","url":"https://gramidost.com/blog.html","description":"किसान और विद्यार्थियों के लिए हिंदी ब्लॉग","inLanguage":"hi-IN","publisher":{"@type":"Organization","name":"ग्रामी दोस्त","url":"https://gramidost.com"}}
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root{
+      --green-dark:#1B5E20;--green-main:#2E7D32;--green-mid:#388E3C;
+      --green-light:#66BB6A;--green-pale:#E8F5E9;
+      --yellow-deep:#F9A825;--yellow-main:#FFC107;--yellow-light:#FFF8E1;
+      --white:#FFFFFF;--off-white:#FAFFF8;
+      --text-dark:#1A2E1A;--text-mid:#2D4A2D;--text-soft:#5A7A5A;
+      --shadow-sm:0 2px 12px rgba(46,125,50,.10);
+      --shadow-md:0 6px 30px rgba(46,125,50,.14);
+      --shadow-lg:0 14px 50px rgba(46,125,50,.18);
+      --radius:16px;--radius-lg:24px;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Noto Sans Devanagari',sans-serif;background:var(--off-white);color:var(--text-dark);overflow-x:hidden;}
+    a{text-decoration:none;color:inherit;}
+
+    /* LOADER */
+    #loader{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#1B5E20,#2E7D32 50%,#F9A825);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:opacity .6s,transform .6s;}
+    #loader.hide{opacity:0;pointer-events:none;transform:scale(1.04);}
+    .loader-logo{display:flex;align-items:center;gap:14px;animation:logoPop .7s cubic-bezier(.34,1.56,.64,1) forwards;opacity:0;}
+    .loader-leaf{width:52px;height:52px;background:rgba(255,255,255,.15);border-radius:50% 0 50% 0;display:flex;align-items:center;justify-content:center;font-size:26px;animation:leafSpin 1.2s ease-in-out infinite alternate;}
+    .loader-title{font-family:'Baloo 2',cursive;font-size:clamp(22px,5vw,36px);font-weight:800;color:#fff;}
+    .loader-sub{font-size:13px;color:rgba(255,255,255,.8);animation:fadeUp .6s .4s forwards;opacity:0;}
+    .loader-bar-wrap{width:200px;height:4px;background:rgba(255,255,255,.2);border-radius:4px;overflow:hidden;animation:fadeUp .6s .5s forwards;opacity:0;}
+    .loader-bar{height:100%;width:0;background:linear-gradient(90deg,#FFC107,#fff);animation:fillBar 1.8s .6s cubic-bezier(.4,0,.2,1) forwards;}
+    .loader-dots{display:flex;gap:8px;animation:fadeUp .5s .7s forwards;opacity:0;}
+    .loader-dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.6);}
+    .loader-dots span:nth-child(1){animation:dotBounce 1s 0s infinite;}
+    .loader-dots span:nth-child(2){animation:dotBounce 1s .2s infinite;}
+    .loader-dots span:nth-child(3){animation:dotBounce 1s .4s infinite;}
+    @keyframes logoPop{to{opacity:1;transform:scale(1)}from{opacity:0;transform:scale(.7)}}
+    @keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{opacity:0;transform:translateY(12px)}}
+    @keyframes fillBar{to{width:100%}}
+    @keyframes leafSpin{to{transform:rotate(8deg) scale(1.08)}}
+    @keyframes dotBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px);background:#FFC107}}
+
+    /* NAVBAR */
+    nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:2px solid var(--green-pale);box-shadow:var(--shadow-sm);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;animation:slideDown .7s 2s both;}
+    @keyframes slideDown{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
+    .nav-logo{display:flex;align-items:center;gap:10px;}
+    .nav-logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--green-main),var(--green-light));border-radius:10px 3px 10px 3px;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 3px 12px rgba(46,125,50,.3);}
+    .nav-logo-text{font-family:'Baloo 2',cursive;font-size:22px;font-weight:800;color:var(--green-dark);}
+    .nav-logo-text span{color:var(--yellow-deep);}
+    .nav-links{display:flex;align-items:center;gap:6px;list-style:none;}
+    .nav-links a{font-size:14px;font-weight:600;color:var(--text-mid);padding:7px 14px;border-radius:8px;transition:background .2s,color .2s;}
+    .nav-links a:hover,.nav-links a.active{background:var(--green-pale);color:var(--green-main);}
+    .nav-cta{background:linear-gradient(135deg,var(--green-main),var(--green-mid));color:#fff!important;border-radius:10px!important;box-shadow:0 3px 12px rgba(46,125,50,.3);}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;}
+    .hamburger span{width:26px;height:3px;background:var(--green-main);border-radius:3px;}
+    .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:#fff;padding:20px 5%;box-shadow:var(--shadow-md);flex-direction:column;gap:4px;z-index:99;border-bottom:3px solid var(--green-pale);}
+    .mobile-menu.open{display:flex;}
+    .mobile-menu a{font-size:16px;font-weight:600;color:var(--text-mid);padding:12px 16px;border-radius:10px;display:block;}
+    .mobile-menu a:hover{background:var(--green-pale);color:var(--green-main);}
+
+    /* PAGE HERO */
+    .page-hero{position:relative;overflow:hidden;background:linear-gradient(155deg,#E8F5E9 0%,#FFFDE7 55%,#E8F5E9 100%);padding:68px 5% 52px;}
+    .ph-shape1{position:absolute;top:-80px;right:-80px;width:360px;height:360px;background:radial-gradient(circle,rgba(102,187,106,.18) 0%,transparent 70%);border-radius:50%;animation:floatS 6s ease-in-out infinite;}
+    .ph-shape2{position:absolute;bottom:-60px;left:-60px;width:260px;height:260px;background:radial-gradient(circle,rgba(255,193,7,.14) 0%,transparent 70%);border-radius:50%;animation:floatS 8s ease-in-out infinite reverse;}
+    .ph-shape3{position:absolute;top:32%;right:7%;width:50px;height:50px;background:rgba(46,125,50,.08);border-radius:50% 0 50% 0;animation:rotS 12s linear infinite;}
+    .ph-shape4{position:absolute;top:18%;left:5%;width:34px;height:34px;background:rgba(255,193,7,.15);border-radius:50%;animation:floatS 5s ease-in-out infinite;}
+    @keyframes floatS{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+    @keyframes rotS{to{transform:rotate(360deg)}}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(46,125,50,.1);border:1.5px solid rgba(46,125,50,.2);color:var(--green-dark);font-size:13px;font-weight:600;padding:6px 14px;border-radius:30px;margin-bottom:16px;animation:fadeUp .7s 2.1s both;}
+    .badge-dot{width:7px;height:7px;border-radius:50%;background:var(--green-light);animation:pulseDot 2s infinite;}
+    @keyframes pulseDot{0%,100%{transform:scale(1)}50%{transform:scale(1.5);opacity:.5}}
+    .page-hero h1{font-family:'Baloo 2',cursive;font-size:clamp(28px,4.5vw,48px);font-weight:800;color:var(--text-dark);margin-bottom:14px;animation:fadeUp .7s 2.2s both;}
+    .page-hero h1 span{color:var(--green-main);}
+    .page-hero .hero-desc{font-size:clamp(14px,1.8vw,16px);color:var(--text-soft);line-height:1.85;max-width:720px;animation:fadeUp .7s 2.4s both;}
+    .hero-breadcrumb{display:flex;align-items:center;gap:8px;margin-top:20px;font-size:13px;color:var(--text-soft);animation:fadeUp .6s 2.5s both;}
+    .hero-breadcrumb a{color:var(--green-main);font-weight:600;}
+    .hero-breadcrumb span{color:#bbb;}
+
+    /* FILTER BAR */
+    .filter-bar{background:#fff;border-bottom:2px solid var(--green-pale);padding:0 5%;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;position:sticky;top:68px;z-index:90;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+    .filter-bar::-webkit-scrollbar{display:none;}
+    .filter-btn{flex-shrink:0;font-size:13px;font-weight:700;color:var(--text-mid);padding:13px 16px;border-bottom:3px solid transparent;transition:all .2s;cursor:pointer;white-space:nowrap;}
+    .filter-btn:hover,.filter-btn.active{color:var(--green-main);border-bottom-color:var(--green-main);}
+
+    /* COMMON */
+    .sec{padding:56px 5%;}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s,transform .65s;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .sec-title{font-family:'Baloo 2',cursive;font-size:clamp(20px,3vw,32px);font-weight:800;color:var(--text-dark);margin-bottom:8px;}
+    .sec-title span{color:var(--green-main);}
+    .divider{width:50px;height:4px;background:linear-gradient(90deg,var(--green-main),var(--yellow-main));border-radius:4px;margin:10px 0 16px;}
+    .sec-desc{font-size:15px;color:var(--text-soft);line-height:1.8;max-width:750px;margin-bottom:36px;}
+
+    /* ══ FEATURED BLOG (Large top card) ══ */
+    .featured-card{
+      background:#fff;border-radius:var(--radius-lg);overflow:hidden;
+      box-shadow:var(--shadow-md);display:grid;
+      grid-template-columns:1fr 1fr;
+      margin-bottom:48px;border:1.5px solid #eee;
+      transition:all .3s;
+    }
+    .featured-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+    /* YouTube banner ratio: 16:9 */
+    .featured-img{
+      position:relative;overflow:hidden;
+      aspect-ratio:16/9;
+      background:var(--green-pale);
+    }
+    .featured-img img{
+      width:100%;height:100%;object-fit:cover;
+      display:block;transition:transform .4s;
+    }
+    .featured-card:hover .featured-img img{transform:scale(1.04);}
+    .featured-img-placeholder{
+      width:100%;height:100%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:64px;
+    }
+    .featured-body{padding:36px 32px;display:flex;flex-direction:column;justify-content:center;}
+    .featured-tag{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:14px;width:fit-content;}
+    .featured-title{font-family:'Baloo 2',cursive;font-size:clamp(18px,2.5vw,26px);font-weight:800;color:var(--text-dark);margin-bottom:14px;line-height:1.35;}
+    .featured-excerpt{font-size:14px;color:var(--text-soft);line-height:1.75;margin-bottom:20px;}
+    .featured-meta{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+    .blog-date{font-size:12px;color:var(--text-soft);display:flex;align-items:center;gap:5px;}
+    .btn-read{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--green-main),var(--green-mid));color:#fff;font-size:13px;font-weight:700;padding:10px 20px;border-radius:10px;box-shadow:0 3px 12px rgba(46,125,50,.3);transition:all .25s;}
+    .btn-read:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(46,125,50,.4);}
+    .btn-read .arrow{transition:transform .25s;}
+    .btn-read:hover .arrow{transform:translateX(3px);}
+
+    /* ══ BLOG GRID ══ */
+    .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .blog-card{
+      background:#fff;border-radius:var(--radius);overflow:hidden;
+      box-shadow:var(--shadow-sm);border:1.5px solid #eee;
+      transition:all .3s;display:flex;flex-direction:column;
+    }
+    .blog-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:var(--green-pale);}
+
+    /* YouTube banner image area — 16:9 ratio */
+    .blog-img{
+      position:relative;overflow:hidden;
+      aspect-ratio:16/9;
+      width:100%;flex-shrink:0;
+    }
+    .blog-img img{
+      width:100%;height:100%;object-fit:cover;
+      display:block;transition:transform .4s;
+    }
+    .blog-card:hover .blog-img img{transform:scale(1.05);}
+    .blog-img-placeholder{
+      width:100%;height:100%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:48px;
+    }
+    .img-bg-green{background:var(--green-pale);}
+    .img-bg-yellow{background:var(--yellow-light);}
+    .img-bg-blue{background:#E3F2FD;}
+    .img-bg-purple{background:#F3E5F5;}
+    .img-bg-orange{background:#FBE9E7;}
+
+    .blog-body{padding:18px;flex:1;display:flex;flex-direction:column;}
+    .blog-tag{display:inline-flex;align-items:center;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;width:fit-content;letter-spacing:.3px;}
+    .tag-green{background:var(--green-pale);color:var(--green-dark);}
+    .tag-yellow{background:var(--yellow-light);color:#7B5800;}
+    .tag-blue{background:#E3F2FD;color:#0D47A1;}
+    .tag-purple{background:#F3E5F5;color:#4A148C;}
+    .tag-orange{background:#FBE9E7;color:#BF360C;}
+
+    .blog-title{font-size:15px;font-weight:700;color:var(--text-dark);margin-bottom:9px;line-height:1.4;flex:1;}
+    .blog-excerpt{font-size:13px;color:var(--text-soft);line-height:1.6;margin-bottom:14px;}
+    .blog-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:12px;border-top:1px solid #f0f0f0;}
+    .blog-date-sm{font-size:12px;color:var(--text-soft);display:flex;align-items:center;gap:4px;}
+    .btn-read-sm{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:700;color:var(--green-main);transition:gap .2s;}
+    .btn-read-sm:hover{gap:7px;}
+
+    /* ══ INFO BAND ══ */
+    .info-band{background:linear-gradient(135deg,var(--green-main),var(--green-dark));border-radius:var(--radius-lg);padding:32px 36px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin:32px 0;position:relative;overflow:hidden;}
+    .info-band::after{content:'📰';position:absolute;right:36px;bottom:-8px;font-size:80px;opacity:.07;}
+    .ib-text h3{font-family:'Baloo 2',cursive;font-size:clamp(16px,2.5vw,22px);font-weight:800;color:#fff;margin-bottom:7px;}
+    .ib-text p{font-size:14px;color:rgba(255,255,255,.8);line-height:1.65;max-width:500px;}
+    .ib-stats{display:flex;gap:24px;flex-shrink:0;flex-wrap:wrap;}
+    .ib-stat strong{font-family:'Baloo 2',cursive;font-size:24px;font-weight:800;color:var(--yellow-main);display:block;}
+    .ib-stat span{font-size:11px;color:rgba(255,255,255,.7);}
+
+    /* FOOTER */
+    footer{background:var(--text-dark);color:rgba(255,255,255,.8);padding:50px 5% 28px;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px;}
+    .footer-brand .nav-logo-text{color:#fff;font-size:22px;}
+    .footer-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;margin:12px 0 16px;}
+    .footer-col h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;}
+    .footer-col ul{list-style:none;}
+    .footer-col li{margin-bottom:7px;}
+    .footer-col a{font-size:13px;color:rgba(255,255,255,.5);transition:color .2s;}
+    .footer-col a:hover{color:var(--yellow-main);}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+    .footer-bottom p{font-size:12px;color:rgba(255,255,255,.3);}
+    .fp-links{display:flex;gap:16px;flex-wrap:wrap;}
+    .fp-links a{font-size:12px;color:rgba(255,255,255,.3);transition:color .2s;}
+    .fp-links a:hover{color:var(--yellow-main);}
+
+    /* HIDDEN filter */
+    .blog-card[data-cat].hidden{display:none;}
+
+    @media(max-width:1000px){.blog-grid{grid-template-columns:1fr 1fr;}.footer-grid{grid-template-columns:1fr 1fr;}.featured-card{grid-template-columns:1fr;}.info-band{flex-direction:column;padding:24px;}.ib-stats{justify-content:center;}}
+    @media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.blog-grid{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr;gap:24px;}.footer-bottom{flex-direction:column;text-align:center;}.fp-links{justify-content:center;}}
+  </style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">
+    <div class="loader-leaf">📰</div>
+    <div class="loader-title">ब्लॉग & Articles</div>
+  </div>
+  <div class="loader-sub">ग्रामी दोस्त — किसान और विद्यार्थी जानकारी</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-dots"><span></span><span></span><span></span></div>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">🌿</div>
+    <div class="nav-logo-text">ग्रामी <span>दोस्त</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">होम</a></li>
+    <li><a href="student.html">विद्यार्थी</a></li>
+    <li><a href="farmer.html">किसान</a></li>
+    <li><a href="blog.html" class="active">ब्लॉग</a></li>
+    <li><a href="notes.html">नोट्स</a></li>
+    <li><a href="contact.html" class="nav-cta">संपर्क करें</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">🏠 होम</a>
+  <a href="student.html">🎓 विद्यार्थी सेक्शन</a>
+  <a href="farmer.html">👨‍🌾 किसान सेक्शन</a>
+  <a href="blog.html">📰 ब्लॉग</a>
+  <a href="notes.html">ℹ️ नोट्स </a>
+  <a href="contact.html">📬 संपर्क</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="ph-shape1"></div><div class="ph-shape2"></div>
+  <div class="ph-shape3"></div><div class="ph-shape4"></div>
+  <div class="hero-badge"><div class="badge-dot"></div>📰 किसान और विद्यार्थी ब्लॉग</div>
+  <h1>ग्रामी दोस्त <span>ब्लॉग</span></h1>
+  <p class="hero-desc">
+    मंडी भाव, RBSE Notes, Board Exam Tips, Career Guidance, सरकारी योजनाएं, Pesticide जानकारी और Agriculture Updates — राजस्थान के किसानों और विद्यार्थियों के लिए उपयोगी Articles यहाँ पढ़ें। सब हिंदी में, सब मुफ़्त।
+  </p>
+  <div class="hero-breadcrumb">
+    <a href="index.html">होम</a><span>›</span><span>ब्लॉग</span>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-btn active" onclick="filterBlogs('all',this)">📰 सभी</div>
+  <div class="filter-btn" onclick="filterBlogs('kisan',this)">👨‍🌾 किसान</div>
+  <div class="filter-btn" onclick="filterBlogs('padhai',this)">🎓 पढ़ाई</div>
+  <div class="filter-btn" onclick="filterBlogs('mandi',this)">📊 मंडी भाव</div>
+  <div class="filter-btn" onclick="filterBlogs('yojana',this)">📋 सरकारी योजना</div>
+  <div class="filter-btn" onclick="filterBlogs('career',this)">🚀 Career</div>
+  <div class="filter-btn" onclick="filterBlogs('krishi',this)">🌾 कृषि Tips</div>
+  <div class="filter-btn" onclick="filterBlogs('scholarship',this)">🏆 Scholarship</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     FEATURED ARTICLE (Article 1)
+══════════════════════════════════════ -->
+<section class="sec" style="background:linear-gradient(180deg,var(--off-white),#F1F8F1);padding-bottom:24px;">
+  <div class="reveal">
+    <h2 class="sec-title">📌 <span>Featured Article</span></h2>
+    <div class="divider"></div>
+    <p class="sec-desc">इस सप्ताह का सबसे उपयोगी Article — ज़रूर पढ़ें।</p>
+  </div>
+
+  <div class="featured-card reveal" data-cat="mandi">
+    <div class="featured-img img-bg-green">
+      <!-- image1.jpg यहाँ add करें -->
+      <img src="image1.jpg" alt="आज का मंडी भाव राजस्थान 2026" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="featured-img-placeholder" style="display:none;">🌾</div>
+    </div>
+    <div class="featured-body">
+      <span class="featured-tag tag-yellow">📊 मंडी भाव</span>
+      <div class="featured-title">आज का मंडी भाव — राजस्थान में गेहूं, सरसों और बाजरे के ताज़ा रेट 2026</div>
+      <p class="featured-excerpt">
+        राजस्थान की प्रमुख मंडियों — जयपुर, जोधपुर, कोटा, बीकानेर, अजमेर और अलवर में आज के ताज़ा मंडी भाव। गेहूं, सरसों, बाजरा, चना, मूंग, प्याज और अन्य फसलों के रेट। सही मंडी में फसल बेचें और ज़्यादा मुनाफा कमाएं। मंडी भाव में उतार-चढ़ाव के कारण और आगे के रेट का अनुमान — सब यहाँ।
+      </p>
+      <div class="featured-meta">
+        <div class="blog-date">📅 आज — June 2026</div>
+        <a href="article.html" class="btn-read">पूरा पढ़ें <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     ALL BLOGS GRID
+══════════════════════════════════════ -->
+<section class="sec" id="blogs-grid-sec" style="background:#fff;">
+  <div class="reveal">
+    <h2 class="sec-title">📰 सभी <span>Articles</span></h2>
+    <div class="divider"></div>
+    <p class="sec-desc">किसानी, पढ़ाई, Career, सरकारी योजनाएं और Agriculture से जुड़े उपयोगी Articles।</p>
+  </div>
+
+  <div class="blog-grid" id="blogGrid">
+
+    <!-- ── ARTICLE 2 ── -->
+    <article class="blog-card reveal" data-cat="padhai">
+      <div class="blog-img img-bg-yellow">
+        <img src="image2.jpg" alt="Class 10 Board Exam तैयारी" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="blog-img-placeholder" style="display:none;">📚</div>
+      </div>
+      <div class="blog-body">
+        <span class="blog-tag tag-yellow">📚 पढ़ाई</span>
+        <div class="blog-title">Class 10 Board Exam की तैयारी कैसे करें — पूरी Strategy</div>
+        <p class="blog-excerpt">RBSE Class 10 Board Exam में 80%+ नंबर लाने के लिए सही Study Plan, Time Table और Important Topics की पूरी जानकारी। Maths, Science, SST और Hindi — हर Subject की अलग Strategy।</p>
+        <div class="blog-footer">
+          <span class="blog-date-sm">📅 2 दिन पहले</span>
+          <a href="article.html" class="btn-read-sm">पढ़ें →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── ARTICLE 3 ── -->
+    <article class="blog-card reveal" data-cat="yojana">
+      <div class="blog-img img-bg-green">
+        <img src="image3.jpg" alt="PM Kisan Samman Nidhi 19वीं किश्त" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="blog-img-placeholder" style="display:none;">🌿</div>
+      </div>
+      <div class="blog-body">
+        <span class="blog-tag tag-green">📋 सरकारी योजना</span>
+        <div class="blog-title">PM Kisan Samman Nidhi — 19वीं किश्त कब आएगी, Status कैसे Check करें</div>
+        <p class="blog-excerpt">PM Kisan की 19वीं किश्त की तारीख, Status Check करने का तरीका और eKYC कैसे करें। अगर पिछली किश्त नहीं आई तो क्या करें — पूरी जानकारी हिंदी में।</p>
+        <div class="blog-footer">
+          <span class="blog-date-sm">📅 3 दिन पहले</span>
+          <a href="article.html" class="btn-read-sm">पढ़ें →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── ARTICLE 4 ── -->
+    <article class="blog-card reveal" data-cat="padhai">
+      <div class="blog-img img-bg-blue">
+        <img src="image4.jpg" alt="RBSE Board Exam 2026 Strategy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="blog-img-placeholder" style="display:none;">📖</div>
+      </div>
+      <div class="blog-body">
+        <span class="blog-tag tag-blue">📝 Board Exam</span>
+        <div class="blog-title">RBSE Board Exam 2026 की तैयारी — Complete Strategy Guide</div>
+        <p class="blog-excerpt">Rajasthan Board 10th और 12th की तैयारी के लिए सही Study Plan, Important Topics और Time Management की पूरी जानकारी। इस Strategy से आप Board में 80% से ज़्यादा नंबर ला सकते हैं।</p>
+        <div class="blog-footer">
+          <span class="blog-date-sm">📅 May 2026</span>
+          <a href="article.html" class="btn-read-sm">पढ़ें →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── ARTICLE 5 ── -->
+    <article class="blog-card reveal" data-cat="career">
+      <div class="blog-img img-bg-yellow">
+        <img src="image5.jpg" alt="12वीं Agriculture के बाद Career" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="blog-img-placeholder" style="display:none;">🚀</div>
+      </div>
+      <div class="blog-body">
+        <span class="blog-tag tag-yellow">🚀 Career</span>
+        <div class="blog-title">12वीं Agriculture के बाद क्या करें? — Top Career Options 2026</div>
+        <p class="blog-excerpt">Agriculture Stream से 12th करने के बाद B.Sc. Agriculture, Horticulture, Forestry, Dairy Technology और Government Jobs जैसे ICAR, State Agriculture Dept. में शानदार Career बनाएं। पूरी जानकारी।</p>
+        <div class="blog-footer">
+          <span class="blog-date-sm">📅 May 2026</span>
+          <a href="article.html" class="btn-read-sm">पढ़ें →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── ARTICLE 6 ── -->
+    <article class="blog-card reveal" data-cat="scholarship">
+      <div class="blog-img img-bg-purple">
+        <img src="image6.jpg" alt="Rajasthan Scholarship 2026" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="blog-img-placeholder" style="display:none;">🏆</div>
+      </div>
+      <div class="blog-body">
+        <span class="blog-tag tag-purple">🏆 Scholarship</span>
+        <div class="blog-title">2026 में राजस्थान के Students के लिए Top 5 Scholarship — Apply करें</div>
+        <p class="blog-excerpt">Rajasthan के विद्यार्थियों के लिए 5 Best Scholarships जिनमें ₹50,000 तक की राशि मिल सकती है। NSP, Gargi Puraskar, Mukhyamantri Uchch Shiksha और अन्य। Last Date और Apply Process।</p>
+        <div class="blog-footer">
+          <span class="blog-date-sm">📅 April 2026</span>
+          <a href="article.html" class="btn-read-sm">पढ़ें →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── ARTICLE 7 ── -->
+    <article class="blog-card reveal" data-cat="mandi">
+      <div class="blog-img img-bg-green">
+        <img src="image7.jpg" alt="राजस्थान मंडी भाव 2026" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="blog-img-placeholder" style="display:none;">📊</div>
+      </div>
+      <div class="blog-body">
+        <span class="blog-tag tag-green">📊 मंडी भाव</span>
+        <div class="blog-title">राजस्थान में आज का मंडी भाव — गेहूं, सरसों और बाजरे के ताज़ा रेट 2026</div>
+        <p class="blog-excerpt">जयपुर, जोधपुर, कोटा, बीकानेर और अजमेर मंडियों में आज के भाव की पूरी जानकारी। अपनी फसल सही मंडी में बेचें और ज़्यादा मुनाफा कमाएं।</p>
+        <div class="blog-footer">
+          <span class="blog-date-sm">📅 आज</span>
+          <a href="article.html" class="btn-read-sm">पढ़ें →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── ARTICLE 8 ── -->
+    <article class="blog-card reveal" data-cat="yojana">
+      <div class="blog-img img-bg-yellow">
+        <img src="image8.jpg" alt="PM Kusum Yojana Solar Pump" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="blog-img-placeholder" style="display:none;">☀️</div>
+      </div>
+      <div class="blog-body">
+        <span class="blog-tag tag-yellow">📋 सरकारी योजना</span>
+        <div class="blog-title">PM Kusum Yojana 2026 — Solar Pump पर 90% Subsidy कैसे मिलेगी?</div>
+        <p class="blog-excerpt">राजस्थान में PM Kusum Yojana से Solar Pump लगाएं और बिजली का खर्च जीरो करें। Apply करने का पूरा तरीका, जरूरी Documents और पात्रता की पूरी जानकारी यहाँ।</p>
+        <div class="blog-footer">
+          <span class="blog-date-sm">📅 2 दिन पहले</span>
+          <a href="article.html" class="btn-read-sm">पढ़ें →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── ARTICLE 9 ── -->
+    <article class="blog-card reveal" data-cat="krishi">
+      <div class="blog-img img-bg-green">
+        <img src="image9.jpg" alt="सरसों में माहू Aphid" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="blog-img-placeholder" style="display:none;">🧪</div>
+      </div>
+      <div class="blog-body">
+        <span class="blog-tag tag-green">🌾 कृषि टिप्स</span>
+        <div class="blog-title">सरसों में माहू (Aphid) का प्रकोप — सही समय पर करें ये उपाय, बचाएं पूरी फसल</div>
+        <p class="blog-excerpt">राजस्थान में सरसों की फसल में माहू कीट से उपज 30% तक घट सकती है। समय पर पहचान, सही Pesticide और बचाव के उपाय — किसान भाई ज़रूर पढ़ें।</p>
+        <div class="blog-footer">
+          <span class="blog-date-sm">📅 4 दिन पहले</span>
+          <a href="article.html" class="btn-read-sm">पढ़ें →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── ARTICLE 10 ── -->
+    <article class="blog-card reveal" data-cat="padhai">
+      <div class="blog-img img-bg-blue">
+        <img src="image10.jpg" alt="RBSE Free Notes Hindi Medium" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="blog-img-placeholder" style="display:none;">📄</div>
+      </div>
+      <div class="blog-body">
+        <span class="blog-tag tag-blue">📄 Free Notes</span>
+        <div class="blog-title">RBSE Class 9 से 12 तक के Free Notes कैसे Download करें — पूरी Guide</div>
+        <p class="blog-excerpt">ग्रामी दोस्त पर RBSE Hindi Medium के Chapter-wise Free Notes Download करें। Science, Arts, Agriculture सभी Streams के Notes — Mobile पर भी आसानी से खुलते हैं।</p>
+        <div class="blog-footer">
+          <span class="blog-date-sm">📅 5 दिन पहले</span>
+          <a href="article.html" class="btn-read-sm">पढ़ें →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── ARTICLE 11 ── -->
+    <article class="blog-card reveal" data-cat="kisan">
+      <div class="blog-img img-bg-green">
+        <img src="image11.jpg" alt="Kisan Credit Card KCC" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="blog-img-placeholder" style="display:none;">💳</div>
+      </div>
+      <div class="blog-body">
+        <span class="blog-tag tag-green">👨‍🌾 किसानी</span>
+        <div class="blog-title">Kisan Credit Card (KCC) — 4% ब्याज पर ₹3 लाख Loan कैसे मिलेगा</div>
+        <p class="blog-excerpt">Kisan Credit Card से बीज, खाद, दवाई और सिंचाई के लिए बेहद कम ब्याज पर Loan लें। Apply करने का तरीका, जरूरी Documents और Bank की List — सब यहाँ।</p>
+        <div class="blog-footer">
+          <span class="blog-date-sm">📅 1 सप्ताह पहले</span>
+          <a href="article.html" class="btn-read-sm">पढ़ें →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── ARTICLE 12 ── -->
+    <article class="blog-card reveal" data-cat="padhai">
+      <div class="blog-img img-bg-purple">
+        <img src="image12.jpg" alt="RBSE Model Paper 2026" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="blog-img-placeholder" style="display:none;">📝</div>
+      </div>
+      <div class="blog-body">
+        <span class="blog-tag tag-purple">📝 Model Paper</span>
+        <div class="blog-title">RBSE Model Paper 2026 — Class 10 और 12 के सभी Subjects के Papers Download करें</div>
+        <p class="blog-excerpt">RBSE Board Exam 2026 के लिए Model Papers और Previous Year Papers। Hindi, English, Maths, Science, SST और सभी Streams के Papers Free Download करें।</p>
+        <div class="blog-footer">
+          <span class="blog-date-sm">📅 1 सप्ताह पहले</span>
+          <a href="article.html" class="btn-read-sm">पढ़ें →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── ARTICLE 13 ── -->
+    <article class="blog-card reveal" data-cat="krishi">
+      <div class="blog-img img-bg-orange">
+        <img src="image13.jpg" alt="Gehu Fashal Tips" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="blog-img-placeholder" style="display:none;">🌾</div>
+      </div>
+      <div class="blog-body">
+        <span class="blog-tag tag-orange">🌾 कृषि टिप्स</span>
+        <div class="blog-title">गेहूं की फसल में पीली गेरुई (Yellow Rust) — पहचान, बचाव और सही दवाई</div>
+        <p class="blog-excerpt">राजस्थान में गेहूं की फसल को सबसे ज़्यादा नुकसान Yellow Rust से होता है। समय पर Propiconazole Spray से पूरी फसल बचाएं। Expert किसानों की Tips।</p>
+        <div class="blog-footer">
+          <span class="blog-date-sm">📅 10 दिन पहले</span>
+          <a href="article.html" class="btn-read-sm">पढ़ें →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── ARTICLE 14 ── -->
+    <article class="blog-card reveal" data-cat="career">
+      <div class="blog-img img-bg-blue">
+        <img src="image14.jpg" alt="Government Job Preparation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="blog-img-placeholder" style="display:none;">🏅</div>
+      </div>
+      <div class="blog-body">
+        <span class="blog-tag tag-blue">🏅 Career</span>
+        <div class="blog-title">RPSC RAS 2026 — Syllabus, Exam Pattern और तैयारी की पूरी Strategy</div>
+        <p class="blog-excerpt">Rajasthan Administrative Service (RAS) Exam 2026 के लिए Syllabus, Exam Pattern, Best Books और Preparation Strategy। Prelims से Interview तक — सब कुछ।</p>
+        <div class="blog-footer">
+          <span class="blog-date-sm">📅 2 सप्ताह पहले</span>
+          <a href="article.html" class="btn-read-sm">पढ़ें →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── ARTICLE 15 ── -->
+    <article class="blog-card reveal" data-cat="yojana">
+      <div class="blog-img img-bg-green">
+        <img src="image15.jpg" alt="Fasal Bima Yojana" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="blog-img-placeholder" style="display:none;">🌱</div>
+      </div>
+      <div class="blog-body">
+        <span class="blog-tag tag-green">📋 सरकारी योजना</span>
+        <div class="blog-title">PM Fasal Bima Yojana 2026 — फसल खराब होने पर मुआवज़ा कैसे मिलेगा</div>
+        <p class="blog-excerpt">PM Fasal Bima Yojana में Rabi और Kharif दोनों फसलों का Insurance होता है। Online Apply करने का तरीका, Premium Rate, Claim Process और जरूरी Documents — सब यहाँ।</p>
+        <div class="blog-footer">
+          <span class="blog-date-sm">📅 2 सप्ताह पहले</span>
+          <a href="article.html" class="btn-read-sm">पढ़ें →</a>
+        </div>
+      </div>
+    </article>
+
+  </div><!-- end blog-grid -->
+</section>
+
+<!-- INFO BAND -->
+<div style="padding:0 5%;">
+  <div class="info-band reveal">
+    <div class="ib-text">
+      <h3>नए Articles की जानकारी सबसे पहले पाएं</h3>
+      <p>ग्रामी दोस्त पर हर हफ्ते नए Articles आते हैं — किसानी, पढ़ाई, Career और सरकारी योजनाओं पर। Bookmark करें और Regular Visit करें।</p>
+    </div>
+    <div class="ib-stats">
+      <div class="ib-stat"><strong>15+</strong><span>Articles</span></div>
+      <div class="ib-stat"><strong>Weekly</strong><span>Updates</span></div>
+      <div class="ib-stat"><strong>Hindi</strong><span>Medium</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo"><div class="nav-logo-icon">🌿</div><div class="nav-logo-text">ग्रामी <span>दोस्त</span></div></div>
+      <p class="footer-desc">किसान और विद्यार्थियों का भरोसेमंद डिजिटल साथी। मंडी भाव से लेकर Career Guidance तक — सब हिंदी में।</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="#" onclick="filterBlogs('mandi',null)">मंडी भाव</a></li>
+        <li><a href="#" onclick="filterBlogs('padhai',null)">पढ़ाई</a></li>
+        <li><a href="#" onclick="filterBlogs('yojana',null)">सरकारी योजना</a></li>
+        <li><a href="#" onclick="filterBlogs('career',null)">Career</a></li>
+        <li><a href="#" onclick="filterBlogs('krishi',null)">कृषि टिप्स</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="student.html">विद्यार्थी सेक्शन</a></li>
+        <li><a href="farmer.html">किसान सेक्शन</a></li>
+        <li><a href="notes.html">Free Notes</a></li>
+        <li><a href="student.html">Scholarship</a></li>
+        <li><a href="contact.html">संपर्क</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Policy</h4>
+      <ul>
+       
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 ग्रामी दोस्त | सभी अधिकार सुरक्षित | Grami dost developed by Virender dhaka </p>
+    <div class="fp-links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-and-conditions.html">Terms</a>
+      <a href="disclaimer.html">Disclaimer</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// LOADER
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hide');
+    setTimeout(() => document.getElementById('loader').style.display='none', 700);
+  }, 2200);
+});
+
+// HAMBURGER
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+document.addEventListener('click', e => {
+  const m = document.getElementById('mobileMenu'), h = document.getElementById('hamburger');
+  if (!m.contains(e.target) && !h.contains(e.target)) m.classList.remove('open');
+});
+
+// SCROLL REVEAL
+const revEls = document.querySelectorAll('.reveal');
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 55);
+      revObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+revEls.forEach(el => revObs.observe(el));
+
+// FILTER BLOGS
+function filterBlogs(cat, btn) {
+  if (btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  const cards = document.querySelectorAll('[data-cat]');
+  cards.forEach(card => {
+    if (cat === 'all' || card.dataset.cat === cat) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+</script>
+</body>
+</html>

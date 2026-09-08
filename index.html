@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== PRIMARY SEO TAGS ===== -->
+  <title>ग्रामी दोस्त | किसान और विद्यार्थियों का डिजिटल साथी</title>
+  <meta name="description" content="ग्रामी दोस्त – किसानों के लिए मंडी भाव, फसल जानकारी, सरकारी योजनाएं और विद्यार्थियों के लिए नोट्स, PDF, AI स्टडी टूल्स। ग्रामीण भारत का सबसे भरोसेमंद डिजिटल प्लेटफॉर्म।" />
+  <meta name="keywords" content="ग्रामी दोस्त, मंडी भाव आज का, किसान योजना 2026, आज का मंडी भाव, PM Kisan status, फसल बीमा, कृषि जानकारी हिंदी, class 10 notes hindi, UP board notes, सरकारी छात्रवृत्ति 2026, RBSE study material, विद्यार्थी नोट्स, grami dost, kisan website hindi, student notes hindi, mandi bhav today" />
+  <meta name="author" content="ग्रामी दोस्त" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://gramidost.com/" />
+
+  <!-- ===== OPEN GRAPH (Social Sharing) ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ग्रामी दोस्त | किसान और विद्यार्थियों का डिजिटल साथी" />
+  <meta property="og:description" content="मंडी भाव, सरकारी योजनाएं, स्टडी नोट्स और AI टूल्स — सब एक जगह। ग्रामी दोस्त के साथ।" />
+  <meta property="og:url" content="https://gramidost.com/" />
+  <meta property="og:site_name" content="ग्रामी दोस्त" />
+  <meta property="og:locale" content="hi_IN" />
+
+  <!-- ===== TWITTER CARD ===== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ग्रामी दोस्त | किसान और विद्यार्थियों का डिजिटल साथी" />
+  <meta name="twitter:description" content="मंडी भाव, फसल जानकारी, स्टडी नोट्स और AI टूल्स — ग्रामीण भारत के लिए।" />
+
+  <!-- ===== SCHEMA MARKUP ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ग्रामी दोस्त",
+    "url": "https://gramidost.com",
+    "description": "किसान और विद्यार्थियों के लिए डिजिटल प्लेटफॉर्म",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://gramidost.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ग्रामी दोस्त",
+      "url": "https://gramidost.com"
+    }
+  }
+  </script>
+
+  <!-- ===== GOOGLE FONTS ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Baloo+2:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --green-dark:  #1B5E20;
+      --green-main:  #2E7D32;
+      --green-mid:   #388E3C;
+      --green-light: #66BB6A;
+      --green-pale:  #E8F5E9;
+      --yellow-deep: #F9A825;
+      --yellow-main: #FFC107;
+      --yellow-light:#FFF8E1;
+      --yellow-pale: #FFFDE7;
+      --white:       #FFFFFF;
+      --off-white:   #FAFFF8;
+      --text-dark:   #1A2E1A;
+      --text-mid:    #2D4A2D;
+      --text-soft:   #5A7A5A;
+      --shadow-sm:   0 2px 12px rgba(46,125,50,0.10);
+      --shadow-md:   0 6px 30px rgba(46,125,50,0.14);
+      --shadow-lg:   0 12px 48px rgba(46,125,50,0.18);
+      --radius:      16px;
+      --radius-lg:   24px;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      font-family: 'Noto Sans Devanagari', sans-serif;
+      background: var(--off-white);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+    a { text-decoration:none; color:inherit; }
+    img { max-width:100%; display:block; }
+
+    /* ==========================================
+       LOADING SCREEN
+    ========================================== */
+    #loader {
+      position: fixed; inset: 0;
+      background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #F9A825 100%);
+      z-index: 9999;
+      display: flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      gap: 20px;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    #loader.hide {
+      opacity: 0; pointer-events: none; transform: scale(1.04);
+    }
+    .loader-logo {
+      display: flex; align-items:center; gap:14px;
+      animation: logoPop 0.7s cubic-bezier(.34,1.56,.64,1) forwards;
+      opacity:0;
+    }
+    .loader-leaf {
+      width: 56px; height: 56px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50% 0 50% 0;
+      display:flex; align-items:center; justify-content:center;
+      font-size:28px;
+      animation: leafSpin 1.2s ease-in-out infinite alternate;
+    }
+    .loader-title {
+      font-family: 'Baloo 2', cursive;
+      font-size: clamp(28px,5vw,42px);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    .loader-sub {
+      font-size:14px; color:rgba(255,255,255,0.8);
+      animation: fadeUp 0.6s 0.4s forwards; opacity:0;
+    }
+    .loader-bar-wrap {
+      width: 220px; height:4px;
+      background: rgba(255,255,255,0.2);
+      border-radius:4px; overflow:hidden;
+      animation: fadeUp 0.6s 0.5s forwards; opacity:0;
+    }
+    .loader-bar {
+      height:100%; width:0;
+      background: linear-gradient(90deg, #FFC107, #fff);
+      border-radius:4px;
+      animation: fillBar 1.8s 0.6s cubic-bezier(.4,0,.2,1) forwards;
+    }
+    .loader-dots {
+      display:flex; gap:8px;
+      animation: fadeUp 0.5s 0.7s forwards; opacity:0;
+    }
+    .loader-dots span {
+      width:8px; height:8px; border-radius:50%;
+      background:rgba(255,255,255,0.6);
+    }
+    .loader-dots span:nth-child(1){animation:dotBounce 1s 0s infinite;}
+    .loader-dots span:nth-child(2){animation:dotBounce 1s 0.2s infinite;}
+    .loader-dots span:nth-child(3){animation:dotBounce 1s 0.4s infinite;}
+
+    @keyframes logoPop  { to{opacity:1;transform:scale(1)} from{opacity:0;transform:scale(0.7)} }
+    @keyframes fadeUp   { to{opacity:1;transform:translateY(0)} from{opacity:0;transform:translateY(10px)} }
+    @keyframes fillBar  { to{width:100%} }
+    @keyframes leafSpin { to{transform:rotate(8deg) scale(1.08)} }
+    @keyframes dotBounce{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px);background:#FFC107} }
+
+    /* ==========================================
+       NAVBAR
+    ========================================== */
+    nav {
+      position: sticky; top:0; z-index:100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--green-pale);
+      box-shadow: var(--shadow-sm);
+      padding: 0 5%;
+      display:flex; align-items:center; justify-content:space-between;
+      height: 68px;
+      animation: slideDown 0.7s 2s both;
+    }
+    @keyframes slideDown{ from{transform:translateY(-100%);opacity:0} to{transform:translateY(0);opacity:1} }
+
+    .nav-logo {
+      display:flex; align-items:center; gap:10px;
+    }
+    .nav-logo-icon {
+      width:40px; height:40px;
+      background: linear-gradient(135deg, var(--green-main), var(--green-light));
+      border-radius:10px 3px 10px 3px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:20px;
+      box-shadow: 0 3px 12px rgba(46,125,50,0.3);
+    }
+    .nav-logo-text {
+      font-family:'Baloo 2', cursive;
+      font-size:22px; font-weight:800;
+      color: var(--green-dark);
+    }
+    .nav-logo-text span { color: var(--yellow-deep); }
+
+    .nav-links {
+      display:flex; align-items:center; gap:6px;
+      list-style:none;
+    }
+    .nav-links a {
+      font-size:14px; font-weight:600;
+      color: var(--text-mid);
+      padding: 7px 14px;
+      border-radius:8px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-links a:hover {
+      background: var(--green-pale);
+      color: var(--green-main);
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--green-main), var(--green-mid));
+      color: #fff !important;
+      border-radius:10px !important;
+      box-shadow: 0 3px 12px rgba(46,125,50,0.3);
+    }
+    .nav-cta:hover { transform:translateY(-1px); box-shadow:0 5px 18px rgba(46,125,50,0.4) !important; }
+
+    .hamburger {
+      display:none; flex-direction:column; gap:5px;
+      cursor:pointer; padding:6px;
+    }
+    .hamburger span {
+      width:26px; height:3px;
+      background: var(--green-main);
+      border-radius:3px;
+      transition: all 0.3s;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display:none;
+      position:fixed; top:68px; left:0; right:0;
+      background:#fff;
+      padding:20px 5%;
+      box-shadow: var(--shadow-md);
+      flex-direction:column; gap:4px;
+      z-index:99;
+      border-bottom: 3px solid var(--green-pale);
+    }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a {
+      font-size:16px; font-weight:600;
+      color: var(--text-mid);
+      padding:12px 16px;
+      border-radius:10px;
+      display:block;
+    }
+    .mobile-menu a:hover { background:var(--green-pale); color:var(--green-main); }
+
+    /* ==========================================
+       HERO SECTION
+    ========================================== */
+    .hero {
+      position:relative;
+      min-height: 92vh;
+      display:flex; align-items:center;
+      padding: 80px 5% 60px;
+      overflow:hidden;
+      background: linear-gradient(155deg, #E8F5E9 0%, #FFFDE7 55%, #E8F5E9 100%);
+    }
+
+    /* Decorative shapes */
+    .hero-shape-1 {
+      position:absolute; top:-80px; right:-80px;
+      width:420px; height:420px;
+      background: radial-gradient(circle, rgba(102,187,106,0.18) 0%, transparent 70%);
+      border-radius:50%;
+      animation: floatShape 6s ease-in-out infinite;
+    }
+    .hero-shape-2 {
+      position:absolute; bottom:-60px; left:-60px;
+      width:320px; height:320px;
+      background: radial-gradient(circle, rgba(255,193,7,0.14) 0%, transparent 70%);
+      border-radius:50%;
+      animation: floatShape 8s ease-in-out infinite reverse;
+    }
+    .hero-shape-3 {
+      position:absolute; top:40%; right:10%;
+      width:60px; height:60px;
+      background: rgba(46,125,50,0.08);
+      border-radius:50% 0 50% 0;
+      animation: rotateSlow 12s linear infinite;
+    }
+    .hero-shape-4 {
+      position:absolute; top:20%; left:8%;
+      width:40px; height:40px;
+      background: rgba(255,193,7,0.18);
+      border-radius:50%;
+      animation: floatShape 5s ease-in-out infinite;
+    }
+    /* Dots grid */
+    .hero-dots {
+      position:absolute; right:5%; top:15%;
+      display:grid; grid-template-columns:repeat(5,1fr); gap:14px;
+      opacity:0.25;
+    }
+    .hero-dots span {
+      width:6px; height:6px; background:var(--green-main); border-radius:50%;
+    }
+    @keyframes floatShape { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+    @keyframes rotateSlow { to{transform:rotate(360deg)} }
+
+    .hero-content {
+      position:relative; z-index:2;
+      max-width:680px;
+    }
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:8px;
+      background: rgba(46,125,50,0.1);
+      border: 1.5px solid rgba(46,125,50,0.2);
+      color: var(--green-dark);
+      font-size:13px; font-weight:600;
+      padding:6px 14px; border-radius:30px;
+      margin-bottom:24px;
+      animation: fadeUp 0.7s 2.1s both;
+    }
+    .badge-dot {
+      width:7px; height:7px; border-radius:50%;
+      background: var(--green-light);
+      animation: pulseDot 2s infinite;
+    }
+    @keyframes pulseDot { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.5);opacity:0.5} }
+
+    .hero-title {
+      font-family:'Baloo 2', cursive;
+      font-size: clamp(32px, 5.5vw, 58px);
+      font-weight:800; line-height:1.2;
+      color: var(--text-dark);
+      margin-bottom:16px;
+      animation: fadeUp 0.7s 2.2s both;
+    }
+    .hero-title .highlight {
+      color: var(--green-main);
+      position:relative;
+      display:inline-block;
+    }
+    .hero-title .highlight::after {
+      content:'';
+      position:absolute; bottom:-4px; left:0; right:0; height:4px;
+      background: var(--yellow-main);
+      border-radius:4px;
+      animation: lineGrow 0.8s 3s both;
+      transform-origin:left;
+    }
+    @keyframes lineGrow { from{transform:scaleX(0)} to{transform:scaleX(1)} }
+
+    .hero-sub {
+      font-size:clamp(15px,2vw,19px);
+      color: var(--text-soft);
+      line-height:1.7; margin-bottom:36px;
+      animation: fadeUp 0.7s 2.4s both;
+    }
+
+    .hero-btns {
+      display:flex; gap:14px; flex-wrap:wrap;
+      animation: fadeUp 0.7s 2.6s both;
+    }
+    .btn-primary {
+      display:inline-flex; align-items:center; gap:8px;
+      background: linear-gradient(135deg, var(--green-main), var(--green-mid));
+      color: #fff; font-size:15px; font-weight:700;
+      padding:14px 28px; border-radius:12px;
+      box-shadow: 0 4px 20px rgba(46,125,50,0.35);
+      transition: all 0.3s;
+      cursor:pointer;
+    }
+    .btn-primary:hover {
+      transform:translateY(-3px);
+      box-shadow: 0 8px 28px rgba(46,125,50,0.45);
+    }
+    .btn-secondary {
+      display:inline-flex; align-items:center; gap:8px;
+      background: #fff; color: var(--green-main);
+      font-size:15px; font-weight:700;
+      padding:14px 28px; border-radius:12px;
+      border: 2px solid var(--green-light);
+      transition: all 0.3s; cursor:pointer;
+    }
+    .btn-secondary:hover {
+      background: var(--green-pale);
+      transform:translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-stats {
+      display:flex; gap:32px; margin-top:48px; flex-wrap:wrap;
+      animation: fadeUp 0.7s 2.8s both;
+    }
+    .stat-item { text-align:center; }
+    .stat-num {
+      font-family:'Baloo 2', cursive;
+      font-size:26px; font-weight:800; color:var(--green-main);
+    }
+    .stat-label { font-size:12px; color:var(--text-soft); font-weight:600; }
+
+    /* Hero illustration area */
+    .hero-visual {
+      position:absolute; right:5%; top:50%;
+      transform: translateY(-50%);
+      width: min(400px, 38vw);
+      display:flex; flex-wrap:wrap; gap:14px;
+      animation: fadeUp 0.8s 2.5s both;
+    }
+    .hero-card-mini {
+      background:#fff;
+      border-radius:14px;
+      padding:16px 18px;
+      box-shadow: var(--shadow-md);
+      display:flex; align-items:center; gap:12px;
+      min-width:160px;
+      animation: floatShape 4s ease-in-out infinite;
+    }
+    .hero-card-mini:nth-child(2){ animation-delay:1s; }
+    .hero-card-mini:nth-child(3){ animation-delay:0.5s; }
+    .hero-card-mini:nth-child(4){ animation-delay:1.5s; }
+    .hcm-icon {
+      width:42px; height:42px; border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:22px; flex-shrink:0;
+    }
+    .hcm-icon.green { background:var(--green-pale); }
+    .hcm-icon.yellow { background:var(--yellow-light); }
+    .hcm-text strong { font-size:13px; font-weight:700; color:var(--text-dark); display:block; }
+    .hcm-text span { font-size:11px; color:var(--text-soft); }
+
+    /* ==========================================
+       SECTION WRAPPER
+    ========================================== */
+    section { padding: 80px 5%; }
+    .section-title {
+      font-family:'Baloo 2', cursive;
+      font-size:clamp(26px,4vw,40px);
+      font-weight:800; color:var(--text-dark);
+      margin-bottom:10px;
+    }
+    .section-title span { color:var(--green-main); }
+    .section-sub {
+      font-size:16px; color:var(--text-soft); margin-bottom:50px;
+      max-width:560px; line-height:1.65;
+    }
+    .divider {
+      width:56px; height:4px;
+      background: linear-gradient(90deg, var(--green-main), var(--yellow-main));
+      border-radius:4px; margin:12px 0 18px;
+    }
+
+    /* ==========================================
+       STUDENT SECTION
+    ========================================== */
+    .student-section {
+      background: linear-gradient(180deg, var(--off-white) 0%, #F1F8F1 100%);
+      position:relative; overflow:hidden;
+    }
+    .student-section::before {
+      content:'';
+      position:absolute; top:0; left:0; right:0; height:5px;
+      background: linear-gradient(90deg, var(--green-light), var(--yellow-main), var(--green-main));
+    }
+    /* bg shape */
+    .sec-shape {
+      position:absolute; right:-120px; top:50%;
+      transform:translateY(-50%);
+      width:400px; height:400px; border-radius:50%;
+      background: radial-gradient(circle, rgba(102,187,106,0.08) 0%, transparent 70%);
+      pointer-events:none;
+    }
+
+    .student-header {
+      display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;
+      margin-bottom:40px;
+    }
+    .section-icon {
+      width:64px; height:64px;
+      background: linear-gradient(135deg, var(--green-main), var(--green-light));
+      border-radius:16px 4px 16px 4px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:30px;
+      box-shadow: 0 6px 20px rgba(46,125,50,0.25);
+      flex-shrink:0;
+    }
+
+    /* Feature Cards Grid */
+    .features-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap:18px; margin-bottom:40px;
+    }
+    .feat-card {
+      background:#fff;
+      border-radius:var(--radius);
+      padding:24px 20px;
+      box-shadow: var(--shadow-sm);
+      border: 1.5px solid transparent;
+      transition: all 0.3s;
+      cursor:pointer;
+      position:relative; overflow:hidden;
+    }
+    .feat-card::before {
+      content:'';
+      position:absolute; top:0; left:0; right:0; height:3px;
+      background: linear-gradient(90deg, var(--green-light), var(--yellow-main));
+      transform:scaleX(0); transform-origin:left;
+      transition:transform 0.3s;
+    }
+    .feat-card:hover {
+      transform:translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--green-pale);
+    }
+    .feat-card:hover::before { transform:scaleX(1); }
+    .feat-icon {
+      width:48px; height:48px; border-radius:12px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:24px; margin-bottom:14px;
+    }
+    .feat-icon.g { background:var(--green-pale); }
+    .feat-icon.y { background:var(--yellow-light); }
+    .feat-title { font-size:15px; font-weight:700; color:var(--text-dark); margin-bottom:6px; }
+    .feat-desc { font-size:13px; color:var(--text-soft); line-height:1.5; }
+    .feat-btn {
+      margin-top:12px;
+      display:inline-flex; align-items:center; gap:5px;
+      font-size:13px; font-weight:700; color:var(--green-main);
+      background:var(--green-pale); padding:6px 12px; border-radius:8px;
+      transition: background 0.2s;
+    }
+    .feat-btn:hover { background:#C8E6C9; }
+
+    /* Wide description band */
+    .info-band {
+      background: linear-gradient(135deg, var(--green-main), var(--green-dark));
+      border-radius:var(--radius-lg);
+      padding:36px 40px;
+      display:flex; align-items:center; gap:32px; flex-wrap:wrap;
+      margin-bottom:36px;
+      position:relative; overflow:hidden;
+    }
+    .info-band::after {
+      content:'🎓';
+      position:absolute; right:40px; bottom:-10px;
+      font-size:100px; opacity:0.07;
+      pointer-events:none;
+    }
+    .info-band-text { flex:1; min-width:220px; }
+    .info-band-text h3 {
+      font-family:'Baloo 2', cursive;
+      font-size:clamp(18px,2.5vw,26px); font-weight:800;
+      color:#fff; margin-bottom:10px;
+    }
+    .info-band-text p { font-size:14px; color:rgba(255,255,255,0.82); line-height:1.6; }
+    .band-stats {
+      display:flex; gap:28px; flex-shrink:0; flex-wrap:wrap;
+    }
+    .band-stat { text-align:center; }
+    .band-stat strong {
+      font-family:'Baloo 2', cursive;
+      font-size:28px; font-weight:800; color:var(--yellow-main); display:block;
+    }
+    .band-stat span { font-size:12px; color:rgba(255,255,255,0.7); }
+
+    /* Explore button */
+    .explore-wrap {
+      display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+    }
+    .btn-explore {
+      display:inline-flex; align-items:center; gap:10px;
+      background: linear-gradient(135deg, var(--green-main), var(--green-mid));
+      color:#fff; font-size:16px; font-weight:700;
+      padding:16px 34px; border-radius:14px;
+      box-shadow: 0 5px 22px rgba(46,125,50,0.35);
+      transition:all 0.3s; cursor:pointer;
+    }
+    .btn-explore:hover { transform:translateY(-3px); box-shadow:0 10px 30px rgba(46,125,50,0.45); }
+    .btn-explore .arrow { transition:transform 0.3s; }
+    .btn-explore:hover .arrow { transform:translateX(4px); }
+    .explore-note { font-size:13px; color:var(--text-soft); }
+
+    /* ==========================================
+       DIVIDER BAND
+    ========================================== */
+    .section-divider {
+      height:6px;
+      background: linear-gradient(90deg, var(--green-pale), var(--yellow-light), var(--green-pale));
+    }
+
+    /* ==========================================
+       FARMER SECTION
+    ========================================== */
+    .farmer-section {
+      background: linear-gradient(180deg, #FFF8E1 0%, #FFFDE7 100%);
+      position:relative; overflow:hidden;
+    }
+    .farmer-section::before {
+      content:'';
+      position:absolute; top:0; left:0; right:0; height:5px;
+      background: linear-gradient(90deg, var(--yellow-deep), var(--green-main), var(--yellow-main));
+    }
+    .farmer-icon-bg { background: linear-gradient(135deg, var(--yellow-deep), var(--yellow-main)) !important; }
+
+    .farmer-features-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap:18px; margin-bottom:40px;
+    }
+    .farmer-card {
+      background:#fff;
+      border-radius:var(--radius);
+      padding:24px 20px;
+      box-shadow: 0 2px 12px rgba(249,168,37,0.10);
+      border: 1.5px solid transparent;
+      transition:all 0.3s; cursor:pointer; position:relative; overflow:hidden;
+    }
+    .farmer-card::before {
+      content:'';
+      position:absolute; top:0; left:0; right:0; height:3px;
+      background: linear-gradient(90deg, var(--yellow-deep), var(--green-light));
+      transform:scaleX(0); transform-origin:left; transition:transform 0.3s;
+    }
+    .farmer-card:hover {
+      transform:translateY(-5px);
+      box-shadow: 0 8px 28px rgba(249,168,37,0.18);
+      border-color: #FFE082;
+    }
+    .farmer-card:hover::before { transform:scaleX(1); }
+    .farmer-feat-btn {
+      margin-top:12px;
+      display:inline-flex; align-items:center; gap:5px;
+      font-size:13px; font-weight:700; color:var(--yellow-deep);
+      background:var(--yellow-light); padding:6px 12px; border-radius:8px;
+      transition:background 0.2s;
+    }
+    .farmer-feat-btn:hover { background:#FFE082; }
+
+    .farmer-band {
+      background: linear-gradient(135deg, #E65100, var(--yellow-deep));
+      border-radius:var(--radius-lg);
+      padding:36px 40px;
+      display:flex; align-items:center; gap:32px; flex-wrap:wrap;
+      margin-bottom:36px;
+      position:relative; overflow:hidden;
+    }
+    .farmer-band::after {
+      content:'🌾';
+      position:absolute; right:40px; bottom:-10px;
+      font-size:100px; opacity:0.1;
+      pointer-events:none;
+    }
+    .farmer-band .info-band-text h3 { color:#fff; }
+    .farmer-band .info-band-text p { color:rgba(255,255,255,0.82); }
+    .farmer-band .band-stat strong { color:#fff; }
+    .farmer-band .band-stat span { color:rgba(255,255,255,0.7); }
+
+    .btn-explore-farmer {
+      display:inline-flex; align-items:center; gap:10px;
+      background: linear-gradient(135deg, var(--yellow-deep), #E65100);
+      color:#fff; font-size:16px; font-weight:700;
+      padding:16px 34px; border-radius:14px;
+      box-shadow: 0 5px 22px rgba(249,168,37,0.35);
+      transition:all 0.3s; cursor:pointer;
+    }
+    .btn-explore-farmer:hover { transform:translateY(-3px); box-shadow:0 10px 30px rgba(249,168,37,0.45); }
+    .btn-explore-farmer:hover .arrow { transform:translateX(4px); }
+
+    /* ==========================================
+       WHY GRAMI DOST (Trust Section)
+    ========================================== */
+    .trust-section {
+      background: var(--off-white);
+      text-align:center;
+    }
+    .trust-section .section-title { text-align:center; }
+    .trust-section .divider { margin-left:auto; margin-right:auto; }
+    .trust-section .section-sub { margin-left:auto; margin-right:auto; text-align:center; }
+
+    .trust-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+      gap:24px; margin-top:48px;
+    }
+    .trust-card {
+      background:#fff;
+      border-radius:var(--radius-lg);
+      padding:36px 24px;
+      box-shadow: var(--shadow-sm);
+      text-align:center;
+      transition:all 0.3s;
+      position:relative; overflow:hidden;
+    }
+    .trust-card:hover {
+      transform:translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+    .trust-card-bg {
+      position:absolute; top:-20px; right:-20px;
+      width:100px; height:100px; border-radius:50%;
+      opacity:0.06;
+    }
+    .trust-icon {
+      width:64px; height:64px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-size:28px; margin:0 auto 20px;
+    }
+    .trust-title { font-size:17px; font-weight:700; color:var(--text-dark); margin-bottom:10px; }
+    .trust-desc { font-size:14px; color:var(--text-soft); line-height:1.6; }
+
+    /* ==========================================
+       BLOG PREVIEW
+    ========================================== */
+    .blog-section { background:#fff; }
+    .blog-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+      gap:24px; margin-bottom:40px;
+    }
+    .blog-card {
+      border-radius:var(--radius);
+      border: 1.5px solid #eee;
+      overflow:hidden;
+      transition:all 0.3s;
+      cursor:pointer;
+      background:#fff;
+    }
+    .blog-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-md); border-color:var(--green-pale); }
+    .blog-card-img {
+      height:160px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:52px;
+    }
+    .blog-card-img.green { background:var(--green-pale); }
+    .blog-card-img.yellow { background:var(--yellow-light); }
+    .blog-card-body { padding:20px; }
+    .blog-tag {
+      font-size:11px; font-weight:700;
+      text-transform:uppercase; letter-spacing:1px;
+      padding:4px 10px; border-radius:20px;
+      display:inline-block; margin-bottom:10px;
+    }
+    .blog-tag.green { background:var(--green-pale); color:var(--green-dark); }
+    .blog-tag.yellow { background:var(--yellow-light); color:#7B5800; }
+    .blog-card-title { font-size:16px; font-weight:700; color:var(--text-dark); margin-bottom:8px; line-height:1.4; }
+    .blog-card-excerpt { font-size:13px; color:var(--text-soft); line-height:1.5; }
+    .blog-card-footer {
+      margin-top:14px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .blog-date { font-size:12px; color:var(--text-soft); }
+    .read-more { font-size:13px; font-weight:700; color:var(--green-main); }
+    .all-blogs-wrap { text-align:center; }
+
+    /* ==========================================
+       AI ASSISTANT SECTION
+    ========================================== */
+    .ai-section {
+      background: linear-gradient(135deg, var(--green-dark) 0%, #1B4620 50%, #263238 100%);
+      text-align:center; position:relative; overflow:hidden;
+    }
+    .ai-section::before {
+      content:'';
+      position:absolute; inset:0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .ai-section .section-title { color:#fff; }
+    .ai-section .section-sub { color:rgba(255,255,255,0.7); margin-left:auto; margin-right:auto; text-align:center; }
+    .ai-section .divider { margin-left:auto; margin-right:auto; }
+    .ai-widget-placeholder {
+      background: rgba(255,255,255,0.06);
+      border: 2px dashed rgba(255,255,255,0.2);
+      border-radius:var(--radius-lg);
+      padding:60px 40px;
+      max-width:600px; margin:40px auto 0;
+      color:rgba(255,255,255,0.5);
+      font-size:16px;
+    }
+    .ai-widget-placeholder .ai-icon { font-size:48px; margin-bottom:16px; }
+
+    /* ==========================================
+       FOOTER
+    ========================================== */
+    footer {
+      background: var(--text-dark);
+      color:rgba(255,255,255,0.8);
+      padding:60px 5% 30px;
+    }
+    .footer-grid {
+      display:grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap:40px; margin-bottom:48px;
+    }
+    .footer-brand .nav-logo-text { color:#fff; font-size:24px; }
+    .footer-desc { font-size:14px; color:rgba(255,255,255,0.6); line-height:1.7; margin:14px 0 20px; }
+    .footer-socials { display:flex; gap:10px; }
+    .social-btn {
+      width:38px; height:38px; border-radius:10px;
+      background:rgba(255,255,255,0.08);
+      display:flex; align-items:center; justify-content:center;
+      font-size:16px; transition:all 0.2s;
+    }
+    .social-btn:hover { background:var(--green-main); transform:translateY(-2px); }
+
+    .footer-col h4 {
+      font-size:14px; font-weight:700; color:#fff;
+      margin-bottom:18px; text-transform:uppercase; letter-spacing:1px;
+    }
+    .footer-col ul { list-style:none; }
+    .footer-col li { margin-bottom:10px; }
+    .footer-col a {
+      font-size:14px; color:rgba(255,255,255,0.6);
+      transition:color 0.2s;
+    }
+    .footer-col a:hover { color:var(--yellow-main); }
+
+    .footer-bottom {
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding-top:24px;
+      display:flex; align-items:center; justify-content:space-between;
+      flex-wrap:wrap; gap:12px;
+    }
+    .footer-bottom p { font-size:13px; color:rgba(255,255,255,0.4); }
+    .footer-policy-links { display:flex; gap:20px; }
+    .footer-policy-links a { font-size:13px; color:rgba(255,255,255,0.4); transition:color 0.2s; }
+    .footer-policy-links a:hover { color:var(--yellow-main); }
+
+    /* ==========================================
+       SCROLL REVEAL
+    ========================================== */
+    .reveal {
+      opacity:0; transform:translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+
+    /* ==========================================
+       RESPONSIVE
+    ========================================== */
+    @media(max-width:1000px) {
+      .hero-visual { display:none; }
+      .footer-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media(max-width:768px) {
+      .nav-links { display:none; }
+      .hamburger { display:flex; }
+      .hero { padding:60px 5% 50px; min-height:auto; }
+      .hero-btns { flex-direction:column; max-width:280px; }
+      .btn-primary, .btn-secondary, .btn-explore, .btn-explore-farmer { width:100%; justify-content:center; }
+      .info-band { flex-direction:column; padding:28px 24px; }
+      .band-stats { justify-content:center; }
+      .features-grid { grid-template-columns:1fr 1fr; }
+      .footer-grid { grid-template-columns:1fr; gap:32px; }
+      .footer-bottom { flex-direction:column; text-align:center; }
+      .footer-policy-links { flex-wrap:wrap; justify-content:center; }
+      .hero-dots { display:none; }
+      section { padding:60px 5%; }
+      .blog-grid { grid-template-columns:1fr; }
+    }
+    @media(max-width:480px) {
+      .features-grid { grid-template-columns:1fr; }
+      .farmer-features-grid { grid-template-columns:1fr; }
+      .trust-grid { grid-template-columns:1fr; }
+      .hero-stats { gap:20px; justify-content:center; }
+      nav { padding: 0 4%; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ==========================================
+     LOADING SCREEN
+========================================== -->
+<div id="loader">
+  <div class="loader-logo">
+    <div class="loader-leaf">🌿</div>
+    <div class="loader-title">ग्रामी दोस्त</div>
+  </div>
+  <div class="loader-sub">किसान और विद्यार्थियों का डिजिटल साथी</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-dots">
+    <span></span><span></span><span></span>
+  </div>
+</div>
+
+<!-- ==========================================
+     NAVBAR
+========================================== -->
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-icon">🌿</div>
+    <div class="nav-logo-text">ग्रामी <span>दोस्त</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="">होम</a></li>
+    <li><a href="student.html">विद्यार्थी</a></li>
+    <li><a href="farmer.html">किसान</a></li>
+    <li><a href="blog.html">ब्लॉग</a></li>
+    <li><a href="notes.html">नोट्स</a></li>
+    <li><a href="contact.html" class="nav-cta">संपर्क करें</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">🏠 होम</a>
+  <a href="student.html">🎓 विद्यार्थी सेक्शन</a>
+  <a href="farmer.html">👨‍🌾 किसान सेक्शन</a>
+  <a href="blog.html">📰 ब्लॉग & आर्टिकल्स</a>
+  <a href="notes.html">ℹ️ नोट्स</a>
+  <a href="contact.html">📬 संपर्क करें</a>
+</div>
+
+<!-- ==========================================
+     HERO SECTION
+========================================== -->
+<section class="hero">
+  <!-- Decorative shapes -->
+  <div class="hero-shape-1"></div>
+  <div class="hero-shape-2"></div>
+  <div class="hero-shape-3"></div>
+  <div class="hero-shape-4"></div>
+  <div class="hero-dots">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="badge-dot"></div>
+      🇮🇳 ग्रामीण भारत का डिजिटल मंच
+    </div>
+    <h1 class="hero-title">
+      <span class="highlight">किसान</span> और <span class="highlight">विद्यार्थी</span> का<br/>
+      सच्चा डिजिटल दोस्त
+    </h1>
+    <p class="hero-sub">
+      मंडी भाव, सरकारी योजनाएं, खेती की जानकारी और स्टडी नोट्स, AI टूल्स, क्विज़ — सब कुछ हिंदी में, एक ही जगह पर।
+    </p>
+    <div class="hero-btns">
+      <a href="student.html" class="btn-primary">🎓 विद्यार्थी सेक्शन</a>
+      <a href="farmer.html" class="btn-secondary">👨‍🌾 किसान सेक्शन</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">10K+</div>
+        <div class="stat-label">Notes & PDFs</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">सरकारी योजनाएं</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">AI सहायता</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating mini cards (desktop) -->
+  <div class="hero-visual">
+    <div class="hero-card-mini">
+      <div class="hcm-icon green">📈</div>
+      <div class="hcm-text"><strong>आज का मंडी भाव</strong><span>लाइव अपडेट</span></div>
+    </div>
+    <div class="hero-card-mini">
+      <div class="hcm-icon yellow">📚</div>
+      <div class="hcm-text"><strong>Free Notes PDF</strong><span>Class 6-12</span></div>
+    </div>
+    <div class="hero-card-mini">
+      <div class="hcm-icon green">🤖</div>
+      <div class="hcm-text"><strong>AI Assistant</strong><span>हमेशा तैयार</span></div>
+    </div>
+    <div class="hero-card-mini">
+      <div class="hcm-icon yellow">🌾</div>
+      <div class="hcm-text"><strong>फसल जानकारी</strong><span>मौसमी टिप्स</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     STUDENT SECTION
+========================================== -->
+<section class="student-section" id="student">
+  <div class="sec-shape"></div>
+
+  <div class="student-header reveal">
+    <div class="section-icon">🎓</div>
+    <div>
+      <div class="hero-badge" style="margin-bottom:8px">👨‍🎓 विद्यार्थियों के लिए</div>
+      <h2 class="section-title"><span>विद्यार्थी सेक्शन</span> — पढ़ाई आसान करो</h2>
+      <div class="divider"></div>
+      <p class="section-sub">
+        Class 6 से 12 तक के Notes, PDF, Previous Year Papers, AI Study Assistant, Quiz और Career Guidance — सब कुछ हिंदी में, बिल्कुल मुफ़्त।
+      </p>
+    </div>
+  </div>
+
+  <!-- Feature Cards -->
+  <div class="features-grid reveal">
+    <div class="feat-card" onclick="location.href='notes.html'">
+      <div class="feat-icon g">📄</div>
+      <div class="feat-title">PDF नोट्स</div>
+      <div class="feat-desc">Class 6-12 के सभी विषयों के हिंदी नोट्स — Free Download</div>
+      <div class="feat-btn">नोट्स देखें <span>→</span></div>
+    </div>
+    <div class="feat-card" onclick="location.href='/student/ai-tools'">
+      <div class="feat-icon y">🤖</div>
+      <div class="feat-title">AI स्टडी टूल्स</div>
+      <div class="feat-desc">AI से कोई भी सवाल पूछो, आसान भाषा में जवाब पाओ</div>
+      <div class="feat-btn">AI से पूछो <span>→</span></div>
+    </div>
+    <div class="feat-card" onclick="location.href='student.html'">
+      <div class="feat-icon g">🧠</div>
+      <div class="feat-title">Quiz & Practice</div>
+      <div class="feat-desc">Chapter-wise Quiz से अपनी तैयारी परखो और अंक बढ़ाओ</div>
+      <div class="feat-btn">Quiz खेलो <span>→</span></div>
+    </div>
+    <div class="feat-card" onclick="location.href='student.html'">
+      <div class="feat-icon y">📝</div>
+      <div class="feat-title">पुराने प्रश्नपत्र</div>
+      <div class="feat-desc">Board Exam के Previous Year Papers — PDF format में</div>
+      <div class="feat-btn">Papers देखें <span>→</span></div>
+    </div>
+    <div class="feat-card" onclick="location.href='student.html'">
+      <div class="feat-icon g">🚀</div>
+      <div class="feat-title">Career Guidance</div>
+      <div class="feat-desc">10वीं/12वीं के बाद क्या करें — पूरी जानकारी हिंदी में</div>
+      <div class="feat-btn">जानकारी पाओ <span>→</span></div>
+    </div>
+    <div class="feat-card" onclick="location.href='student.html'">
+      <div class="feat-icon y">🏆</div>
+      <div class="feat-title">छात्रवृत्ति</div>
+      <div class="feat-desc">सरकारी Scholarship की जानकारी — Apply करने का तरीका</div>
+      <div class="feat-btn">Scholarship <span>→</span></div>
+    </div>
+  </div>
+
+  <!-- Info Band -->
+  <div class="info-band reveal">
+    <div class="info-band-text">
+      <h3>हर विद्यार्थी को मिले बेहतरीन शिक्षा</h3>
+      <p>ग्रामी दोस्त पर UP Board, RBSE, CBSE — सभी बोर्ड के लिए study material उपलब्ध है। हमारे AI असिस्टेंट से कभी भी, कहीं से भी पढ़ाई में मदद लो।</p>
+    </div>
+    <div class="band-stats">
+      <div class="band-stat"><strong>50K+</strong><span>Students</span></div>
+      <div class="band-stat"><strong>1200+</strong><span>PDF Notes</span></div>
+      <div class="band-stat"><strong>Free</strong><span>हमेशा के लिए</span></div>
+    </div>
+  </div>
+
+  <!-- Explore Button -->
+  <div class="explore-wrap reveal">
+    <a href="student.html" class="btn-explore">
+      🎓 पूरा विद्यार्थी सेक्शन देखें <span class="arrow">→</span>
+    </a>
+    <p class="explore-note">Notes, AI Tools, Quiz और बहुत कुछ...</p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ==========================================
+     FARMER SECTION
+========================================== -->
+<section class="farmer-section" id="farmer">
+  <div class="sec-shape" style="left:-120px;right:auto;background:radial-gradient(circle, rgba(255,193,7,0.08) 0%, transparent 70%)"></div>
+
+  <div class="student-header reveal">
+    <div class="section-icon farmer-icon-bg">🌾</div>
+    <div>
+      <div class="hero-badge" style="margin-bottom:8px;background:rgba(249,168,37,0.12);border-color:rgba(249,168,37,0.3);color:#7B5800">👨‍🌾 किसानों के लिए</div>
+      <h2 class="section-title"><span style="color:var(--yellow-deep)">किसान सेक्शन</span> — खेती की पूरी जानकारी</h2>
+      <div class="divider" style="background:linear-gradient(90deg,var(--yellow-deep),var(--green-main))"></div>
+      <p class="section-sub">
+        आज का मंडी भाव, मौसम जानकारी, सरकारी योजनाएं, फसल कैलेंडर और AI कृषि असिस्टेंट — किसान भाई की हर जरूरत यहाँ पूरी होगी।
+      </p>
+    </div>
+  </div>
+
+  <!-- Farmer Feature Cards -->
+  <div class="farmer-features-grid reveal">
+    <div class="farmer-card" onclick="location.href='farmer.html'">
+      <div class="feat-icon y">📊</div>
+      <div class="feat-title">मंडी भाव</div>
+      <div class="feat-desc">आज का ताज़ा मंडी भाव — गेहूं, सरसों, प्याज, आलू और सभी फसलें</div>
+      <div class="farmer-feat-btn">भाव देखें <span>→</span></div>
+    </div>
+    <div class="farmer-card" onclick="location.href='farmer.html'">
+      <div class="feat-icon g">🤖</div>
+      <div class="feat-title">AI कृषि सहायक</div>
+      <div class="feat-desc">फसल की बीमारी, खाद-पानी, मौसम — AI से तुरंत जवाब पाओ</div>
+      <div class="farmer-feat-btn">AI से पूछो <span>→</span></div>
+    </div>
+    <div class="farmer-card" onclick="location.href='farmer.html'">
+      <div class="feat-icon y">🧮</div>
+      <div class="feat-title">खेत कैलकुलेटर</div>
+      <div class="feat-desc">जमीन नापो, खाद की मात्रा, लागत-मुनाफा — सब कैलकुलेट करो</div>
+      <div class="farmer-feat-btn">Calculate करो <span>→</span></div>
+    </div>
+    <div class="farmer-card" onclick="location.href='farmer.html'">
+      <div class="feat-icon g">🌤️</div>
+      <div class="feat-title">मौसम जानकारी</div>
+      <div class="feat-desc">7 दिन का मौसम forecast — अपने क्षेत्र के लिए</div>
+      <div class="farmer-feat-btn">मौसम देखें <span>→</span></div>
+    </div>
+    <div class="farmer-card" onclick="location.href='farmer.html'">
+      <div class="feat-icon y">📋</div>
+      <div class="feat-title">सरकारी योजनाएं</div>
+      <div class="feat-desc">PM Kisan, Fasal Bima, KCC — सभी योजनाओं की जानकारी</div>
+      <div class="farmer-feat-btn">योजनाएं देखें <span>→</span></div>
+    </div>
+    <div class="farmer-card" onclick="location.href='farmer.html'">
+      <div class="feat-icon g">📅</div>
+      <div class="feat-title">फसल कैलेंडर</div>
+      <div class="feat-desc">कौन सी फसल, कब बोएं, कब काटें — पूरा सीज़न प्लानर</div>
+      <div class="farmer-feat-btn">Calendar देखें <span>→</span></div>
+    </div>
+  </div>
+
+  <!-- Farmer Info Band -->
+  <div class="farmer-band reveal">
+    <div class="info-band-text">
+      <h3>किसान की हर समस्या का हल — यहाँ मिलेगा</h3>
+      <p>ग्रामी दोस्त पर रोज़ ताज़ा मंडी भाव, सरकारी योजनाओं की जानकारी और AI कृषि सलाह — सब हिंदी में, बिना किसी परेशानी के।</p>
+    </div>
+    <div class="band-stats">
+      <div class="band-stat"><strong>4000+</strong><span>मंडियाँ</span></div>
+      <div class="band-stat"><strong>200+</strong><span>फसलें</span></div>
+      <div class="band-stat"><strong>Daily</strong><span>अपडेट</span></div>
+    </div>
+  </div>
+
+  <!-- Farmer Explore Button -->
+  <div class="explore-wrap reveal">
+    <a href="farmer.html" class="btn-explore-farmer">
+      🌾 पूरा किसान सेक्शन देखें <span class="arrow">→</span>
+    </a>
+    <p class="explore-note">मंडी भाव, योजनाएं, AI सलाह और बहुत कुछ...</p>
+  </div>
+</section>
+
+<!-- ==========================================
+     WHY GRAMI DOST
+========================================== -->
+<section class="trust-section reveal">
+  <h2 class="section-title">ग्रामी दोस्त क्यों <span>खास</span> है?</h2>
+  <div class="divider"></div>
+  <p class="section-sub">हम ग्रामीण भारत के किसानों और विद्यार्थियों के लिए एक भरोसेमंद, हिंदी-first, डिजिटल साथी हैं।</p>
+
+  <div class="trust-grid">
+    <div class="trust-card">
+      <div class="trust-card-bg" style="background:var(--green-main)"></div>
+      <div class="trust-icon" style="background:var(--green-pale)">🌐</div>
+      <div class="trust-title">100% हिंदी में</div>
+      <div class="trust-desc">सारी जानकारी सरल हिंदी में — गाँव का हर इंसान समझ सके।</div>
+    </div>
+    <div class="trust-card">
+      <div class="trust-card-bg" style="background:var(--yellow-main)"></div>
+      <div class="trust-icon" style="background:var(--yellow-light)">🤖</div>
+      <div class="trust-title">AI-Powered सहायता</div>
+      <div class="trust-desc">24/7 AI असिस्टेंट — पढ़ाई हो या खेती, हर सवाल का जवाब।</div>
+    </div>
+    <div class="trust-card">
+      <div class="trust-card-bg" style="background:var(--green-light)"></div>
+      <div class="trust-icon" style="background:var(--green-pale)">📱</div>
+      <div class="trust-title">Mobile Friendly</div>
+      <div class="trust-desc">Mobile, Tablet और Desktop — हर device पर बिल्कुल सही काम करता है।</div>
+    </div>
+    <div class="trust-card">
+      <div class="trust-card-bg" style="background:var(--yellow-deep)"></div>
+      <div class="trust-icon" style="background:var(--yellow-light)">🆓</div>
+      <div class="trust-title">बिल्कुल मुफ़्त</div>
+      <div class="trust-desc">कोई फीस नहीं, कोई subscription नहीं — सब कुछ free में।</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     BLOG PREVIEW
+========================================== -->
+<section class="blog-section reveal">
+  <h2 class="section-title">ताज़ा <span>ब्लॉग & आर्टिकल्स</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub">किसानी और पढ़ाई से जुड़ी उपयोगी जानकारी — रोज़ नई updates।</p>
+
+  <div class="blog-grid">
+    <div class="blog-card">
+      <div class="blog-card-img green">🌾</div>
+      <div class="blog-card-body">
+        <span class="blog-tag green">किसानी</span>
+        <div class="blog-card-title">आज का मंडी भाव — गेहूं, सरसों और प्याज के ताज़ा रेट</div>
+        <div class="blog-card-excerpt">पूरे भारत की प्रमुख मंडियों में आज के भाव की पूरी जानकारी...</div>
+        <div class="blog-card-footer">
+          <span class="blog-date">📅 आज</span>
+          <a href="blog.html" class="read-more">पढ़ें →</a>
+        </div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-card-img yellow">📚</div>
+      <div class="blog-card-body">
+        <span class="blog-tag yellow">पढ़ाई</span>
+        <div class="blog-card-title">Class 10 Board Exam की तैयारी कैसे करें — पूरी Strategy</div>
+        <div class="blog-card-excerpt">Board Exam में अच्छे नंबर लाने के लिए सही तरीका और time management...</div>
+        <div class="blog-card-footer">
+          <span class="blog-date">📅 2 दिन पहले</span>
+          <a href="blog.html" class="read-more">पढ़ें →</a>
+        </div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-card-img green">🌿</div>
+      <div class="blog-card-body">
+        <span class="blog-tag green">सरकारी योजना</span>
+        <div class="blog-card-title">PM Kisan Samman Nidhi — 19वीं किस्त कब आएगी, कैसे चेक करें</div>
+        <div class="blog-card-excerpt">PM Kisan की अगली किस्त की तारीख और status check करने का तरीका...</div>
+        <div class="blog-card-footer">
+          <span class="blog-date">📅 3 दिन पहले</span>
+          <a href="blog.html" class="read-more">पढ़ें →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="all-blogs-wrap">
+    <a href="blog.html" class="btn-primary" style="display:inline-flex">📰 सभी Articles देखें →</a>
+  </div>
+</section>
+
+
+
+
+ ---------------ai--------------------
+
+
+  <script src='https://cdn.jotfor.ms/agent/embedjs/019f6f786cd870008b0c1a12622bbb9ef4dc/embed.js'>
+</script>
+ 
+
+
+
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo">
+        <div class="nav-logo-icon">🌿</div>
+        <div class="nav-logo-text">ग्रामी <span>दोस्त</span></div>
+      </div>
+      <p class="footer-desc">किसान और विद्यार्थियों का भरोसेमंद डिजिटल साथी। मंडी भाव से लेकर स्टडी नोट्स तक — सब हिंदी में।</p>
+
+    </div>
+    <div class="footer-col">
+      <h4>विद्यार्थी</h4>
+      <ul>
+        <li><a href="notes.html">PDF Notes</a></li>      
+        <li><a href="student.html">Quiz</a></li>
+        <li><a href="student.html">Scholarship</a></li>
+        <li><a href="student.html">Career Guide</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>किसान</h4>
+      <ul>
+        <li><a href="/farmer/mandi-bhav">मंडी भाव</a></li>       
+        <li><a href="/farmer/weather">मौसम</a></li>
+        <li><a href="/farmer/schemes">योजनाएं</a></li>       
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>जानकारी</h4>
+      <ul>
+
+        <li><a href="blog.html">ब्लॉग & Articles</a></li>
+        <li><a href="contact.html">संपर्क करें</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Grami dost | सभी अधिकार सुरक्षित | Grami dost developed by Virender dhaka</p>
+    <div class="footer-policy-links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-and-conditions.html">Terms & Conditions</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="/sitemap.xml">Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+<script>
+  // --- LOADER ---
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('loader').classList.add('hide');
+      setTimeout(() => {
+        document.getElementById('loader').style.display = 'none';
+      }, 700);
+    }, 2200);
+  });
+
+  // --- HAMBURGER MENU ---
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('open');
+  }
+  document.addEventListener('click', (e) => {
+    const menu = document.getElementById('mobileMenu');
+    const ham = document.getElementById('hamburger');
+    if (!menu.contains(e.target) && !ham.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+
+  // --- SCROLL REVEAL ---
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  // --- SMOOTH ACTIVE NAV ---
+  const navLinks = document.querySelectorAll('.nav-links a');
+  navLinks.forEach(link => {
+    if (link.href === window.location.href) {
+      link.style.background = 'var(--green-pale)';
+      link.style.color = 'var(--green-main)';
+    }
+  });
+
+  // --- COUNTER ANIMATION ---
+  function animateCounter(el, end, suffix='') {
+    let start = 0;
+    const duration = 1800;
+    const step = (end / duration) * 16;
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= end) { start = end; clearInterval(timer); }
+      el.textContent = Math.floor(start) + suffix;
+    }, 16);
+  }
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const nums = entry.target.querySelectorAll('.stat-num');
+        const data = [['10', 'K+'], ['500', '+'], ['24', '/7']];
+        nums.forEach((el, i) => {
+          if (i < 2) animateCounter(el, parseInt(data[i][0]), data[i][1]);
+        });
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  const statsEl = document.querySelector('.hero-stats');
+  if (statsEl) statsObserver.observe(statsEl);
+</script>
+
+ </body>
+</html>
+
